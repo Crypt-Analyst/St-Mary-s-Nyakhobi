@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>About St. Mary's Nyakhobi Senior School</h1>
+        <p class="lead">Building Leaders for Tomorrow - Formerly Nyakhobi Secondary School</p>
+    </div>
+</section>
+
+<!-- About Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h2 class="text-primary-custom mb-4">Our Story</h2>
+                {% if school_info.welcome_message %}
+                <p class="lead">{{ school_info.welcome_message }}</p>
+                {% else %}
+                <p class="lead">St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is a Sub-County public mixed day school located in Samia, Funyula, Busia County. We serve learners from the surrounding community with a focus on holistic education — academic, co-curricular, and life skills development.</p>
+                <p>Our school has been a cornerstone of education in the Funyula area for over four decades, building strong partnerships with community groups and NGOs to support student welfare and facilities improvement.</p>
+                {% endif %}
+                
+                <h3 class="mt-5 mb-3">Principal's Welcome</h3>
+                    <div class="p-4 rounded" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border-left: 4px solid #800000;">
+                    <p class="mb-2"><em>"Welcome to St. Mary's Nyakhobi Senior School. I am <strong>Longinus Okuku Wewa</strong> and together with our dedicated staff we strive to provide a safe and supportive learning environment that prepares students for national exams and life beyond school."</em></p>
+                    <small class="text-muted">- Principal, St. Mary's Nyakhobi Senior School</small>
+                </div>                <h3 class="mt-5 mb-3">Our Mission</h3>
+                {% if school_info.mission_statement %}
+                <p>{{ school_info.mission_statement }}</p>
+                {% else %}
+                <p>To provide quality, holistic education that develops academic excellence, discipline, character, and life skills in our students, preparing them to be responsible leaders and productive citizens in their communities and beyond.</p>
+                {% endif %}
+                
+                <h3 class="mt-4 mb-3">Our Vision</h3>
+                {% if school_info.vision_statement %}
+                <p>{{ school_info.vision_statement }}</p>
+                {% else %}
+                <p>To be a leading educational institution in Busia County that builds leaders for tomorrow through academic excellence, community service, and character development.</p>
+                {% endif %}
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Quick Facts</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            {% if school_info.established_year %}
+                            <li><strong>Established:</strong> {{ school_info.established_year }}</li>
+                            {% else %}
+                            <li><strong>Established:</strong> 1980</li>
+                            {% endif %}
+                            <li><strong>School Type:</strong> Mixed Day, Sub-County</li>
+                            <li><strong>Students:</strong> 800+</li>
+                            <li><strong>Faculty:</strong> 35+</li>
+                            <li><strong>Grade Levels:</strong> Form 1-4</li>
+                            <li><strong>Location:</strong> Funyula, Busia County</li>
+                            <li><strong>Principal:</strong> Longinus Okuku Wewa</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="contact-info mt-4">
+                    <h5>Contact Information</h5>
+                    {% if school_info %}
+                    <p><i class="fas fa-phone"></i> {{ school_info.phone|default:"+254 722 231798" }}</p>
+                    <p><i class="fas fa-envelope"></i> {{ school_info.email|default:"nyakhobisecondaryschool@gmail.com" }}</p>
+                    <p><i class="fas fa-map-marker-alt"></i> {{ school_info.address|default:"Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County" }}</p>
+                    {% else %}
+                    <p><i class="fas fa-phone"></i> +254 722 231798 / +254 723 273109</p>
+                    <p><i class="fas fa-envelope"></i> nyakhobisecondaryschool@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County</p>
+                    <p><i class="fas fa-facebook"></i> <a href="https://facebook.com/NyakhobiSecondarySchool" target="_blank">Follow us on Facebook</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary-custom">Our Core Values</h2>
+            <p class="lead">The principles that guide everything we do</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <i class="fas fa-heart fa-3x text-secondary-custom mb-3"></i>
+                    <h4>Compassion</h4>
+                    <p>We foster empathy and kindness in all our interactions.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <i class="fas fa-star fa-3x text-secondary-custom mb-3"></i>
+                    <h4>Excellence</h4>
+                    <p>We strive for the highest standards in all areas of education.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <i class="fas fa-users fa-3x text-secondary-custom mb-3"></i>
+                    <h4>Community</h4>
+                    <p>We build strong relationships within our school family.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="text-center">
+                    <i class="fas fa-lightbulb fa-3x text-secondary-custom mb-3"></i>
+                    <h4>Innovation</h4>
+                    <p>We embrace new ideas and creative approaches to learning.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

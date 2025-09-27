@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Carousel -->
+<section class="hero-section">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            {% for image in slider_images %}
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
+                    {% if forloop.first %}class="active"{% endif %}></button>
+            {% endfor %}
+        </div>
+        
+        <div class="carousel-inner">
+            {% for image in slider_images %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.title }}">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2>{{ image.title }}</h2>
+                    <p>{{ image.description }}</p>
+                    {% if image.link_url and image.link_text %}
+                    <a href="{{ image.link_url }}" class="btn btn-primary btn-lg">{{ image.link_text }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <!-- Default hero content if no slider images -->
+            <div class="carousel-item active">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <div class="container">
+                        <h1 class="display-4 fw-bold mb-4">Welcome to St. Mary's Nyakhobi Senior School</h1>
+                        <p class="lead mb-4">Building Leaders for Tomorrow - Excellence in Education since 1980</p>
+                        <div>
+                            <a href="{% url 'admissions:info' %}" class="btn btn-primary btn-lg me-3">Apply Now</a>
+                            <a href="{% url 'home:about' %}" class="btn btn-outline-light btn-lg">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<!-- Quick Links Section -->
+<section class="quick-links">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary-custom">Quick Access</h2>
+            <p class="lead">Find what you're looking for quickly</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for link in quick_links %}
+            <div class="col-lg-3 col-md-6">
+                <a href="{{ link.link_url }}" class="text-decoration-none">
+                    <div class="quick-link-item">
+                        <i class="{{ link.icon }}"></i>
+                        <h5>{{ link.title }}</h5>
+                        <p>{{ link.description }}</p>
+                    </div>
+                </a>
+            </div>
+            {% empty %}
+            <!-- Default quick links -->
+            <div class="col-lg-3 col-md-6">
+                <a href="{% url 'admissions:info' %}" class="text-decoration-none">
+                    <div class="quick-link-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <h5>Admissions</h5>
+                        <p>Apply for admission and learn about our requirements</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="{% url 'academics:programs' %}" class="text-decoration-none">
+                    <div class="quick-link-item">
+                        <i class="fas fa-book"></i>
+                        <h5>Academics</h5>
+                        <p>Explore our academic programs and curriculum</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="{% url 'events:events' %}" class="text-decoration-none">
+                    <div class="quick-link-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h5>Events</h5>
+                        <p>Stay updated with school events and activities</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <a href="{% url 'contact:contact' %}" class="text-decoration-none">
+                    <div class="quick-link-item">
+                        <i class="fas fa-envelope"></i>
+                        <h5>Contact</h5>
+                        <p>Get in touch with us for any inquiries</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- School Statistics -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number">800+</div>
+                    <h5>Students</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number">35+</div>
+                    <h5>Faculty Members</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number">45+</div>
+                    <h5>Years of Excellence</h5>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="stat-number">88%</div>
+                    <h5>KCSE Success Rate</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest News and Events -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Latest Events -->
+            <div class="col-lg-6 mb-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-primary-custom">Upcoming Events</h3>
+                    <a href="{% url 'events:events' %}" class="btn btn-outline-primary">View All</a>
+                </div>
+                
+                {% for event in latest_events %}
+                <div class="card event-card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="event-date">
+                                    <div class="fw-bold">{{ event.event_date|date:"d" }}</div>
+                                    <div>{{ event.event_date|date:"M" }}</div>
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h6 class="card-title">{{ event.title }}</h6>
+                                <p class="card-text small text-muted">{{ event.description|truncatewords:15 }}</p>
+                                {% if event.location %}
+                                <small class="text-muted">
+                                    <i class="fas fa-map-marker-alt"></i> {{ event.location }}
+                                </small>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="card">
+                    <div class="card-body text-center text-muted">
+                        <i class="fas fa-calendar-alt fa-3x mb-3"></i>
+                        <p>No upcoming events at the moment.</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Latest News -->
+            <div class="col-lg-6 mb-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h3 class="text-primary-custom">Latest News</h3>
+                    <a href="{% url 'events:news' %}" class="btn btn-outline-primary">View All</a>
+                </div>
+                
+                {% for news_item in latest_news %}
+                <div class="news-item">
+                    <h6><a href="#" class="text-decoration-none">{{ news_item.title }}</a></h6>
+                    <p class="text-muted">{{ news_item.summary }}</p>
+                    <div class="news-meta">
+                        <small class="text-muted">
+                            <i class="fas fa-clock"></i> {{ news_item.created_at|date:"M d, Y" }}
+                        </small>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="card">
+                    <div class="card-body text-center text-muted">
+                        <i class="fas fa-newspaper fa-3x mb-3"></i>
+                        <p>No news available at the moment.</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Welcome Message -->
+{% if school_info.welcome_message %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="text-primary-custom mb-4">Welcome to Our School</h2>
+                <p class="lead">{{ school_info.welcome_message }}</p>
+                <a href="{% url 'home:about' %}" class="btn btn-primary">Learn More About Us</a>
+            </div>
+            <div class="col-lg-6">
+                <img src="{% static 'images/school-building.jpg' %}" alt="School Building" 
+                     class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize counter animations
+    document.addEventListener('DOMContentLoaded', function() {
+        initCounters();
+    });
+</script>
+{% endblock %}

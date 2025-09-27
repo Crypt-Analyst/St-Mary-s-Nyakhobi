@@ -1,0 +1,283 @@
+[
+  {
+    "model": "home.schoolinfo",
+    "pk": 1,
+    "fields": {
+      "name": "St. Mary's Nyakhobi Senior School",
+      "tagline": "Building Leaders for Tomorrow",
+      "welcome_message": "St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is a Sub-County public mixed day school located in Samia, Funyula, Busia County. We serve learners from the surrounding community with a focus on holistic education — academic, co-curricular, and life skills development.",
+      "mission_statement": "To provide quality, holistic education that develops academic excellence, discipline, character, and life skills in our students, preparing them to be responsible leaders and productive citizens in their communities and beyond.",
+      "vision_statement": "To be a leading educational institution in Busia County that builds leaders for tomorrow through academic excellence, community service, and character development.",
+      "established_year": 1980,
+      "phone": "+254 722 231798 / +254 723 273109",
+      "email": "nyakhobisecondaryschool@gmail.com",
+      "address": "Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County, Kenya"
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 1,
+    "fields": {
+      "title": "Admissions",
+      "description": "Apply for Form 1 admission and learn about our KCPE requirements",
+      "icon": "fas fa-user-graduate",
+      "link_url": "/admissions/",
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 2,
+    "fields": {
+      "title": "Academics",
+      "description": "Explore our academic programs and KCSE performance",
+      "icon": "fas fa-book",
+      "link_url": "/academics/",
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 3,
+    "fields": {
+      "title": "Events & News",
+      "description": "Stay updated with school events and community activities",
+      "icon": "fas fa-calendar-alt",
+      "link_url": "/events/",
+      "is_active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 4,
+    "fields": {
+      "title": "Contact Us",
+      "description": "Get in touch with the school administration",
+      "icon": "fas fa-envelope",
+      "link_url": "/contact/",
+      "is_active": true,
+      "order": 4
+    }
+  },
+  {
+    "model": "academics.gradelevel",
+    "pk": 1,
+    "fields": {
+      "name": "Form 1",
+      "description": "Foundation year for secondary education",
+      "age_range": "14-15 years"
+    }
+  },
+  {
+    "model": "academics.gradelevel",
+    "pk": 2,
+    "fields": {
+      "name": "Form 2",
+      "description": "Second year of secondary education",
+      "age_range": "15-16 years"
+    }
+  },
+  {
+    "model": "academics.gradelevel",
+    "pk": 3,
+    "fields": {
+      "name": "Form 3",
+      "description": "Third year preparing for KCSE",
+      "age_range": "16-17 years"
+    }
+  },
+  {
+    "model": "academics.gradelevel",
+    "pk": 4,
+    "fields": {
+      "name": "Form 4",
+      "description": "Final year - KCSE examination year",
+      "age_range": "17-18 years"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 1,
+    "fields": {
+      "name": "Mathematics",
+      "description": "Pure mathematics and applied mathematics"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 2,
+    "fields": {
+      "name": "English",
+      "description": "English language and literature"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 3,
+    "fields": {
+      "name": "Kiswahili",
+      "description": "Kiswahili language and literature"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 4,
+    "fields": {
+      "name": "Biology",
+      "description": "Biological sciences"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 5,
+    "fields": {
+      "name": "Chemistry",
+      "description": "Chemical sciences"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 6,
+    "fields": {
+      "name": "Physics",
+      "description": "Physical sciences"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 7,
+    "fields": {
+      "name": "History & Government",
+      "description": "History and civics education"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 8,
+    "fields": {
+      "name": "Geography",
+      "description": "Physical and human geography"
+    }
+  },
+  {
+    "model": "academics.subject",
+    "pk": 9,
+    "fields": {
+      "name": "Business Studies",
+      "description": "Commerce and entrepreneurship"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 1,
+    "fields": {
+      "name": "Sciences",
+      "description": "Mathematics, Biology, Chemistry, Physics",
+      "head_of_department": "To be updated"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 2,
+    "fields": {
+      "name": "Languages",
+      "description": "English, Kiswahili, Literature",
+      "head_of_department": "To be updated"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 3,
+    "fields": {
+      "name": "Humanities",
+      "description": "History, Geography, Religious Education",
+      "head_of_department": "To be updated"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 4,
+    "fields": {
+      "name": "Technical & Applied",
+      "description": "Business Studies, Computer Studies, Agriculture",
+      "head_of_department": "To be updated"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 1,
+    "fields": {
+      "first_name": "Longinus",
+      "last_name": "Okuku Wewa",
+      "position": "principal",
+      "department": null,
+      "email": "principal@nyakhobi.ac.ke",
+      "phone": "+254 723 273109",
+      "bio": "Principal of St. Mary's Nyakhobi Senior School, committed to providing quality education and leadership development.",
+      "qualifications": "Bachelor of Education, Master of Education Leadership",
+      "experience_years": 15,
+      "subjects_taught": "",
+      "is_active": true,
+      "joined_date": "2020-01-01"
+    }
+  },
+  {
+    "model": "events.news",
+    "pk": 1,
+    "fields": {
+      "title": "School Name Change Announcement",
+      "content": "We are excited to announce that Nyakhobi Secondary School is transitioning to St. Mary's Nyakhobi Senior School. This change reflects our commitment to academic excellence and our Catholic values while maintaining our strong community roots in Funyula.",
+      "summary": "Official announcement of school name change from Nyakhobi Secondary School to St. Mary's Nyakhobi Senior School.",
+      "is_published": true,
+      "is_featured": true,
+      "created_at": "2025-01-15T10:00:00Z",
+      "updated_at": "2025-01-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "events.news",
+    "pk": 2,
+    "fields": {
+      "title": "NACADA Life Skills Sensitization Program",
+      "content": "Our school recently hosted a successful NACADA life skills sensitization session for students. The program focused on drug abuse prevention, peer pressure management, and making healthy life choices.",
+      "summary": "NACADA conducts life skills training for students on drug abuse prevention and healthy lifestyle choices.",
+      "is_published": true,
+      "is_featured": false,
+      "created_at": "2024-11-20T14:30:00Z",
+      "updated_at": "2024-11-20T14:30:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "title": "Form 1 Registration 2025",
+      "description": "Registration for new Form 1 students for the year 2025. Parents and guardians should bring KCPE results, birth certificates, and other required documents.",
+      "event_date": "2025-01-20T08:00:00Z",
+      "end_date": "2025-01-22T16:00:00Z",
+      "location": "School Administration Block",
+      "event_type": "academic",
+      "is_published": true,
+      "created_at": "2025-01-10T09:00:00Z",
+      "updated_at": "2025-01-10T09:00:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "title": "Inter-House Sports Competition",
+      "description": "Annual inter-house sports competition featuring athletics, football, volleyball, and other sporting activities. All students are encouraged to participate.",
+      "event_date": "2025-02-15T08:00:00Z",
+      "end_date": "2025-02-16T17:00:00Z",
+      "location": "School Sports Ground",
+      "event_type": "sports",
+      "is_published": true,
+      "created_at": "2025-01-05T11:00:00Z",
+      "updated_at": "2025-01-05T11:00:00Z"
+    }
+  }
+]
