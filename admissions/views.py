@@ -11,11 +11,11 @@ def admission_info(request):
 def apply(request):
     """Admission application form"""
     if request.method == 'POST':
-        form = AdmissionApplicationForm(request.POST)
+        form = AdmissionApplicationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(request, 'Your application has been submitted successfully!')
-            return redirect('admissions:info')
+            return redirect('admissions:apply')
     else:
         form = AdmissionApplicationForm()
     

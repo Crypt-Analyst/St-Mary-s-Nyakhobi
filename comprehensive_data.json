@@ -1,0 +1,547 @@
+[
+  {
+    "model": "home.schoolinfo",
+    "pk": 1,
+    "fields": {
+      "name": "St. Mary's Nyakhobi Senior School",
+      "former_name": "Nyakhobi Secondary School",
+      "motto": "Excellence Through Discipline",
+      "mission": "To provide quality, affordable, and accessible education that prepares students for success in their academic pursuits and future careers while instilling strong moral values.",
+      "vision": "To be a leading educational institution in Kenya, recognized for academic excellence, innovation, and character development.",
+      "description": "St. Mary's Nyakhobi Senior School is a prestigious mixed secondary school located in Funyula, Busia County, Kenya. Established in 2010, we have consistently delivered quality education and produced graduates who excel in various fields.",
+      "phone": "+254 712 345 678",
+      "email": "info@stmarysnyakhobi.ac.ke",
+      "address": "P.O. Box 123, Funyula, Busia County, Kenya",
+      "website": "https://stmarysnyakhobi.ac.ke",
+      "established": "2010-01-15",
+      "student_population": 650,
+      "staff_count": 28,
+      "principal_name": "Mr. Peter Wanyama",
+      "principal_email": "principal@stmarysnyakhobi.ac.ke"
+    }
+  },
+  {
+    "model": "academics.academicprogram",
+    "pk": 1,
+    "fields": {
+      "name": "Form 1 Program",
+      "description": "Foundation building year focusing on core subjects and study skills development. Students are introduced to secondary education with comprehensive curriculum coverage.",
+      "duration": "1 Year",
+      "requirements": "KCPE certificate with minimum 250 marks",
+      "is_active": true,
+      "created_at": "2025-01-15T08:00:00Z"
+    }
+  },
+  {
+    "model": "academics.academicprogram",
+    "pk": 2,
+    "fields": {
+      "name": "Form 2 Program",
+      "description": "Skills development year with expanded curriculum including computer studies and business subjects. Students begin exploring their academic interests.",
+      "duration": "1 Year",
+      "requirements": "Successful completion of Form 1",
+      "is_active": true,
+      "created_at": "2025-01-15T08:00:00Z"
+    }
+  },
+  {
+    "model": "academics.academicprogram",
+    "pk": 3,
+    "fields": {
+      "name": "Form 3 Program",
+      "description": "Specialization year where students choose between Sciences and Arts streams based on their career aspirations and academic strengths.",
+      "duration": "1 Year", 
+      "requirements": "Successful completion of Form 2 with good performance",
+      "is_active": true,
+      "created_at": "2025-01-15T08:00:00Z"
+    }
+  },
+  {
+    "model": "academics.academicprogram",
+    "pk": 4,
+    "fields": {
+      "name": "Form 4 Program",
+      "description": "KCSE preparation year with intensive revision, mock examinations, and university application guidance. Final year of secondary education.",
+      "duration": "1 Year",
+      "requirements": "Successful completion of Form 3",
+      "is_active": true,
+      "created_at": "2025-01-15T08:00:00Z"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 1,
+    "fields": {
+      "name": "Mathematics Department",
+      "description": "Pure and applied mathematics, statistics, and problem-solving skills development",
+      "head_of_department": "Mr. Samuel Kimani",
+      "is_active": true
+    }
+  },
+  {
+    "model": "faculty.department", 
+    "pk": 2,
+    "fields": {
+      "name": "Sciences Department",
+      "description": "Physics, Chemistry, Biology with emphasis on practical laboratory work and scientific research",
+      "head_of_department": "Mrs. Mary Wanjiku",
+      "is_active": true
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 3,
+    "fields": {
+      "name": "Languages Department",
+      "description": "English, Kiswahili, Literature with focus on communication skills and creative expression",
+      "head_of_department": "Mrs. Esther Mutindi", 
+      "is_active": true
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 4,
+    "fields": {
+      "name": "Humanities Department",
+      "description": "History, Geography, Christian Religious Education, and social studies",
+      "head_of_department": "Mr. David Mwangi",
+      "is_active": true
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 1,
+    "fields": {
+      "first_name": "Peter",
+      "last_name": "Wanyama",
+      "email": "principal@stmarysnyakhobi.ac.ke",
+      "phone": "+254 712 345 678",
+      "position": "principal",
+      "department": 1,
+      "qualifications": "M.Ed Educational Leadership, B.Ed Mathematics",
+      "experience_years": 15,
+      "subjects_taught": "Mathematics, School Administration",
+      "bio": "With over 15 years of experience in education, Mr. Wanyama leads our school with vision and dedication to academic excellence.",
+      "is_active": true,
+      "date_joined": "2020-01-15"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 2,
+    "fields": {
+      "first_name": "Grace",
+      "last_name": "Adhiambo",
+      "email": "deputy@stmarysnyakhobi.ac.ke", 
+      "phone": "+254 723 456 789",
+      "position": "vice_principal",
+      "department": 2,
+      "qualifications": "M.Sc Education, B.Ed Chemistry",
+      "experience_years": 12,
+      "subjects_taught": "Chemistry, Academic Coordination",
+      "bio": "Mrs. Adhiambo oversees our academic programs and ensures high standards of teaching and learning across all subjects.",
+      "is_active": true,
+      "date_joined": "2021-02-01"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 3,
+    "fields": {
+      "first_name": "James",
+      "last_name": "Ochieng",
+      "email": "admin@stmarysnyakhobi.ac.ke",
+      "phone": "+254 734 567 890",
+      "position": "vice_principal", 
+      "department": 1,
+      "qualifications": "MBA Management, B.Com Business",
+      "experience_years": 10,
+      "subjects_taught": "Business Studies, Administration",
+      "bio": "Mr. Ochieng manages the administrative affairs and ensures smooth operations of all school activities and programs.",
+      "is_active": true,
+      "date_joined": "2022-01-10"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 4,
+    "fields": {
+      "first_name": "Samuel",
+      "last_name": "Kimani",
+      "email": "s.kimani@stmarysnyakhobi.ac.ke",
+      "phone": "+254 745 678 901",
+      "position": "teacher",
+      "department": 1,
+      "qualifications": "B.Ed Mathematics, Diploma Education",
+      "experience_years": 12,
+      "subjects_taught": "Mathematics, Statistics",
+      "bio": "12 years teaching experience. Specializes in KCSE preparation and mathematical problem solving.",
+      "is_active": true,
+      "date_joined": "2018-03-15"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 5,
+    "fields": {
+      "first_name": "Mary",
+      "last_name": "Wanjiku",
+      "email": "m.wanjiku@stmarysnyakhobi.ac.ke",
+      "phone": "+254 756 789 012",
+      "position": "teacher",
+      "department": 2,
+      "qualifications": "B.Sc Chemistry, PGDE",
+      "experience_years": 10,
+      "subjects_taught": "Chemistry, Biology",
+      "bio": "10 years experience in science education with focus on practical laboratory work.",
+      "is_active": true,
+      "date_joined": "2019-01-20"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 6,
+    "fields": {
+      "first_name": "Joseph",
+      "last_name": "Ouma",
+      "email": "j.ouma@stmarysnyakhobi.ac.ke",
+      "phone": "+254 767 890 123",
+      "position": "teacher",
+      "department": 2,
+      "qualifications": "B.Ed Physics, Diploma Education",
+      "experience_years": 8,
+      "subjects_taught": "Physics, Mathematics",
+      "bio": "8 years teaching physics with emphasis on practical applications and experiments.",
+      "is_active": true,
+      "date_joined": "2020-02-15"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 7,
+    "fields": {
+      "first_name": "Esther", 
+      "last_name": "Mutindi",
+      "email": "e.mutindi@stmarysnyakhobi.ac.ke",
+      "phone": "+254 778 901 234",
+      "position": "teacher",
+      "department": 3,
+      "qualifications": "B.A English, PGDE",
+      "experience_years": 15,
+      "subjects_taught": "English, Literature",
+      "bio": "15 years in language education, drama club coordinator and debate coach.",
+      "is_active": true,
+      "date_joined": "2017-01-10"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 8,
+    "fields": {
+      "first_name": "Hassan",
+      "last_name": "Mohamed",
+      "email": "h.mohamed@stmarysnyakhobi.ac.ke",
+      "phone": "+254 789 012 345",
+      "position": "teacher",
+      "department": 3,
+      "qualifications": "B.A Kiswahili, Diploma Education",
+      "experience_years": 9,
+      "subjects_taught": "Kiswahili, Literature",
+      "bio": "9 years teaching Kiswahili language and literature with cultural emphasis.",
+      "is_active": true,
+      "date_joined": "2018-08-20"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 9,
+    "fields": {
+      "first_name": "David",
+      "last_name": "Mwangi",
+      "email": "d.mwangi@stmarysnyakhobi.ac.ke",
+      "phone": "+254 790 123 456",
+      "position": "teacher",
+      "department": 4,
+      "qualifications": "B.A History, PGDE",
+      "experience_years": 11,
+      "subjects_taught": "History, Geography",
+      "bio": "11 years teaching humanities with focus on African history and geography.",
+      "is_active": true,
+      "date_joined": "2019-03-10"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 10,
+    "fields": {
+      "first_name": "Susan",
+      "last_name": "Akinyi",
+      "email": "s.akinyi@stmarysnyakhobi.ac.ke",
+      "phone": "+254 701 234 567",
+      "position": "teacher",
+      "department": 4,
+      "qualifications": "B.A Geography, Diploma Education",
+      "experience_years": 7,
+      "subjects_taught": "Geography, Environmental Studies",
+      "bio": "7 years teaching geography with emphasis on environmental conservation.",
+      "is_active": true,
+      "date_joined": "2021-01-15"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "title": "Inter-School Athletics Championship",
+      "description": "Annual athletics competition with schools from Busia County. Track and field events for all age groups including 100m, 200m, 800m, 1500m, relay races, long jump, high jump, and shot put.",
+      "event_date": "2025-10-15",
+      "event_time": "08:00:00",
+      "end_time": "17:00:00",
+      "venue": "School Sports Grounds",
+      "category": "sports",
+      "is_featured": true,
+      "is_published": true,
+      "created_at": "2025-09-15T10:00:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "title": "Science Fair 2025",
+      "description": "Students showcase innovative science projects and experiments. Open to parents and the community. Categories include Physics, Chemistry, Biology, Mathematics, and Environmental Science.",
+      "event_date": "2025-10-22",
+      "event_time": "09:00:00", 
+      "end_time": "16:00:00",
+      "venue": "Science Laboratories",
+      "category": "academic",
+      "is_featured": true,
+      "is_published": true,
+      "created_at": "2025-09-10T09:00:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+      "title": "Annual Drama Festival",
+      "description": "Students perform dramatic works, poetry, and cultural dances. A celebration of arts and creativity featuring original plays, poetry recitals, traditional dances, and musical performances.",
+      "event_date": "2025-11-05",
+      "event_time": "18:00:00",
+      "end_time": "21:00:00", 
+      "venue": "School Assembly Hall",
+      "category": "cultural",
+      "is_featured": true,
+      "is_published": true,
+      "created_at": "2025-09-20T11:00:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 4,
+    "fields": {
+      "title": "KCSE Mock Examinations",
+      "description": "Form 4 students take comprehensive mock examinations in preparation for the national KCSE exams. Covers all subjects with proper examination conditions.",
+      "event_date": "2025-11-12",
+      "event_time": "08:00:00",
+      "end_time": "17:00:00",
+      "venue": "All Classrooms",
+      "category": "academic",
+      "is_featured": false,
+      "is_published": true,
+      "created_at": "2025-09-25T08:00:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 5,
+    "fields": {
+      "title": "Parents Day & Academic Exhibition",
+      "description": "Parents meet teachers, view student work, and participate in school activities. Academic progress discussions, student exhibitions, and feedback sessions.",
+      "event_date": "2025-11-18",
+      "event_time": "09:00:00",
+      "end_time": "15:00:00",
+      "venue": "Entire School Campus",
+      "category": "community",
+      "is_featured": true,
+      "is_published": true,
+      "created_at": "2025-09-18T12:00:00Z"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 6,
+    "fields": {
+      "title": "Awards Day & Prize Giving",
+      "description": "Recognition of outstanding academic performance, sports achievements, and exemplary conduct. Presentation of trophies, certificates, and scholarships to deserving students.",
+      "event_date": "2025-12-01",
+      "event_time": "10:00:00",
+      "end_time": "13:00:00",
+      "venue": "School Assembly Hall",
+      "category": "celebration",
+      "is_featured": true,
+      "is_published": true,
+      "created_at": "2025-09-12T14:00:00Z"
+    }
+  },
+  {
+    "model": "events.news",
+    "pk": 1,
+    "fields": {
+      "title": "Outstanding KCSE Results 2024",
+      "content": "St. Mary's Nyakhobi Senior School celebrates exceptional performance in the 2024 KCSE examinations with a mean score of 8.9 points, representing a 12% improvement from the previous year. 45 students qualified for direct university admission with 15 students achieving A- grades. Top performer Sarah Wanjiku scored A- with 81 points. The school's best performing subjects were Mathematics, Chemistry, and Biology.",
+      "category": "achievement",
+      "is_featured": true,
+      "is_published": true,
+      "published_date": "2025-03-15",
+      "created_at": "2025-03-15T09:00:00Z"
+    }
+  },
+  {
+    "model": "events.news",
+    "pk": 2,
+    "fields": {
+      "title": "Regional Science Competition Victory",
+      "content": "Our Form 3 Physics team won first place in the Busia County Science and Mathematics Competition with their project on Renewable Energy Solutions. The team competed against 25 schools and won a prize of KES 50,000. They will now represent the county at the national level competition. This achievement demonstrates our commitment to excellence in science education.",
+      "category": "achievement",
+      "is_featured": true,
+      "is_published": true,
+      "published_date": "2025-09-08",
+      "created_at": "2025-09-08T10:30:00Z"
+    }
+  },
+  {
+    "model": "events.news",
+    "pk": 3,
+    "fields": {
+      "title": "Athletics Championship Success",
+      "content": "St. Mary's athletics team dominated the Western Kenya Secondary Schools Championships with 5 gold medals, 3 silver medals, and overall 2nd place. Star athlete John Odhiambo won gold in both 1500m and 5000m events. The girls relay team won gold in 4x100m, breaking 2 school records in the process. Eight students qualified for the national championships.",
+      "category": "sports", 
+      "is_featured": true,
+      "is_published": true,
+      "published_date": "2025-08-22",
+      "created_at": "2025-08-22T15:20:00Z"
+    }
+  },
+  {
+    "model": "events.news",
+    "pk": 4,
+    "fields": {
+      "title": "New Laboratory Equipment Acquisition",
+      "content": "The school has acquired state-of-the-art laboratory equipment worth KES 2.5 million to enhance science education. The investment includes new microscopes and analyzers for the Chemistry lab, digital measuring instruments for Physics, and advanced specimen collection for Biology. This upgrade will significantly enhance practical learning experiences for our students.",
+      "category": "infrastructure",
+      "is_featured": false,
+      "is_published": true,
+      "published_date": "2025-07-10",
+      "created_at": "2025-07-10T11:45:00Z"
+    }
+  },
+  {
+    "model": "home.homepageslider",
+    "pk": 1,
+    "fields": {
+      "title": "Welcome to St. Mary's Nyakhobi",
+      "description": "Excellence Through Discipline - Nurturing tomorrow's leaders today",
+      "link_text": "Learn More",
+      "link_url": "/about/",
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "home.homepageslider",
+    "pk": 2,
+    "fields": {
+      "title": "Academic Excellence",
+      "description": "95% University Admission Rate - Preparing students for success",
+      "link_text": "View Programs",
+      "link_url": "/academics/",
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "home.homepageslider",
+    "pk": 3,
+    "fields": {
+      "title": "Join Our Community",
+      "description": "Applications open for 2026 - Scholarships available",
+      "link_text": "Apply Now",
+      "link_url": "/admissions/",
+      "is_active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 1,
+    "fields": {
+      "title": "Admissions",
+      "description": "Apply for 2026 academic year",
+      "icon": "fas fa-graduation-cap",
+      "link_url": "/admissions/",
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 2,
+    "fields": {
+      "title": "Academic Programs",
+      "description": "Form 1-4 curriculum details",
+      "icon": "fas fa-book",
+      "link_url": "/academics/",
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 3,
+    "fields": {
+      "title": "Faculty & Staff",
+      "description": "Meet our dedicated educators",
+      "icon": "fas fa-users",
+      "link_url": "/faculty/",
+      "is_active": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 4,
+    "fields": {
+      "title": "School Events",
+      "description": "Upcoming activities and calendar",
+      "icon": "fas fa-calendar",
+      "link_url": "/events/", 
+      "is_active": true,
+      "order": 4
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 5,
+    "fields": {
+      "title": "Contact Us",
+      "description": "Get in touch with our team",
+      "icon": "fas fa-phone",
+      "link_url": "/contact/",
+      "is_active": true,
+      "order": 5
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 6,
+    "fields": {
+      "title": "Student Portal",
+      "description": "Access student resources",
+      "icon": "fas fa-user-graduate", 
+      "link_url": "/student-portal/",
+      "is_active": true,
+      "order": 6
+    }
+  }
+]

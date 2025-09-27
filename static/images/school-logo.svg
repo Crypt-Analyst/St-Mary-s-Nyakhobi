@@ -1,0 +1,25 @@
+<!-- SVG Logo for St. Mary's Nyakhobi Senior School -->
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="60" cy="60" r="58" fill="#800000" stroke="#FFD700" stroke-width="4"/>
+  
+  <!-- Inner Circle -->
+  <circle cx="60" cy="60" r="50" fill="#FFFFFF" opacity="0.1"/>
+  
+  <!-- Cross Symbol -->
+  <rect x="55" y="25" width="10" height="35" fill="#FFD700"/>
+  <rect x="42" y="32" width="36" height="8" fill="#FFD700"/>
+  
+  <!-- Book Symbol -->
+  <rect x="35" y="70" width="50" height="30" rx="2" fill="#FFD700"/>
+  <rect x="37" y="72" width="46" height="26" rx="1" fill="#800000"/>
+  <line x1="40" y1="78" x2="55" y2="78" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="40" y1="82" x2="50" y2="82" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="40" y1="86" x2="52" y2="86" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="65" y1="78" x2="80" y2="78" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="65" y1="82" x2="75" y2="82" stroke="#FFD700" stroke-width="1.5"/>
+  <line x1="65" y1="86" x2="77" y2="86" stroke="#FFD700" stroke-width="1.5"/>
+  
+  <!-- School Initials -->
+  <text x="60" y="115" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#FFD700" text-anchor="middle">ST. MARY'S NYAKHOBI</text>
+</svg>

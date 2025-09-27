@@ -1,0 +1,731 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Events & News - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .events-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0 60px;
+        position: relative;
+    }
+    .events-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/events-bg.jpg') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    .event-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    .event-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(128,0,0,0.3);
+    }
+    .event-image {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--maroon);
+        position: relative;
+    }
+    .event-date-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: var(--maroon);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-align: center;
+        min-width: 60px;
+    }
+    .event-info {
+        padding: 25px 20px;
+    }
+    .event-title {
+        color: var(--maroon);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+    .event-category {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+    .calendar-section {
+        background: #f8f9fa;
+        padding: 80px 0;
+    }
+    .calendar-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .month-header {
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        color: white;
+        padding: 15px 25px;
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    .calendar-event {
+        display: flex;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .calendar-event:last-child {
+        border-bottom: none;
+    }
+    .calendar-date {
+        background: var(--maroon);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 15px;
+        flex-shrink: 0;
+    }
+    .news-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    .news-header {
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        color: white;
+        padding: 20px 25px;
+    }
+    .news-content {
+        padding: 25px;
+    }
+    .achievement-badge {
+        background: linear-gradient(45deg, #ffd700, #ffed4e);
+        color: #333;
+        padding: 8px 15px;
+        border-radius: 25px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        display: inline-block;
+        margin: 5px;
+    }
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+    .gallery-item {
+        background: #f8f9fa;
+        height: 200px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--maroon);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+    .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        color: white;
+        padding: 20px 15px 15px;
+        font-size: 0.9rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Events Hero Section -->
+<section class="events-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Events & Activities</h1>
+                <p class="lead mb-4">Stay updated with the latest school events, academic activities, sports competitions, and achievements at St. Mary's Nyakhobi Senior School.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Academic Events</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Sports & Games</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Cultural Activities</div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="p-4">
+                    <h2 class="display-3 fw-bold">50+</h2>
+                    <p class="fs-5">Annual Events<br>& Activities</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Upcoming Events -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Upcoming Events</h2>
+                <p class="lead text-muted">Don't miss these exciting upcoming school activities</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-date-badge">
+                            OCT<br>15
+                        </div>
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-category">Sports</span>
+                        <h4 class="event-title">Inter-School Athletics Championship</h4>
+                        <p class="text-muted mb-3">Annual athletics competition with schools from Busia County. Track and field events for all age groups.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>8:00 AM - 5:00 PM
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>School Grounds
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-date-badge">
+                            OCT<br>22
+                        </div>
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-category">Academic</span>
+                        <h4 class="event-title">Science Fair 2025</h4>
+                        <p class="text-muted mb-3">Students showcase innovative science projects and experiments. Open to parents and the community.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>9:00 AM - 4:00 PM
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>Science Labs
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-date-badge">
+                            NOV<br>05
+                        </div>
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-category">Cultural</span>
+                        <h4 class="event-title">Annual Drama Festival</h4>
+                        <p class="text-muted mb-3">Students perform dramatic works, poetry, and cultural dances. A celebration of arts and creativity.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>6:00 PM - 9:00 PM
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>School Hall
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-date-badge">
+                            NOV<br>12
+                        </div>
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-category">Academic</span>
+                        <h4 class="event-title">KCSE Mock Examinations</h4>
+                        <p class="text-muted mb-3">Form 4 students take mock examinations in preparation for the national KCSE exams.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>8:00 AM - 5:00 PM
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>Classrooms
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-date-badge">
+                            NOV<br>18
+                        </div>
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-category">Community</span>
+                        <h4 class="event-title">Parents Day & Academic Exhibition</h4>
+                        <p class="text-muted mb-3">Parents meet teachers, view student work, and participate in school activities. Academic progress discussions.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>9:00 AM - 3:00 PM
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>Entire Campus
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="event-card">
+                    <div class="event-image">
+                        <div class="event-date-badge">
+                            DEC<br>01
+                        </div>
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="event-info">
+                        <span class="event-category">Celebration</span>
+                        <h4 class="event-title">Awards Day & Prize Giving</h4>
+                        <p class="text-muted mb-3">Recognition of outstanding academic performance, sports achievements, and exemplary conduct.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-clock me-1"></i>10:00 AM - 1:00 PM
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-map-marker-alt me-1"></i>School Hall
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Calendar -->
+<section class="calendar-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Academic Calendar 2025</h2>
+                <p class="lead text-muted">Important academic dates and school events</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Term 1 Calendar -->
+            <div class="col-lg-4">
+                <div class="calendar-card">
+                    <div class="month-header">Term 1 - January to April</div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">15<br><small>JAN</small></div>
+                        <div>
+                            <h6 class="mb-1">Term 1 Opens</h6>
+                            <small class="text-muted">Students report to school</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">20<br><small>FEB</small></div>
+                        <div>
+                            <h6 class="mb-1">Form 1 Orientation</h6>
+                            <small class="text-muted">New student integration</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">28<br><small>FEB</small></div>
+                        <div>
+                            <h6 class="mb-1">Mid-term Break</h6>
+                            <small class="text-muted">1 week holiday</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">15<br><small>MAR</small></div>
+                        <div>
+                            <h6 class="mb-1">CAT Exams</h6>
+                            <small class="text-muted">Continuous Assessment Tests</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">12<br><small>APR</small></div>
+                        <div>
+                            <h6 class="mb-1">Term 1 Closes</h6>
+                            <small class="text-muted">End of term exams</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Term 2 Calendar -->
+            <div class="col-lg-4">
+                <div class="calendar-card">
+                    <div class="month-header">Term 2 - May to August</div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">06<br><small>MAY</small></div>
+                        <div>
+                            <h6 class="mb-1">Term 2 Opens</h6>
+                            <small class="text-muted">Second term begins</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">25<br><small>MAY</small></div>
+                        <div>
+                            <h6 class="mb-1">Sports Day</h6>
+                            <small class="text-muted">Inter-house competitions</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">20<br><small>JUN</small></div>
+                        <div>
+                            <h6 class="mb-1">Mid-term Break</h6>
+                            <small class="text-muted">1 week holiday</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">10<br><small>JUL</small></div>
+                        <div>
+                            <h6 class="mb-1">Academic Conference</h6>
+                            <small class="text-muted">Subject competitions</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">08<br><small>AUG</small></div>
+                        <div>
+                            <h6 class="mb-1">Term 2 Closes</h6>
+                            <small class="text-muted">End of term exams</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Term 3 Calendar -->
+            <div class="col-lg-4">
+                <div class="calendar-card">
+                    <div class="month-header">Term 3 - September to November</div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">02<br><small>SEP</small></div>
+                        <div>
+                            <h6 class="mb-1">Term 3 Opens</h6>
+                            <small class="text-muted">Final term begins</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">15<br><small>SEP</small></div>
+                        <div>
+                            <h6 class="mb-1">Form 4 Prep</h6>
+                            <small class="text-muted">KCSE preparation intensive</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">23<br><small>OCT</small></div>
+                        <div>
+                            <h6 class="mb-1">KCSE Begins</h6>
+                            <small class="text-muted">National examinations</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">15<br><small>NOV</small></div>
+                        <div>
+                            <h6 class="mb-1">Awards Day</h6>
+                            <small class="text-muted">Achievement recognition</small>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-event">
+                        <div class="calendar-date">22<br><small>NOV</small></div>
+                        <div>
+                            <h6 class="mb-1">Term 3 Closes</h6>
+                            <small class="text-muted">End of academic year</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent News & Achievements -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Recent News & Achievements</h2>
+                <p class="lead text-muted">Celebrating our students' successes and school milestones</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="news-card">
+                    <div class="news-header">
+                        <h4 class="mb-2">
+                            <i class="fas fa-trophy me-2"></i>
+                            Outstanding KCSE Results 2024
+                        </h4>
+                        <small>Published: March 15, 2025</small>
+                    </div>
+                    <div class="news-content">
+                        <p class="mb-3">St. Mary's Nyakhobi Senior School celebrates exceptional performance in the 2024 KCSE examinations with a mean score of 8.9 points.</p>
+                        
+                        <div class="mb-3">
+                            <span class="achievement-badge">Mean Score: 8.9</span>
+                            <span class="achievement-badge">97% University Qualification</span>
+                            <span class="achievement-badge">15 A- Grades</span>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ <strong>45 students</strong> qualified for direct university admission</li>
+                            <li class="mb-2">✓ <strong>Top performer:</strong> Sarah Wanjiku with A- (81 points)</li>
+                            <li class="mb-2">✓ <strong>Best subjects:</strong> Mathematics, Chemistry, Biology</li>
+                            <li class="mb-2">✓ <strong>Improvement:</strong> 12% increase from previous year</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="news-card">
+                    <div class="news-header">
+                        <h4 class="mb-2">
+                            <i class="fas fa-medal me-2"></i>
+                            Regional Science Competition Victory
+                        </h4>
+                        <small>Published: September 8, 2025</small>
+                    </div>
+                    <div class="news-content">
+                        <p class="mb-3">Our students won first place in the Busia County Science and Mathematics Competition, demonstrating exceptional problem-solving skills.</p>
+                        
+                        <div class="mb-3">
+                            <span class="achievement-badge">1st Place</span>
+                            <span class="achievement-badge">Physics Category</span>
+                            <span class="achievement-badge">KES 50,000 Prize</span>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ <strong>Winners:</strong> Form 3 Physics Team</li>
+                            <li class="mb-2">✓ <strong>Project:</strong> Renewable Energy Solutions</li>
+                            <li class="mb-2">✓ <strong>Competition:</strong> 25 schools participated</li>
+                            <li class="mb-2">✓ <strong>Next step:</strong> National level competition</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="news-card">
+                    <div class="news-header">
+                        <h4 class="mb-2">
+                            <i class="fas fa-running me-2"></i>
+                            Athletics Championship Success
+                        </h4>
+                        <small>Published: August 22, 2025</small>
+                    </div>
+                    <div class="news-content">
+                        <p class="mb-3">St. Mary's athletics team dominated the Western Kenya Secondary Schools Championships with multiple gold medals.</p>
+                        
+                        <div class="mb-3">
+                            <span class="achievement-badge">5 Gold Medals</span>
+                            <span class="achievement-badge">3 Silver Medals</span>
+                            <span class="achievement-badge">Overall 2nd Place</span>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ <strong>Star athlete:</strong> John Odhiambo (1500m, 5000m gold)</li>
+                            <li class="mb-2">✓ <strong>Girls relay:</strong> 4x100m gold medal</li>
+                            <li class="mb-2">✓ <strong>Records broken:</strong> 2 new school records</li>
+                            <li class="mb-2">✓ <strong>Nationals:</strong> 8 students qualified</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="news-card">
+                    <div class="news-header">
+                        <h4 class="mb-2">
+                            <i class="fas fa-graduation-cap me-2"></i>
+                            New Laboratory Equipment
+                        </h4>
+                        <small>Published: July 10, 2025</small>
+                    </div>
+                    <div class="news-content">
+                        <p class="mb-3">The school has acquired state-of-the-art laboratory equipment worth KES 2.5 million to enhance science education.</p>
+                        
+                        <div class="mb-3">
+                            <span class="achievement-badge">KES 2.5M Investment</span>
+                            <span class="achievement-badge">3 Labs Upgraded</span>
+                            <span class="achievement-badge">Modern Equipment</span>
+                        </div>
+                        
+                        <ul class="list-unstyled">
+                            <li class="mb-2">✓ <strong>Chemistry lab:</strong> New microscopes and analyzers</li>
+                            <li class="mb-2">✓ <strong>Physics lab:</strong> Digital measuring instruments</li>
+                            <li class="mb-2">✓ <strong>Biology lab:</strong> Advanced specimen collection</li>
+                            <li class="mb-2">✓ <strong>Benefit:</strong> Enhanced practical learning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Photo Gallery -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Event Gallery</h2>
+                <p class="lead text-muted">Capturing memorable moments from our school events</p>
+            </div>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <i class="fas fa-trophy"></i>
+                <div class="gallery-caption">
+                    <strong>Sports Day 2025</strong><br>
+                    Inter-house athletics competition with record-breaking performances
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <i class="fas fa-microscope"></i>
+                <div class="gallery-caption">
+                    <strong>Science Fair</strong><br>
+                    Students showcasing innovative science projects and experiments
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <i class="fas fa-theater-masks"></i>
+                <div class="gallery-caption">
+                    <strong>Drama Festival</strong><br>
+                    Cultural performances and artistic expressions by talented students
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="gallery-caption">
+                    <strong>Awards Day</strong><br>
+                    Recognition ceremony for academic and extracurricular achievements
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <i class="fas fa-users"></i>
+                <div class="gallery-caption">
+                    <strong>Parents Day</strong><br>
+                    Community engagement and academic progress exhibitions
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <i class="fas fa-book-open"></i>
+                <div class="gallery-caption">
+                    <strong>Academic Conference</strong><br>
+                    Subject competitions and intellectual challenges for students
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Event Registration CTA -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="bg-maroon text-white p-5 rounded-4">
+                    <h2 class="display-6 fw-bold mb-3">Stay Updated with School Events</h2>
+                    <p class="lead mb-4">Subscribe to our newsletter to receive notifications about upcoming events and school news</p>
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                                <button class="btn btn-light" type="button">
+                                    <i class="fas fa-bell me-2"></i>Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-light">Join 500+ parents and students who receive our updates</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

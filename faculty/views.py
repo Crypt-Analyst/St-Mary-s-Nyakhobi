@@ -21,7 +21,7 @@ def faculty_list(request):
         'admin_staff': admin_staff,
         'support_staff': support_staff,
     }
-    return render(request, 'faculty/faculty_list.html', context)
+    return render(request, 'faculty/staff.html', context)
 
 def department_detail(request, department_id):
     """Display faculty by department"""

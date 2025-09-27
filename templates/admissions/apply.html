@@ -1,0 +1,709 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Admissions - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admissions-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0 60px;
+        position: relative;
+    }
+    .admissions-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/students-bg.jpg') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    .admission-step {
+        background: white;
+        border-radius: 15px;
+        padding: 30px 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .admission-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 50px rgba(128,0,0,0.2);
+    }
+    .admission-step::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+    }
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 20px;
+    }
+    .requirements-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    .requirements-header {
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .fee-structure {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 20px 0;
+    }
+    .fee-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .fee-item:last-child {
+        border-bottom: none;
+        font-weight: bold;
+        color: var(--maroon);
+        font-size: 1.1rem;
+    }
+    .application-form {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        padding: 30px;
+    }
+    .form-section {
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #f8f9fa;
+    }
+    .form-section:last-child {
+        border-bottom: none;
+    }
+    .timeline-item {
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        position: relative;
+        padding-left: 70px;
+    }
+    .timeline-date {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        background: var(--maroon);
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+    .document-list {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+    }
+    .document-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #dee2e6;
+    }
+    .document-item:last-child {
+        border-bottom: none;
+    }
+    .document-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--maroon);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-right: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Admissions Hero Section -->
+<section class="admissions-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Join St. Mary's Nyakhobi</h1>
+                <p class="lead mb-4">Begin your journey towards academic excellence and character development. We welcome students who are eager to learn, grow, and contribute to our vibrant school community.</p>
+                <div class="d-flex flex-wrap gap-3 mb-4">
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Now Enrolling for 2026</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">All Forms Welcome</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Scholarship Available</div>
+                </div>
+                <a href="#application-form" class="btn btn-light btn-lg px-4">Apply Now</a>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="p-4">
+                    <h2 class="display-3 fw-bold">2026</h2>
+                    <p class="fs-5">Academic Year<br>Applications Open</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Admission Process -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Admission Process</h2>
+                <p class="lead text-muted">Simple steps to join our school community</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="admission-step">
+                    <div class="step-number">1</div>
+                    <h5 class="fw-bold mb-3">Submit Application</h5>
+                    <p class="text-muted">Complete our online application form or visit the school to collect a physical form.</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ Online application available</li>
+                        <li>✓ Physical forms at school</li>
+                        <li>✓ No application fee</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="admission-step">
+                    <div class="step-number">2</div>
+                    <h5 class="fw-bold mb-3">Document Submission</h5>
+                    <p class="text-muted">Provide all required documents including academic records and certificates.</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ KCPE certificate</li>
+                        <li>✓ Birth certificate</li>
+                        <li>✓ Academic records</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="admission-step">
+                    <div class="step-number">3</div>
+                    <h5 class="fw-bold mb-3">Interview & Assessment</h5>
+                    <p class="text-muted">Meet with our admissions team for a brief interview and academic assessment.</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ Student interview</li>
+                        <li>✓ Parent meeting</li>
+                        <li>✓ Academic assessment</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="admission-step">
+                    <div class="step-number">4</div>
+                    <h5 class="fw-bold mb-3">Enrollment</h5>
+                    <p class="text-muted">Complete enrollment by paying fees and collecting your admission letter and school materials.</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ Fee payment</li>
+                        <li>✓ Admission letter</li>
+                        <li>✓ School materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Requirements and Fees -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Admission Requirements -->
+            <div class="col-lg-6">
+                <div class="requirements-card h-100">
+                    <div class="requirements-header">
+                        <h3 class="mb-0">Admission Requirements</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="document-list">
+                            <h5 class="fw-bold mb-3">Required Documents:</h5>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">KCPE Certificate</h6>
+                                    <small class="text-muted">Original and photocopy</small>
+                                </div>
+                            </div>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <i class="fas fa-id-card"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Birth Certificate</h6>
+                                    <small class="text-muted">Original and photocopy</small>
+                                </div>
+                            </div>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Primary School Report</h6>
+                                    <small class="text-muted">Latest academic report</small>
+                                </div>
+                            </div>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Passport Photos</h6>
+                                    <small class="text-muted">4 recent passport-size photos</small>
+                                </div>
+                            </div>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">
+                                    <i class="fas fa-user-friends"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1">Parent/Guardian ID</h6>
+                                    <small class="text-muted">Copy of National ID or Passport</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-3 bg-warning bg-opacity-10 rounded">
+                            <h6 class="fw-bold text-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>
+                                Minimum Requirements:
+                            </h6>
+                            <ul class="mb-0">
+                                <li>KCPE score of 250+ marks (Form 1 entry)</li>
+                                <li>Good conduct from previous school</li>
+                                <li>Medical clearance certificate</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Fee Structure -->
+            <div class="col-lg-6">
+                <div class="requirements-card h-100">
+                    <div class="requirements-header">
+                        <h3 class="mb-0">Fee Structure 2026</h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="fee-structure">
+                            <h5 class="fw-bold mb-3">Annual School Fees:</h5>
+                            
+                            <div class="fee-item">
+                                <span>Tuition Fees</span>
+                                <span class="fw-bold">KES 45,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <span>Boarding Fees</span>
+                                <span class="fw-bold">KES 25,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <span>Meals (3 meals/day)</span>
+                                <span class="fw-bold">KES 18,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <span>Books & Materials</span>
+                                <span class="fw-bold">KES 8,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <span>Laboratory & ICT</span>
+                                <span class="fw-bold">KES 5,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <span>Activities & Sports</span>
+                                <span class="fw-bold">KES 3,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <span>Uniform & Equipment</span>
+                                <span class="fw-bold">KES 6,000</span>
+                            </div>
+                            
+                            <div class="fee-item">
+                                <strong>Total Annual Fees</strong>
+                                <strong>KES 110,000</strong>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-success">
+                            <h6 class="fw-bold">
+                                <i class="fas fa-tag me-2"></i>
+                                Payment Options:
+                            </h6>
+                            <ul class="mb-0">
+                                <li><strong>Full Payment:</strong> 5% discount (KES 104,500)</li>
+                                <li><strong>Termly:</strong> KES 37,000 per term</li>
+                                <li><strong>Monthly:</strong> KES 12,000 per month</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="alert alert-info">
+                            <h6 class="fw-bold">
+                                <i class="fas fa-scholarship me-2"></i>
+                                Scholarship Available:
+                            </h6>
+                            <p class="mb-0">Academic scholarships for exceptional students. Merit-based financial aid for needy students. Apply during admission process.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Timeline -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Application Timeline 2026</h2>
+                    <p class="lead text-muted">Important dates for the admission process</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">JAN 15</div>
+                    <h5 class="fw-bold">Applications Open</h5>
+                    <p class="text-muted mb-0">Online and physical application forms available. Begin submitting your documents and application details.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">MAR 30</div>
+                    <h5 class="fw-bold">Application Deadline</h5>
+                    <p class="text-muted mb-0">Final date for submission of completed applications with all required documents.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">APR 15</div>
+                    <h5 class="fw-bold">Interviews Begin</h5>
+                    <p class="text-muted mb-0">Shortlisted candidates invited for interviews and assessment. Parents meetings scheduled.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">MAY 10</div>
+                    <h5 class="fw-bold">Admission Results</h5>
+                    <p class="text-muted mb-0">Successful candidates receive admission letters. Fee payment instructions provided.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">JAN 2026</div>
+                    <h5 class="fw-bold">School Opens</h5>
+                    <p class="text-muted mb-0">New students report to school. Orientation week and academic year begins.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Application Form -->
+<section class="py-5 bg-light" id="application-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="application-form">
+                    <div class="text-center mb-4">
+                        <h2 class="display-6 fw-bold text-maroon">Online Application Form</h2>
+                        <p class="lead text-muted">Complete this form to begin your admission process</p>
+                    </div>
+                    
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <!-- Student Information -->
+                        <div class="form-section">
+                            <h4 class="fw-bold mb-3 text-maroon">
+                                <i class="fas fa-user me-2"></i>
+                                Student Information
+                            </h4>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">First Name *</label>
+                                    <input type="text" class="form-control" name="first_name" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">Middle Name</label>
+                                    <input type="text" class="form-control" name="middle_name">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="form-label fw-bold">Last Name *</label>
+                                    <input type="text" class="form-control" name="last_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Date of Birth *</label>
+                                    <input type="date" class="form-control" name="date_of_birth" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Gender *</label>
+                                    <select class="form-select" name="gender" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Nationality *</label>
+                                    <input type="text" class="form-control" name="nationality" value="Kenyan" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Religion</label>
+                                    <select class="form-select" name="religion">
+                                        <option value="">Select Religion</option>
+                                        <option value="Christian">Christian</option>
+                                        <option value="Muslim">Muslim</option>
+                                        <option value="Hindu">Hindu</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Academic Information -->
+                        <div class="form-section">
+                            <h4 class="fw-bold mb-3 text-maroon">
+                                <i class="fas fa-graduation-cap me-2"></i>
+                                Academic Information
+                            </h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Applying for Form *</label>
+                                    <select class="form-select" name="applying_form" required>
+                                        <option value="">Select Form</option>
+                                        <option value="Form 1">Form 1 (Grade 9)</option>
+                                        <option value="Form 2">Form 2 (Grade 10)</option>
+                                        <option value="Form 3">Form 3 (Grade 11)</option>
+                                        <option value="Form 4">Form 4 (Grade 12)</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">KCPE Score (if applicable)</label>
+                                    <input type="number" class="form-control" name="kcpe_score" min="100" max="500">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Previous School *</label>
+                                    <input type="text" class="form-control" name="previous_school" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Year Completed</label>
+                                    <input type="number" class="form-control" name="year_completed" min="2020" max="2025">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Preferred Stream</label>
+                                    <select class="form-select" name="preferred_stream">
+                                        <option value="">Select Stream</option>
+                                        <option value="Sciences">Sciences</option>
+                                        <option value="Arts">Arts</option>
+                                        <option value="Not Sure">Not Sure</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Parent/Guardian Information -->
+                        <div class="form-section">
+                            <h4 class="fw-bold mb-3 text-maroon">
+                                <i class="fas fa-user-friends me-2"></i>
+                                Parent/Guardian Information
+                            </h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Father's Name</label>
+                                    <input type="text" class="form-control" name="father_name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Father's Occupation</label>
+                                    <input type="text" class="form-control" name="father_occupation">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Mother's Name</label>
+                                    <input type="text" class="form-control" name="mother_name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Mother's Occupation</label>
+                                    <input type="text" class="form-control" name="mother_occupation">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Contact Phone *</label>
+                                    <input type="tel" class="form-control" name="parent_phone" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Email Address</label>
+                                    <input type="email" class="form-control" name="parent_email">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Home Address *</label>
+                                    <textarea class="form-control" name="home_address" rows="3" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Information -->
+                        <div class="form-section">
+                            <h4 class="fw-bold mb-3 text-maroon">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Additional Information
+                            </h4>
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Medical Conditions (if any)</label>
+                                    <textarea class="form-control" name="medical_conditions" rows="2" placeholder="Please list any medical conditions we should be aware of"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Special Talents/Interests</label>
+                                    <textarea class="form-control" name="special_talents" rows="2" placeholder="Sports, music, arts, etc."></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Why do you want to join St. Mary's Nyakhobi?</label>
+                                    <textarea class="form-control" name="motivation" rows="3" placeholder="Tell us why you chose our school"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Document Upload -->
+                        <div class="form-section">
+                            <h4 class="fw-bold mb-3 text-maroon">
+                                <i class="fas fa-cloud-upload-alt me-2"></i>
+                                Document Upload
+                            </h4>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">KCPE Certificate</label>
+                                    <input type="file" class="form-control" name="kcpe_certificate" accept=".pdf,.jpg,.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Birth Certificate</label>
+                                    <input type="file" class="form-control" name="birth_certificate" accept=".pdf,.jpg,.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Passport Photo</label>
+                                    <input type="file" class="form-control" name="passport_photo" accept=".jpg,.png">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Academic Report</label>
+                                    <input type="file" class="form-control" name="academic_report" accept=".pdf,.jpg,.png">
+                                </div>
+                            </div>
+                            <div class="alert alert-info mt-3">
+                                <small>
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Accepted formats: PDF, JPG, PNG. Maximum file size: 5MB per file.
+                                </small>
+                            </div>
+                        </div>
+                        
+                        <!-- Terms and Submission -->
+                        <div class="form-section">
+                            <div class="form-check mb-3">
+                                <input class="form-check-input" type="checkbox" name="terms_accepted" id="terms" required>
+                                <label class="form-check-label" for="terms">
+                                    I agree to the <a href="#" class="text-maroon">terms and conditions</a> and confirm that the information provided is accurate.
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <input class="form-check-input" type="checkbox" name="data_consent" id="consent">
+                                <label class="form-check-label" for="consent">
+                                    I consent to St. Mary's Nyakhobi Senior School processing this data for admission purposes.
+                                </label>
+                            </div>
+                            
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-maroon btn-lg px-5">
+                                    <i class="fas fa-paper-plane me-2"></i>
+                                    Submit Application
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-phone fa-2x text-maroon"></i>
+                    </div>
+                    <h5 class="fw-bold">Call Us</h5>
+                    <p class="text-muted">+254 XXX XXX XXX<br>Monday - Friday: 8AM - 5PM</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-envelope fa-2x text-maroon"></i>
+                    </div>
+                    <h5 class="fw-bold">Email Us</h5>
+                    <p class="text-muted">admissions@stmarysnyakhobi.ac.ke<br>We'll respond within 24 hours</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-map-marker-alt fa-2x text-maroon"></i>
+                    </div>
+                    <h5 class="fw-bold">Visit Us</h5>
+                    <p class="text-muted">Funyula, Busia County<br>Kenya</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

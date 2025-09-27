@@ -1,0 +1,472 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Academic Programs - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .academic-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    .academic-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/academic-bg.jpg') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    .program-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        height: 100%;
+    }
+    .program-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(128,0,0,0.3);
+    }
+    .program-header {
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        color: white;
+        padding: 20px;
+        position: relative;
+    }
+    .program-header h4 {
+        margin: 0;
+        font-weight: 600;
+    }
+    .program-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        opacity: 0.9;
+    }
+    .subject-badge {
+        background: var(--maroon);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin: 3px;
+        display: inline-block;
+    }
+    .academic-stats {
+        background: #f8f9fa;
+        padding: 60px 0;
+    }
+    .stat-card {
+        text-align: center;
+        padding: 30px 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--maroon);
+        line-height: 1;
+    }
+    .curriculum-section {
+        padding: 80px 0;
+    }
+    .curriculum-timeline {
+        position: relative;
+        padding: 20px 0;
+    }
+    .timeline-item {
+        padding: 20px 0 20px 60px;
+        position: relative;
+        border-left: 3px solid var(--maroon);
+    }
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -8px;
+        top: 30px;
+        width: 15px;
+        height: 15px;
+        background: var(--maroon);
+        border-radius: 50%;
+    }
+    .performance-chart {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Academic Hero Section -->
+<section class="academic-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Academic Excellence</h1>
+                <p class="lead mb-4">St. Mary's Nyakhobi Senior School offers a comprehensive curriculum designed to prepare students for success in higher education and future careers. Our academic programs combine rigorous instruction with practical application.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">8-4-4 System</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">KNEC Certified</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">University Prep</div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="academic-stats-preview">
+                    <h2 class="display-3 fw-bold">95%</h2>
+                    <p class="fs-5">University Admission Rate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Programs -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Our Academic Programs</h2>
+                <p class="lead text-muted">Comprehensive education from Form 1 through Form 4, preparing students for national examinations and beyond.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Form 1 Program -->
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🎓</div>
+                        <h4>Form 1 (Grade 9)</h4>
+                        <p class="mb-0">Foundation Building Year</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <h6 class="fw-bold mb-3">Core Subjects:</h6>
+                        <div class="mb-3">
+                            <span class="subject-badge">Mathematics</span>
+                            <span class="subject-badge">English</span>
+                            <span class="subject-badge">Kiswahili</span>
+                            <span class="subject-badge">Biology</span>
+                            <span class="subject-badge">Physics</span>
+                            <span class="subject-badge">Chemistry</span>
+                            <span class="subject-badge">History</span>
+                            <span class="subject-badge">Geography</span>
+                            <span class="subject-badge">CRE</span>
+                        </div>
+                        <p class="text-muted">Building strong foundations in all subjects with emphasis on study skills and academic discipline.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Study skills development</li>
+                            <li>✓ Academic orientation</li>
+                            <li>✓ Career guidance introduction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form 2 Program -->
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">📚</div>
+                        <h4>Form 2 (Grade 10)</h4>
+                        <p class="mb-0">Skills Development Year</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <h6 class="fw-bold mb-3">Expanded Curriculum:</h6>
+                        <div class="mb-3">
+                            <span class="subject-badge">Advanced Mathematics</span>
+                            <span class="subject-badge">Literature</span>
+                            <span class="subject-badge">Computer Studies</span>
+                            <span class="subject-badge">Business Studies</span>
+                            <span class="subject-badge">Agriculture</span>
+                            <span class="subject-badge">Art & Design</span>
+                        </div>
+                        <p class="text-muted">Deepening knowledge while introducing specialization options and practical skills.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Subject specialization guidance</li>
+                            <li>✓ Practical skills development</li>
+                            <li>✓ Leadership opportunities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form 3 Program -->
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🔬</div>
+                        <h4>Form 3 (Grade 11)</h4>
+                        <p class="mb-0">Specialization Year</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <h6 class="fw-bold mb-3">Stream Selection:</h6>
+                        <div class="mb-3">
+                            <div class="alert alert-info">
+                                <strong>Sciences Stream:</strong> Mathematics, Physics, Chemistry, Biology
+                            </div>
+                            <div class="alert alert-success">
+                                <strong>Arts Stream:</strong> History, Geography, Literature, Business
+                            </div>
+                        </div>
+                        <p class="text-muted">Students choose their path based on career aspirations and academic strengths.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ Career-focused learning</li>
+                            <li>✓ University preparation</li>
+                            <li>✓ Advanced practical work</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form 4 Program -->
+            <div class="col-lg-6">
+                <div class="program-card">
+                    <div class="program-header">
+                        <div class="program-icon">🏆</div>
+                        <h4>Form 4 (Grade 12)</h4>
+                        <p class="mb-0">KCSE Preparation Year</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <h6 class="fw-bold mb-3">KCSE Examination Prep:</h6>
+                        <div class="mb-3">
+                            <span class="subject-badge">Intensive Revision</span>
+                            <span class="subject-badge">Mock Examinations</span>
+                            <span class="subject-badge">University Applications</span>
+                        </div>
+                        <p class="text-muted">Final year focuses on KCSE examination preparation and university transition planning.</p>
+                        <ul class="list-unstyled">
+                            <li>✓ KCSE examination preparation</li>
+                            <li>✓ University application support</li>
+                            <li>✓ Career counseling</li>
+                            <li>✓ Life skills training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Statistics -->
+<section class="academic-stats">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <h6 class="mt-3 mb-2">University Admission</h6>
+                    <p class="text-muted mb-0">Students admitted to universities</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-number">A-</div>
+                    <h6 class="mt-3 mb-2">Average KCSE Grade</h6>
+                    <p class="text-muted mb-0">School mean score</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-number">24</div>
+                    <h6 class="mt-3 mb-2">Subjects Offered</h6>
+                    <p class="text-muted mb-0">Comprehensive curriculum</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-number">15:1</div>
+                    <h6 class="mt-3 mb-2">Student-Teacher Ratio</h6>
+                    <p class="text-muted mb-0">Personalized attention</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Curriculum Details -->
+<section class="curriculum-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h2 class="display-6 fw-bold mb-4">Our Curriculum</h2>
+                <div class="curriculum-timeline">
+                    <div class="timeline-item">
+                        <h5 class="fw-bold">8-4-4 Education System</h5>
+                        <p class="text-muted mb-3">Following Kenya's national curriculum with enhanced teaching methodologies and practical applications.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 class="fw-bold">KNEC Certified Programs</h5>
+                        <p class="text-muted mb-3">All programs align with Kenya National Examinations Council standards ensuring national recognition.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 class="fw-bold">University Preparation</h5>
+                        <p class="text-muted mb-3">Specialized coaching for university entrance and career guidance for future success.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h5 class="fw-bold">Life Skills Integration</h5>
+                        <p class="text-muted mb-3">Practical life skills embedded throughout the curriculum for holistic development.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="performance-chart">
+                    <h4 class="fw-bold mb-4">Academic Performance Trends</h4>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <h3 class="text-success">2023</h3>
+                            <p class="fw-bold">Mean Score: 8.7</p>
+                            <small class="text-muted">University Qualification: 96%</small>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="text-success">2024</h3>
+                            <p class="fw-bold">Mean Score: 8.9</p>
+                            <small class="text-muted">University Qualification: 97%</small>
+                        </div>
+                        <div class="col-4">
+                            <h3 class="text-primary">2025</h3>
+                            <p class="fw-bold">Target: 9.2</p>
+                            <small class="text-muted">Projected: 98%</small>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3 bg-light rounded">
+                        <h6 class="fw-bold">Top University Destinations:</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li>• University of Nairobi</li>
+                            <li>• Moi University</li>
+                            <li>• Kenyatta University</li>
+                            <li>• Maseno University</li>
+                            <li>• Other Public & Private Universities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Special Programs -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-6 fw-bold mb-4">Special Academic Programs</h2>
+                <p class="lead text-muted">Enhanced learning opportunities beyond the standard curriculum</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-laptop-code fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="fw-bold">ICT Integration</h5>
+                        <p class="text-muted">Computer literacy and digital skills integrated across all subjects with modern computer labs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-flask fa-3x text-success"></i>
+                        </div>
+                        <h5 class="fw-bold">Science Laboratory</h5>
+                        <p class="text-muted">Well-equipped laboratories for Physics, Chemistry, and Biology with hands-on practical sessions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fas fa-language fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="fw-bold">Language Excellence</h5>
+                        <p class="text-muted">Strong emphasis on English and Kiswahili proficiency with literature and communication skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Calendar -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="display-6 fw-bold">Academic Calendar 2025</h2>
+                    <p class="lead text-muted">Important dates and academic milestones</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-header bg-primary text-white">
+                                <h6 class="mb-0">Term 1</h6>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>January 15 - April 12</strong></p>
+                                <small class="text-muted">
+                                    Opening: Jan 15<br>
+                                    Mid-term: Feb 28<br>
+                                    Closing: Apr 12
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-header bg-success text-white">
+                                <h6 class="mb-0">Term 2</h6>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>May 6 - August 8</strong></p>
+                                <small class="text-muted">
+                                    Opening: May 6<br>
+                                    Mid-term: Jun 20<br>
+                                    Closing: Aug 8
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card text-center">
+                            <div class="card-header bg-warning text-white">
+                                <h6 class="mb-0">Term 3</h6>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>September 2 - November 22</strong></p>
+                                <small class="text-muted">
+                                    Opening: Sep 2<br>
+                                    KCSE: Oct-Nov<br>
+                                    Closing: Nov 22
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

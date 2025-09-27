@@ -1,0 +1,260 @@
+[
+  {
+    "model": "home.schoolinfo",
+    "pk": 1,
+    "fields": {
+      "name": "St. Mary's Nyakhobi Senior School",
+      "tagline": "Excellence Through Discipline - Building Leaders for Tomorrow",
+      "welcome_message": "St. Mary's Nyakhobi Senior School is a prestigious mixed secondary school located in Funyula, Busia County, Kenya. Established in 2010, we have consistently delivered quality education and produced graduates who excel in various fields.",
+      "mission_statement": "To provide quality, affordable, and accessible education that prepares students for success in their academic pursuits and future careers while instilling strong moral values.",
+      "vision_statement": "To be a leading educational institution in Kenya, recognized for academic excellence, innovation, and character development.",
+      "established_year": 2010,
+      "phone": "+254 712 345 678 / +254 723 456 789",
+      "email": "info@stmarysnyakhobi.ac.ke",
+      "address": "Off Nambuku/Funyula Road, Funyula, P.O. Box 123, Funyula 50406, Busia County, Kenya"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 1,
+    "fields": {
+      "name": "Mathematics Department",
+      "description": "Mathematics, Statistics, and Computer Studies",
+      "head_of_department": "Mr. Samuel Kimani"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 2,
+    "fields": {
+      "name": "Sciences Department", 
+      "description": "Physics, Chemistry, Biology with practical laboratory work",
+      "head_of_department": "Mrs. Mary Wanjiku"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 3,
+    "fields": {
+      "name": "Languages Department",
+      "description": "English, Kiswahili, Literature",
+      "head_of_department": "Mrs. Esther Mutindi"
+    }
+  },
+  {
+    "model": "faculty.department",
+    "pk": 4,
+    "fields": {
+      "name": "Humanities Department",
+      "description": "History, Geography, Christian Religious Education",
+      "head_of_department": "Mr. David Mwangi"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 1,
+    "fields": {
+      "first_name": "Peter",
+      "last_name": "Wanyama",
+      "position": "principal",
+      "department": 1,
+      "email": "principal@stmarysnyakhobi.ac.ke",
+      "phone": "+254 712 345 678",
+      "bio": "With over 15 years of experience in educational leadership, Mr. Wanyama leads St. Mary's Nyakhobi with vision and dedication to academic excellence.",
+      "qualifications": "M.Ed Educational Leadership, B.Ed Mathematics",
+      "experience_years": 15,
+      "subjects_taught": "Mathematics, Educational Leadership",
+      "is_active": true,
+      "joined_date": "2020-01-15"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 2,
+    "fields": {
+      "first_name": "Grace",
+      "last_name": "Adhiambo",
+      "position": "vice_principal",
+      "department": 2,
+      "email": "deputy@stmarysnyakhobi.ac.ke",
+      "phone": "+254 723 456 789",
+      "bio": "Mrs. Adhiambo oversees our academic programs and ensures high standards of teaching and learning.",
+      "qualifications": "M.Sc Chemistry, B.Ed Chemistry",
+      "experience_years": 12,
+      "subjects_taught": "Chemistry, Science Coordination",
+      "is_active": true,
+      "joined_date": "2021-02-01"
+    }
+  },
+  {
+    "model": "faculty.faculty", 
+    "pk": 3,
+    "fields": {
+      "first_name": "Samuel",
+      "last_name": "Kimani",
+      "position": "teacher",
+      "department": 1,
+      "email": "s.kimani@stmarysnyakhobi.ac.ke",
+      "phone": "+254 745 678 901",
+      "bio": "Head of Mathematics Department with 12 years of teaching experience.",
+      "qualifications": "B.Ed Mathematics & Physics",
+      "experience_years": 12,
+      "subjects_taught": "Mathematics, Physics",
+      "is_active": true,
+      "joined_date": "2018-03-15"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 4,
+    "fields": {
+      "first_name": "Mary",
+      "last_name": "Wanjiku",
+      "position": "teacher",
+      "department": 2,
+      "email": "m.wanjiku@stmarysnyakhobi.ac.ke",
+      "phone": "+254 756 789 012",
+      "bio": "Head of Sciences Department with 10 years of experience.",
+      "qualifications": "B.Sc Chemistry, PGDE",
+      "experience_years": 10,
+      "subjects_taught": "Chemistry, Biology",
+      "is_active": true,
+      "joined_date": "2019-01-20"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 5,
+    "fields": {
+      "first_name": "Esther",
+      "last_name": "Mutindi",
+      "position": "teacher",
+      "department": 3,
+      "email": "e.mutindi@stmarysnyakhobi.ac.ke",
+      "phone": "+254 778 901 234",
+      "bio": "Head of Languages Department with 15 years of experience.",
+      "qualifications": "B.A English & Literature",
+      "experience_years": 15,
+      "subjects_taught": "English, Literature",
+      "is_active": true,
+      "joined_date": "2017-01-10"
+    }
+  },
+  {
+    "model": "faculty.faculty",
+    "pk": 6,
+    "fields": {
+      "first_name": "David",
+      "last_name": "Mwangi",
+      "position": "teacher",
+      "department": 4,
+      "email": "d.mwangi@stmarysnyakhobi.ac.ke",
+      "phone": "+254 790 123 456",
+      "bio": "Head of Humanities Department with 11 years of experience.",
+      "qualifications": "B.A History & Government",
+      "experience_years": 11,
+      "subjects_taught": "History, Geography",
+      "is_active": true,
+      "joined_date": "2019-03-10"
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+      "title": "Inter-School Athletics Championship 2025",
+      "description": "Annual athletics competition featuring schools from Busia County with track and field events.",
+      "event_date": "2025-10-15T08:00:00Z",
+      "end_date": "2025-10-15T17:00:00Z",
+      "location": "School Sports Grounds",
+      "event_type": "sports",
+      "is_published": true
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+      "title": "Annual Science Fair 2025",
+      "description": "Students showcase innovative science projects and experiments across various categories.",
+      "event_date": "2025-10-22T09:00:00Z",
+      "end_date": "2025-10-22T16:00:00Z",
+      "location": "Science Laboratories",
+      "event_type": "academic",
+      "is_published": true
+    }
+  },
+  {
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+      "title": "Drama and Cultural Festival",
+      "description": "Annual celebration of arts featuring plays, poetry, dances, and musical performances.",
+      "event_date": "2025-11-05T18:00:00Z",
+      "end_date": "2025-11-05T21:00:00Z",
+      "location": "Assembly Hall",
+      "event_type": "cultural",
+      "is_published": true
+    }
+  },
+  {
+    "model": "home.homepageslider",
+    "pk": 1,
+    "fields": {
+      "title": "Welcome to St. Mary's Nyakhobi",
+      "description": "Excellence Through Discipline - Nurturing tomorrow's leaders",
+      "link_text": "Learn More",
+      "link_url": "/about/",
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "home.homepageslider",
+    "pk": 2,
+    "fields": {
+      "title": "Academic Excellence",
+      "description": "95% University Admission Rate - Preparing students for success",
+      "link_text": "View Programs",
+      "link_url": "/academics/",
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 1,
+    "fields": {
+      "title": "Admissions",
+      "description": "Apply for 2026 academic year",
+      "icon": "fas fa-graduation-cap",
+      "link_url": "/admissions/",
+      "is_active": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 2,
+    "fields": {
+      "title": "Academic Programs",
+      "description": "Form 1-4 curriculum details",
+      "icon": "fas fa-book-open",
+      "link_url": "/academics/",
+      "is_active": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "home.quicklink",
+    "pk": 3,
+    "fields": {
+      "title": "Our Faculty",
+      "description": "Meet our dedicated educators",
+      "icon": "fas fa-chalkboard-teacher",
+      "link_url": "/faculty/",
+      "is_active": true,
+      "order": 3
+    }
+  }
+]

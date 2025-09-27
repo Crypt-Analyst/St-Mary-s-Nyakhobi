@@ -8,7 +8,7 @@ def events_list(request):
     context = {
         'events': events,
     }
-    return render(request, 'events/events_list.html', context)
+    return render(request, 'events/calendar.html', context)
 
 def event_detail(request, event_id):
     """Display event details"""

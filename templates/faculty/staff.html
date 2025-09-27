@@ -1,0 +1,695 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Faculty & Staff - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .faculty-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0 60px;
+        position: relative;
+    }
+    .faculty-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/faculty-bg.jpg') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    .faculty-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    .faculty-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(128,0,0,0.3);
+    }
+    .faculty-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: var(--maroon);
+    }
+    .faculty-info {
+        padding: 25px 20px;
+    }
+    .faculty-name {
+        color: var(--maroon);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+    .faculty-position {
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+    .faculty-subjects {
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
+    .subject-tag {
+        background: var(--maroon);
+        color: white;
+        padding: 3px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        margin: 2px;
+        display: inline-block;
+    }
+    .qualification-badge {
+        background: #e3f2fd;
+        color: #1976d2;
+        padding: 4px 8px;
+        border-radius: 20px;
+        font-size: 0.7rem;
+        margin: 2px;
+        display: inline-block;
+    }
+    .department-section {
+        padding: 80px 0;
+    }
+    .department-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px 25px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+        height: 100%;
+    }
+    .department-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(128,0,0,0.2);
+    }
+    .department-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2.5rem;
+        margin: 0 auto 20px;
+    }
+    .leadership-section {
+        background: #f8f9fa;
+        padding: 80px 0;
+    }
+    .leadership-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+    }
+    .leadership-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+    }
+    .leadership-photo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--maroon);
+        margin: 0 auto 20px;
+        border: 4px solid var(--maroon);
+    }
+    .stats-section {
+        background: var(--maroon);
+        color: white;
+        padding: 60px 0;
+    }
+    .stat-item {
+        text-align: center;
+        padding: 20px;
+    }
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+    .contact-info {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Faculty Hero Section -->
+<section class="faculty-hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4">Our Faculty & Staff</h1>
+                <p class="lead mb-4">Meet our dedicated team of qualified educators and support staff committed to providing exceptional education and nurturing the next generation of leaders.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Qualified Teachers</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Experienced Staff</div>
+                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Student-Centered</div>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center">
+                <div class="p-4">
+                    <h2 class="display-3 fw-bold">25+</h2>
+                    <p class="fs-5">Dedicated Educators<br>& Support Staff</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- School Leadership -->
+<section class="leadership-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">School Leadership</h2>
+                <p class="lead text-muted">Our experienced leadership team guides the school towards academic excellence</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="leadership-card">
+                    <div class="leadership-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4 class="faculty-name">Mr. Peter Wanyama</h4>
+                    <p class="faculty-position">Principal</p>
+                    <div class="qualification-badge">M.Ed Educational Leadership</div>
+                    <div class="qualification-badge">B.Ed Mathematics</div>
+                    <p class="text-muted mt-3">With over 15 years of experience in education, Mr. Wanyama leads our school with vision and dedication to academic excellence.</p>
+                    <div class="contact-info">
+                        <small class="text-muted">
+                            <i class="fas fa-envelope me-2"></i>principal@stmarysnyakhobi.ac.ke<br>
+                            <i class="fas fa-phone me-2"></i>+254 XXX XXX XXX
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="leadership-card">
+                    <div class="leadership-photo">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h4 class="faculty-name">Mrs. Grace Adhiambo</h4>
+                    <p class="faculty-position">Deputy Principal - Academics</p>
+                    <div class="qualification-badge">M.Sc Education</div>
+                    <div class="qualification-badge">B.Ed Chemistry</div>
+                    <p class="text-muted mt-3">Mrs. Adhiambo oversees our academic programs and ensures high standards of teaching and learning across all subjects.</p>
+                    <div class="contact-info">
+                        <small class="text-muted">
+                            <i class="fas fa-envelope me-2"></i>deputy@stmarysnyakhobi.ac.ke<br>
+                            <i class="fas fa-phone me-2"></i>+254 XXX XXX XXX
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="leadership-card">
+                    <div class="leadership-photo">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="faculty-name">Mr. James Ochieng</h4>
+                    <p class="faculty-position">Deputy Principal - Administration</p>
+                    <div class="qualification-badge">MBA Management</div>
+                    <div class="qualification-badge">B.Com Business</div>
+                    <p class="text-muted mt-3">Mr. Ochieng manages the administrative affairs and ensures smooth operations of all school activities and programs.</p>
+                    <div class="contact-info">
+                        <small class="text-muted">
+                            <i class="fas fa-envelope me-2"></i>admin@stmarysnyakhobi.ac.ke<br>
+                            <i class="fas fa-phone me-2"></i>+254 XXX XXX XXX
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Departments -->
+<section class="department-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Academic Departments</h2>
+                <p class="lead text-muted">Our subject departments are led by experienced teachers</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h5 class="fw-bold">Mathematics</h5>
+                    <p class="text-muted">Pure & Applied Mathematics, Statistics</p>
+                    <ul class="list-unstyled text-start">
+                        <li>• Form 1-4 Mathematics</li>
+                        <li>• Problem Solving</li>
+                        <li>• Competition Training</li>
+                    </ul>
+                    <small class="text-maroon fw-bold">Head: Mr. Samuel Kimani</small>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h5 class="fw-bold">Sciences</h5>
+                    <p class="text-muted">Physics, Chemistry, Biology</p>
+                    <ul class="list-unstyled text-start">
+                        <li>• Laboratory Practicals</li>
+                        <li>• Research Projects</li>
+                        <li>• Science Fair</li>
+                    </ul>
+                    <small class="text-maroon fw-bold">Head: Mrs. Mary Wanjiku</small>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h5 class="fw-bold">Languages</h5>
+                    <p class="text-muted">English, Kiswahili, Literature</p>
+                    <ul class="list-unstyled text-start">
+                        <li>• Language Skills</li>
+                        <li>• Creative Writing</li>
+                        <li>• Drama & Poetry</li>
+                    </ul>
+                    <small class="text-maroon fw-bold">Head: Mrs. Esther Mutindi</small>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <h5 class="fw-bold">Humanities</h5>
+                    <p class="text-muted">History, Geography, CRE</p>
+                    <ul class="list-unstyled text-start">
+                        <li>• Social Studies</li>
+                        <li>• Cultural Studies</li>
+                        <li>• Field Trips</li>
+                    </ul>
+                    <small class="text-maroon fw-bold">Head: Mr. David Mwangi</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Teaching Faculty -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Our Teaching Faculty</h2>
+                <p class="lead text-muted">Dedicated educators committed to student success</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Mathematics Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mr. Samuel Kimani</h5>
+                        <p class="faculty-position">Mathematics Department Head</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">Mathematics</span>
+                            <span class="subject-tag">Statistics</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.Ed Mathematics</span>
+                            <span class="qualification-badge">Dip. Education</span>
+                        </div>
+                        <p class="text-muted">12 years teaching experience. Specializes in KCSE preparation and mathematical problem solving.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chemistry Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mrs. Mary Wanjiku</h5>
+                        <p class="faculty-position">Sciences Department Head</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">Chemistry</span>
+                            <span class="subject-tag">Biology</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.Sc Chemistry</span>
+                            <span class="qualification-badge">PGDE</span>
+                        </div>
+                        <p class="text-muted">10 years experience in science education with focus on practical laboratory work.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Physics Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mr. Joseph Ouma</h5>
+                        <p class="faculty-position">Physics Teacher</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">Physics</span>
+                            <span class="subject-tag">Mathematics</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.Ed Physics</span>
+                            <span class="qualification-badge">Dip. Education</span>
+                        </div>
+                        <p class="text-muted">8 years teaching physics with emphasis on practical applications and experiments.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- English Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mrs. Esther Mutindi</h5>
+                        <p class="faculty-position">Languages Department Head</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">English</span>
+                            <span class="subject-tag">Literature</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.A English</span>
+                            <span class="qualification-badge">PGDE</span>
+                        </div>
+                        <p class="text-muted">15 years in language education, drama club coordinator and debate coach.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Kiswahili Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mr. Hassan Mohamed</h5>
+                        <p class="faculty-position">Kiswahili Teacher</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">Kiswahili</span>
+                            <span class="subject-tag">Literature</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.A Kiswahili</span>
+                            <span class="qualification-badge">Dip. Education</span>
+                        </div>
+                        <p class="text-muted">9 years teaching Kiswahili language and literature with cultural emphasis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mr. David Mwangi</h5>
+                        <p class="faculty-position">Humanities Department Head</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">History</span>
+                            <span class="subject-tag">Geography</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.A History</span>
+                            <span class="qualification-badge">PGDE</span>
+                        </div>
+                        <p class="text-muted">11 years teaching humanities with focus on African history and geography.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Geography Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mrs. Susan Akinyi</h5>
+                        <p class="faculty-position">Geography Teacher</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">Geography</span>
+                            <span class="subject-tag">Environmental Studies</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.A Geography</span>
+                            <span class="qualification-badge">Dip. Education</span>
+                        </div>
+                        <p class="text-muted">7 years teaching geography with emphasis on environmental conservation.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CRE Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-cross"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Rev. Peter Nyong'o</h5>
+                        <p class="faculty-position">CRE Teacher & Chaplain</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">CRE</span>
+                            <span class="subject-tag">Life Skills</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.Th Theology</span>
+                            <span class="qualification-badge">Dip. Education</span>
+                        </div>
+                        <p class="text-muted">13 years in Christian education and guidance, school chaplain and counselor.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Business Studies Faculty -->
+            <div class="col-lg-4 col-md-6">
+                <div class="faculty-card">
+                    <div class="faculty-image">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="faculty-info">
+                        <h5 class="faculty-name">Mr. Francis Wekesa</h5>
+                        <p class="faculty-position">Business Studies Teacher</p>
+                        <div class="faculty-subjects">
+                            <span class="subject-tag">Business Studies</span>
+                            <span class="subject-tag">Economics</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="qualification-badge">B.Com Business</span>
+                            <span class="qualification-badge">PGDE</span>
+                        </div>
+                        <p class="text-muted">6 years teaching business studies with practical entrepreneurship focus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty Statistics -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <h6 class="mt-3">Faculty Members</h6>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-item">
+                    <div class="stat-number">15:1</div>
+                    <h6 class="mt-3">Student-Teacher Ratio</h6>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <h6 class="mt-3">Qualified Teachers</h6>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <h6 class="mt-3">Years Average Experience</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Support Staff -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-6 fw-bold mb-4">Support Staff</h2>
+                <p class="lead text-muted">Our dedicated support team ensures smooth school operations</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="department-icon mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <h6 class="fw-bold">School Nurse</h6>
+                    <p class="text-muted">Health & Medical Care</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="department-icon mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h6 class="fw-bold">Librarian</h6>
+                    <p class="text-muted">Library Services</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="department-icon mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h6 class="fw-bold">ICT Coordinator</h6>
+                    <p class="text-muted">Technology Support</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="department-icon mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.8rem;">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h6 class="fw-bold">Accounts Officer</h6>
+                    <p class="text-muted">Financial Management</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Development -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="display-6 fw-bold mb-4">Professional Development</h2>
+                <p class="lead text-muted mb-4">We invest in our faculty's continuous growth and development</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <strong>Regular Training:</strong> Monthly professional development workshops
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <strong>Conferences:</strong> Annual educational conferences and seminars
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <strong>Certifications:</strong> Support for additional qualifications
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-3"></i>
+                        <strong>Mentorship:</strong> Peer mentoring and collaboration programs
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="bg-light p-4 rounded">
+                    <h5 class="fw-bold mb-3">Recent Training Programs:</h5>
+                    <div class="timeline">
+                        <div class="mb-3">
+                            <h6 class="mb-1">Digital Teaching Methods</h6>
+                            <small class="text-muted">September 2025 - ICT Integration in Teaching</small>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="mb-1">Student Assessment Techniques</h6>
+                            <small class="text-muted">August 2025 - Modern Evaluation Methods</small>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="mb-1">Counseling & Guidance</h6>
+                            <small class="text-muted">July 2025 - Student Welfare & Support</small>
+                        </div>
+                        <div class="mb-3">
+                            <h6 class="mb-1">Curriculum Development</h6>
+                            <small class="text-muted">June 2025 - CBC Implementation</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

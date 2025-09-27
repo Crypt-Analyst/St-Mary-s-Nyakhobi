@@ -124,3 +124,23 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 # Email settings (for contact forms)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Development only
+
+# Production Email Settings (uncomment when ready for production)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'info@stmarysnyakhobi.ac.ke'  # School email
+# EMAIL_HOST_PASSWORD = 'your-email-password'  # Use environment variable in production
+# DEFAULT_FROM_EMAIL = 'St. Mary\'s Nyakhobi Senior School <info@stmarysnyakhobi.ac.ke>'
+
+# Contact form settings
+ADMINS = [
+    ('Principal', 'principal@stmarysnyakhobi.ac.ke'),
+    ('Admin Office', 'admin@stmarysnyakhobi.ac.ke'),
+]
+
+# Email configuration for different purposes
+CONTACT_EMAIL = 'info@stmarysnyakhobi.ac.ke'
+ADMISSIONS_EMAIL = 'admissions@stmarysnyakhobi.ac.ke' 
+PRINCIPAL_EMAIL = 'principal@stmarysnyakhobi.ac.ke'
