@@ -57,10 +57,12 @@
                             School Life
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'events:events' %}">Events</a></li>
-                            <li><a class="dropdown-item" href="{% url 'events:news' %}">News</a></li>
-                            <li><a class="dropdown-item" href="{% url 'events:gallery' %}">Gallery</a></li>
+                            <li><a class="dropdown-item" href="{% url 'events:events' %}">Events Calendar</a></li>
+                            <li><a class="dropdown-item" href="{% url 'events:news' %}">School News</a></li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'gallery:gallery_home' %}">📸 Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
