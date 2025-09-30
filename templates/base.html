@@ -58,11 +58,13 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'events:events' %}">Events Calendar</a></li>
-                            <li><a class="dropdown-item" href="{% url 'events:news' %}">School News</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news:news_home' %}">📰 News & Updates</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'gallery:gallery_home' %}">📸 Gallery</a>
+                        <a class="nav-link btn btn-maroon text-white px-3 py-2 rounded ms-2" href="{% url 'portal:login' %}">
+                            🎓 Student Portal
+                        </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'contact:contact' %}">Contact</a>
@@ -108,7 +110,6 @@
                     <ul class="list-unstyled">
                         <li><a href="{% url 'events:events' %}" class="text-light">Events</a></li>
                         <li><a href="{% url 'events:news' %}" class="text-light">News</a></li>
-                        <li><a href="{% url 'events:gallery' %}" class="text-light">Gallery</a></li>
                         <li><a href="{% url 'contact:contact' %}" class="text-light">Contact</a></li>
                     </ul>
                 </div>
@@ -116,8 +117,9 @@
                 <div class="col-lg-4 mb-4">
                     <h6>Contact Information</h6>
                     <p><i class="fas fa-map-marker-alt me-2"></i>Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County</p>
-                    <p><i class="fas fa-phone me-2"></i>+254 722 231798 / +254 723 273109</p>
-                    <p><i class="fas fa-envelope me-2"></i>nyakhobisecondaryschool@gmail.com</p>
+                    <p><i class="fas fa-phone me-2"></i>+254 719 831 346</p>
+                    <p><i class="fas fa-envelope me-2"></i>nyakhobisecsch@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt me-2"></i>P.O. Box 254-50406, Funyula</p>
                 </div>
             </div>
             

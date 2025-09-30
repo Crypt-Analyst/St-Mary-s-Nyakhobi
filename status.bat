@@ -14,7 +14,7 @@ echo [❌] Python not installed (required to run)
 echo.
 echo SCHOOL DETAILS CONFIGURED:
 echo • Name: St. Mary's Nyakhobi Senior School
-echo • Principal: Longinus Okuku Wewa
+echo • Principal: Mr. Dan F. Olopi
 echo • Location: Funyula, Busia County, Kenya
 echo • Phone: +254 722 231798 / +254 723 273109
 echo • Email: nyakhobisecondaryschool@gmail.com

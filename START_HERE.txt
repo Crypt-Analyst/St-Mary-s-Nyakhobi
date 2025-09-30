@@ -46,7 +46,7 @@
    
    ✅ School Information Already Configured:
    • School: St. Mary's Nyakhobi Senior School
-   • Principal: Longinus Okuku Wewa
+   • Principal: Mr. Dan F. Olopi
    • Location: Funyula, Busia County, Kenya
    • Phone: +254 722 231798 / +254 723 273109
    • Email: nyakhobisecondaryschool@gmail.com
@@ -90,5 +90,5 @@
 
 Built for St. Mary's Nyakhobi Senior School
 🔴 Maroon & ⚪ White Theme Applied
-Principal: Longinus Okuku Wewa
+Principal: Mr. Dan F. Olopi
 Funyula, Busia County, Kenya

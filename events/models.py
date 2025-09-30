@@ -49,17 +49,3 @@ class News(models.Model):
         verbose_name_plural = "News"
         ordering = ['-created_at']
 
-class Gallery(models.Model):
-    """Photo gallery"""
-    title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    image = models.ImageField(upload_to='gallery/')
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, null=True, blank=True)
-    uploaded_at = models.DateTimeField(auto_now_add=True)
-    
-    def __str__(self):
-        return self.title
-    
-    class Meta:
-        verbose_name_plural = "Galleries"
-        ordering = ['-uploaded_at']

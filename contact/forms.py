@@ -87,7 +87,7 @@ Thank you for contacting St. Mary's Nyakhobi Senior School. We have received you
 Your message:
 {self.cleaned_data['message']}
 
-If you need immediate assistance, please call us at +254 712 345 678.
+If you need immediate assistance, please call us at 0719 831 346.
 
 Best regards,
 St. Mary's Nyakhobi Senior School

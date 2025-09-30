@@ -21,27 +21,67 @@
                 {% if school_info.welcome_message %}
                 <p class="lead">{{ school_info.welcome_message }}</p>
                 {% else %}
-                <p class="lead">St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is a Sub-County public mixed day school located in Samia, Funyula, Busia County. We serve learners from the surrounding community with a focus on holistic education — academic, co-curricular, and life skills development.</p>
-                <p>Our school has been a cornerstone of education in the Funyula area for over four decades, building strong partnerships with community groups and NGOs to support student welfare and facilities improvement.</p>
+                <p class="lead">St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is located in Nyakhobi Sub-location, Namboboto Location, Samia Sub-County, Busia County, Kenya. The school is sponsored by ACK Church Nambale Diocese.</p>
+                
+                <h4 class="mt-4 mb-3">School History</h4>
+                <p>The school was started in 1983 with 6 students through the efforts of Nyakhobi Community operating at home and in towns, particularly in Nairobi. They came together as Nyakhobi Building Committee and raised funds on monthly basis to build the first tuition block (4 classrooms). It was registered in 1987 by the Ministry of Education.</p>
+                
+                <p>The school grew up from Nyakhobi Primary School where it shared the land until September 6, 2017 when it got the title deed (2.221A). Starting from 2026, the school will be known as St. Mary's Nyakhobi Senior School.</p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <h5>School Identity</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>Motto:</strong> Sacrifice for success</li>
+                            <li><strong>Vision:</strong> To be an institution of excellence in pursuit of quality and holistic education</li>
+                            <li><strong>Mission:</strong> To consistently provide quality secondary education</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Contact Information</h5>
+                        <ul class="list-unstyled">
+                            <li><strong>P.O. Box:</strong> 254-50406 Funyula</li>
+                            <li><strong>Phone:</strong> 0719 831 346</li>
+                            <li><strong>Email:</strong> nyakhobisecsch@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
                 {% endif %}
                 
                 <h3 class="mt-5 mb-3">Principal's Welcome</h3>
                     <div class="p-4 rounded" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border-left: 4px solid #800000;">
-                    <p class="mb-2"><em>"Welcome to St. Mary's Nyakhobi Senior School. I am <strong>Longinus Okuku Wewa</strong> and together with our dedicated staff we strive to provide a safe and supportive learning environment that prepares students for national exams and life beyond school."</em></p>
-                    <small class="text-muted">- Principal, St. Mary's Nyakhobi Senior School</small>
+                    <p class="mb-2"><em>"Welcome to St. Mary's Nyakhobi Senior School. I am <strong>Mr. Dan F. Olopi</strong> and together with our dedicated staff we strive to provide a safe and supportive learning environment that prepares students for national exams and life beyond school. Our mission is to consistently provide quality secondary education."</em></p>
+                    <small class="text-muted">- Mr. Dan F. Olopi, Principal, St. Mary's Nyakhobi Senior School (2023 - Present)</small>
                 </div>                <h3 class="mt-5 mb-3">Our Mission</h3>
-                {% if school_info.mission_statement %}
-                <p>{{ school_info.mission_statement }}</p>
-                {% else %}
-                <p>To provide quality, holistic education that develops academic excellence, discipline, character, and life skills in our students, preparing them to be responsible leaders and productive citizens in their communities and beyond.</p>
-                {% endif %}
+                <p>To consistently provide quality secondary education.</p>
                 
                 <h3 class="mt-4 mb-3">Our Vision</h3>
-                {% if school_info.vision_statement %}
-                <p>{{ school_info.vision_statement }}</p>
-                {% else %}
-                <p>To be a leading educational institution in Busia County that builds leaders for tomorrow through academic excellence, community service, and character development.</p>
-                {% endif %}
+                <p>To be an institution of excellence in pursuit of quality and holistic education.</p>
+                
+                <h3 class="mt-4 mb-3">Leadership History</h3>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="text-primary">Acting Head Teachers (Before Registration)</h6>
+                        <ul class="small">
+                            <li>Miss Joy Wandera</li>
+                            <li>Miss Constance Wandera</li>
+                            <li>Miss Rose Ogara</li>
+                            <li>Mr. Isaiah Wabwire</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="text-primary">TSC Appointed Head Teachers (Since Registration)</h6>
+                        <ul class="small">
+                            <li>The late Gideon Ndeda: 1985-1992</li>
+                            <li>The Late Samson Wechuli: 1992-1994</li>
+                            <li>The late Dismas Oola: 1994-2005</li>
+                            <li>Mr. Andrew Onjoro: 2005-2018</li>
+                            <li>Mr. Longinus Wewa: 2018-2022</li>
+                            <li>Ms. Rosemary Apondi (Ag): 2022-2023</li>
+                            <li>Mr. Dan F. Olopi: 2023 - Present</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             
             <div class="col-lg-4">
@@ -51,17 +91,15 @@
                     </div>
                     <div class="card-body">
                         <ul class="list-unstyled">
-                            {% if school_info.established_year %}
-                            <li><strong>Established:</strong> {{ school_info.established_year }}</li>
-                            {% else %}
-                            <li><strong>Established:</strong> 1980</li>
-                            {% endif %}
+                            <li><strong>Started:</strong> 1983 (6 students)</li>
+                            <li><strong>Registered:</strong> 1987</li>
+                            <li><strong>Title Deed:</strong> Sept 6, 2017 (2.221A)</li>
                             <li><strong>School Type:</strong> Mixed Day, Sub-County</li>
                             <li><strong>Students:</strong> 800+</li>
                             <li><strong>Faculty:</strong> 35+</li>
                             <li><strong>Grade Levels:</strong> Form 1-4</li>
                             <li><strong>Location:</strong> Funyula, Busia County</li>
-                            <li><strong>Principal:</strong> Longinus Okuku Wewa</li>
+                            <li><strong>Principal:</strong> Mr. Dan F. Olopi</li>
                         </ul>
                     </div>
                 </div>
@@ -69,15 +107,290 @@
                 <div class="contact-info mt-4">
                     <h5>Contact Information</h5>
                     {% if school_info %}
-                    <p><i class="fas fa-phone"></i> {{ school_info.phone|default:"+254 722 231798" }}</p>
-                    <p><i class="fas fa-envelope"></i> {{ school_info.email|default:"nyakhobisecondaryschool@gmail.com" }}</p>
+                    <p><i class="fas fa-phone"></i> {{ school_info.phone|default:"0719 831 346" }}</p>
+                    <p><i class="fas fa-envelope"></i> {{ school_info.email|default:"nyakhobisecsch@gmail.com" }}</p>
                     <p><i class="fas fa-map-marker-alt"></i> {{ school_info.address|default:"Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County" }}</p>
                     {% else %}
-                    <p><i class="fas fa-phone"></i> +254 722 231798 / +254 723 273109</p>
-                    <p><i class="fas fa-envelope"></i> nyakhobisecondaryschool@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0719 831 346</p>
+                    <p><i class="fas fa-envelope"></i> nyakhobisecsch@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County</p>
                     <p><i class="fas fa-facebook"></i> <a href="https://facebook.com/NyakhobiSecondarySchool" target="_blank">Follow us on Facebook</a></p>
                     {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- School Facilities Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary-custom">School Facilities & Infrastructure</h2>
+            <p class="lead">Modern facilities to support quality education</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
+                    <h5>Classrooms</h5>
+                    <p>Well-ventilated classrooms equipped with modern teaching aids, starting from the original 4-classroom block built in 1983.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-flask fa-3x text-primary mb-3"></i>
+                    <h5>Science Laboratories</h5>
+                    <p>Fully equipped Biology, Chemistry, and Physics laboratories for hands-on scientific learning and practical examinations.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-book fa-3x text-primary mb-3"></i>
+                    <h5>Library</h5>
+                    <p>Well-stocked library with textbooks, reference materials, and reading resources to support academic excellence.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-laptop fa-3x text-primary mb-3"></i>
+                    <h5>Computer Lab</h5>
+                    <p>Modern computer laboratory with internet connectivity to prepare students for the digital age.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+                    <h5>Dining Hall</h5>
+                    <p>Spacious dining facility providing nutritious meals to support student health and academic performance.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-running fa-3x text-primary mb-3"></i>
+                    <h5>Sports Facilities</h5>
+                    <p>Playing fields and sports equipment for football, volleyball, athletics, and other co-curricular activities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Academic Excellence Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="text-primary-custom mb-4">Academic Excellence & Programs</h2>
+                
+                <div class="academic-highlight mb-4">
+                    <h5><i class="fas fa-graduation-cap text-primary me-2"></i>8-4-4 Curriculum</h5>
+                    <p>Following the Kenyan national curriculum with comprehensive subject offerings in Sciences, Mathematics, Languages, and Humanities.</p>
+                </div>
+                
+                <div class="academic-highlight mb-4">
+                    <h5><i class="fas fa-trophy text-warning me-2"></i>KCSE Performance</h5>
+                    <p>Consistent improvement in Kenya Certificate of Secondary Education examinations with students qualifying for universities and tertiary institutions.</p>
+                </div>
+                
+                <div class="academic-highlight mb-4">
+                    <h5><i class="fas fa-users text-success me-2"></i>Co-curricular Activities</h5>
+                    <p>Active participation in music festivals, drama competitions, science fairs, and sports tournaments at county and regional levels.</p>
+                </div>
+                
+                <div class="academic-highlight mb-4">
+                    <h5><i class="fas fa-hands-helping text-info me-2"></i>Community Service</h5>
+                    <p>Strong emphasis on community engagement and service learning, building character and social responsibility.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="achievement-stats">
+                    <div class="row text-center">
+                        <div class="col-6 mb-4">
+                            <div class="stat-box p-4 bg-primary text-white rounded">
+                                <h3 class="display-4 mb-2">40+</h3>
+                                <p class="mb-0">Years of Excellence</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-box p-4 bg-success text-white rounded">
+                                <h3 class="display-4 mb-2">800+</h3>
+                                <p class="mb-0">Current Students</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-box p-4 bg-warning text-white rounded">
+                                <h3 class="display-4 mb-2">35+</h3>
+                                <p class="mb-0">Teaching Staff</p>
+                            </div>
+                        </div>
+                        <div class="col-6 mb-4">
+                            <div class="stat-box p-4 bg-info text-white rounded">
+                                <h3 class="display-4 mb-2">2.2</h3>
+                                <p class="mb-0">Acres of Land</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Future Vision Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary-custom">Looking Forward: Our 2026 Transition</h2>
+            <p class="lead">Evolving from Nyakhobi Secondary School to St. Mary's Nyakhobi Senior School</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="timeline-box p-4 bg-white rounded shadow">
+                    <h4 class="text-center mb-4">Transformation Timeline</h4>
+                    
+                    <div class="timeline-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <div class="timeline-date bg-primary text-white p-2 rounded">
+                                    <strong>1983 - 1987</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h6>Foundation Era</h6>
+                                <p class="mb-0">Started with 6 students, community-driven initiative, built first classroom block.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <div class="timeline-date bg-success text-white p-2 rounded">
+                                    <strong>1987 - 2017</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h6>Growth Period</h6>
+                                <p class="mb-0">Official registration, shared land with primary school, continuous development.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item mb-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <div class="timeline-date bg-warning text-white p-2 rounded">
+                                    <strong>2017 - 2025</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h6>Independence Era</h6>
+                                <p class="mb-0">Received title deed (2.221A), established independent campus, modern facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center">
+                                <div class="timeline-date bg-danger text-white p-2 rounded">
+                                    <strong>2026+</strong>
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h6>New Identity</h6>
+                                <p class="mb-0">Official transition to St. Mary's Nyakhobi Senior School, enhanced programs, modern education.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="text-primary-custom">Why Choose St. Mary's Nyakhobi?</h2>
+            <p class="lead">Discover what makes our school special</p>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="why-choose-item d-flex">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-church text-primary fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5>Christian Foundation</h5>
+                        <p>Sponsored by ACK Church Nambale Diocese, we integrate Christian values with quality education, building character alongside academic excellence.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="why-choose-item d-flex">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-history text-primary fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5>Rich Heritage</h5>
+                        <p>Over 40 years of educational excellence, from humble beginnings with 6 students to a thriving institution serving the Funyula community.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="why-choose-item d-flex">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-users-cog text-primary fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5>Experienced Leadership</h5>
+                        <p>Led by Mr. Dan F. Olopi and a dedicated team of 35+ qualified teachers committed to student success and holistic development.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="why-choose-item d-flex">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-certificate text-primary fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5>Quality Education</h5>
+                        <p>Comprehensive 8-4-4 curriculum with modern facilities, science labs, computer lab, and library resources for optimal learning.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="why-choose-item d-flex">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-home text-primary fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5>Community Centered</h5>
+                        <p>Strong community roots in Nyakhobi Sub-location, serving local families with accessible, quality education in a familiar environment.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="why-choose-item d-flex">
+                    <div class="icon-box me-3">
+                        <i class="fas fa-rocket text-primary fa-2x"></i>
+                    </div>
+                    <div>
+                        <h5>Future Ready</h5>
+                        <p>Transitioning to St. Mary's Nyakhobi Senior School in 2026, embracing innovation while maintaining our core values and commitment to excellence.</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Event, News, Gallery
+from .models import Event, News
 
 def events_list(request):
     """Display all events"""
@@ -37,11 +37,3 @@ def news_detail(request, news_id):
     }
     return render(request, 'events/news_detail.html', context)
 
-def gallery(request):
-    """Display photo gallery"""
-    gallery_items = Gallery.objects.all().order_by('-uploaded_at')
-    
-    context = {
-        'gallery_items': gallery_items,
-    }
-    return render(request, 'events/gallery.html', context)

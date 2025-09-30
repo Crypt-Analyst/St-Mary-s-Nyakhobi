@@ -186,8 +186,8 @@ We welcome contributions from developers, educators, and community members who w
 ## 📞 Contact & Support
 
 ### School Administration
-- **Principal**: [Principal Name]
-- **Phone**: +254 XXX XXX XXX
+- **Principal**: Mr. Dan F. Olopi
+- **Phone**: 0719 831 346
 - **Email**: admin@stmarysnyakhobi.ac.ke
 - **Address**: Funyula, Busia County, Kenya
 

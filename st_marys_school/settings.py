@@ -36,8 +36,8 @@ INSTALLED_APPS = [
     'faculty',
     'events',
     'contact',
-    'gallery',
     'news',
+    'portal',
 ]
 
 MIDDLEWARE = [
@@ -71,20 +71,28 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'st_marys_school.wsgi.application'
 
-# Database - Supabase PostgreSQL
+# Database - Temporarily using SQLite for development
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'postgres.gctpjhhxnfbqlydnpfwu',
-        'PASSWORD': 'F2QLPdltqZJ4n8vI',
-        'HOST': 'aws-1-eu-north-1.pooler.supabase.com',
-        'PORT': '5432',
-        'OPTIONS': {
-            'sslmode': 'require',
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Uncomment below to use Supabase PostgreSQL when connection issues are resolved
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'postgres.gctpjhhxnfbqlydnpfwu',
+#         'PASSWORD': 'F2QLPdltqZJ4n8vI',
+#         'HOST': 'aws-1-eu-north-1.pooler.supabase.com',
+#         'PORT': '5432',
+#         'OPTIONS': {
+#             'sslmode': 'require',
+#         },
+#     }
+# }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -138,11 +146,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Development 
 
 # Contact form settings
 ADMINS = [
-    ('Principal', 'principal@stmarysnyakhobi.ac.ke'),
-    ('Admin Office', 'admin@stmarysnyakhobi.ac.ke'),
+    ('Principal', 'nyakhobisecsch@gmail.com'),
+    ('Admin Office', 'nyakhobisecsch@gmail.com'),
 ]
 
 # Email configuration for different purposes
-CONTACT_EMAIL = 'info@stmarysnyakhobi.ac.ke'
-ADMISSIONS_EMAIL = 'admissions@stmarysnyakhobi.ac.ke' 
-PRINCIPAL_EMAIL = 'principal@stmarysnyakhobi.ac.ke'
+CONTACT_EMAIL = 'nyakhobisecsch@gmail.com'
+ADMISSIONS_EMAIL = 'nyakhobisecsch@gmail.com' 
+PRINCIPAL_EMAIL = 'nyakhobisecsch@gmail.com'

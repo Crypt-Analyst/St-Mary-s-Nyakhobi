@@ -1,0 +1,366 @@
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}Student Dashboard - St. Mary's Nyakhobi School Portal{% endblock %}
+
+{% block breadcrumb %}
+<nav aria-label="breadcrumb" class="mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active">
+            <i class="bi bi-house-door me-1"></i>Dashboard
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Welcome Section -->
+    <div class="col-12">
+        <div class="card border-0 bg-gradient-maroon text-white mb-4">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2 class="card-title mb-2">
+                            <i class="bi bi-person-badge me-2"></i>
+                            Welcome back, {{ student.full_name }}!
+                        </h2>
+                        <p class="card-text mb-0">
+                            <strong>Admission Number:</strong> {{ student.admission_number }} |
+                            <strong>Class:</strong> {{ student.current_class.display_name|default:"Not Assigned" }} |
+                            <strong>Term:</strong> {{ current_term.name|default:"No Active Term" }}
+                        </p>
+                    </div>
+                    <div class="col-md-4 text-md-end">
+                        {% if student.profile.profile_picture %}
+                            <img src="{{ student.profile.profile_picture.url }}" alt="Profile" 
+                                 class="rounded-circle border border-white border-3" width="80" height="80">
+                        {% else %}
+                            <div class="bg-white bg-opacity-25 rounded-circle d-inline-flex align-items-center justify-content-center" 
+                                 style="width: 80px; height: 80px;">
+                                <i class="bi bi-person-fill text-white" style="font-size: 2rem;"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Quick Stats -->
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="text-primary mb-2">
+                    <i class="bi bi-journal-text" style="font-size: 2rem;"></i>
+                </div>
+                <h5 class="card-title">{{ recent_assignments.count }}</h5>
+                <p class="card-text text-muted">Recent Assignments</p>
+                <a href="{% url 'portal:student_assignments' %}" class="btn btn-outline-primary btn-sm">
+                    View All
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="text-success mb-2">
+                    <i class="bi bi-bar-chart-fill" style="font-size: 2rem;"></i>
+                </div>
+                <h5 class="card-title">{{ recent_grades.count }}</h5>
+                <p class="card-text text-muted">Recent Grades</p>
+                <a href="{% url 'portal:student_grades' %}" class="btn btn-outline-success btn-sm">
+                    View Grades
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="text-info mb-2">
+                    <i class="bi bi-calendar-check-fill" style="font-size: 2rem;"></i>
+                </div>
+                <h5 class="card-title">
+                    {{ attendance_summary.present|default:0 }}
+                </h5>
+                <p class="card-text text-muted">Days Present</p>
+                <a href="{% url 'portal:student_attendance' %}" class="btn btn-outline-info btn-sm">
+                    View Attendance
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body text-center">
+                <div class="text-warning mb-2">
+                    <i class="bi bi-envelope-fill" style="font-size: 2rem;"></i>
+                </div>
+                <h5 class="card-title">{{ unread_messages }}</h5>
+                <p class="card-text text-muted">Unread Messages</p>
+                <a href="{% url 'portal:messages_inbox' %}" class="btn btn-outline-warning btn-sm">
+                    View Messages
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Recent Assignments -->
+    <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-transparent border-0 d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-journal-text me-2 text-primary"></i>
+                    Recent Assignments
+                </h5>
+                <a href="{% url 'portal:student_assignments' %}" class="btn btn-outline-primary btn-sm">
+                    View All
+                </a>
+            </div>
+            <div class="card-body">
+                {% if recent_assignments %}
+                    <div class="list-group list-group-flush">
+                        {% for assignment in recent_assignments %}
+                            <div class="list-group-item border-0 px-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1">
+                                            <a href="{% url 'portal:assignment_detail' assignment.id %}" 
+                                               class="text-decoration-none">
+                                                {{ assignment.title }}
+                                            </a>
+                                        </h6>
+                                        <p class="mb-1 text-muted small">
+                                            {{ assignment.subject.name }} | {{ assignment.get_assignment_type_display }}
+                                        </p>
+                                        <small class="text-muted">
+                                            <i class="bi bi-clock me-1"></i>
+                                            Due: {{ assignment.due_date|date:"M d, Y g:i A" }}
+                                        </small>
+                                    </div>
+                                    <div class="text-end">
+                                        {% if assignment.due_date < now %}
+                                            <span class="badge bg-danger">Overdue</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Active</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-journal-x" style="font-size: 2rem;"></i>
+                        <p class="mt-2">No recent assignments found</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Recent Grades -->
+    <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-header bg-transparent border-0 d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-bar-chart me-2 text-success"></i>
+                    Recent Grades
+                </h5>
+                <a href="{% url 'portal:student_grades' %}" class="btn btn-outline-success btn-sm">
+                    View All
+                </a>
+            </div>
+            <div class="card-body">
+                {% if recent_grades %}
+                    <div class="list-group list-group-flush">
+                        {% for grade in recent_grades %}
+                            <div class="list-group-item border-0 px-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1">{{ grade.subject.name }}</h6>
+                                        <p class="mb-1 text-muted small">
+                                            {{ grade.title }} | {{ grade.get_grade_type_display }}
+                                        </p>
+                                        <small class="text-muted">
+                                            {{ grade.date_recorded|date:"M d, Y" }}
+                                        </small>
+                                    </div>
+                                    <div class="text-end">
+                                        <h5 class="mb-0">
+                                            <span class="badge 
+                                                {% if grade.percentage_score >= 80 %}bg-success
+                                                {% elif grade.percentage_score >= 70 %}bg-info
+                                                {% elif grade.percentage_score >= 60 %}bg-warning
+                                                {% else %}bg-danger{% endif %}">
+                                                {{ grade.marks_obtained }}/{{ grade.max_marks }}
+                                            </span>
+                                        </h5>
+                                        <small class="text-muted">{{ grade.percentage_score }}%</small>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-bar-chart-fill" style="font-size: 2rem;"></i>
+                        <p class="mt-2">No recent grades available</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Attendance Summary -->
+    <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-calendar-check me-2 text-info"></i>
+                    Attendance Summary (This Term)
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if attendance_summary %}
+                    <div class="row text-center">
+                        <div class="col-6 col-lg-3 mb-3">
+                            <div class="text-success">
+                                <i class="bi bi-check-circle-fill" style="font-size: 1.5rem;"></i>
+                                <h6 class="mt-1 mb-0">{{ attendance_summary.present|default:0 }}</h6>
+                                <small class="text-muted">Present</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-3">
+                            <div class="text-danger">
+                                <i class="bi bi-x-circle-fill" style="font-size: 1.5rem;"></i>
+                                <h6 class="mt-1 mb-0">{{ attendance_summary.absent|default:0 }}</h6>
+                                <small class="text-muted">Absent</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-3">
+                            <div class="text-warning">
+                                <i class="bi bi-clock-fill" style="font-size: 1.5rem;"></i>
+                                <h6 class="mt-1 mb-0">{{ attendance_summary.late|default:0 }}</h6>
+                                <small class="text-muted">Late</small>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3 mb-3">
+                            <div class="text-info">
+                                <i class="bi bi-check-circle" style="font-size: 1.5rem;"></i>
+                                <h6 class="mt-1 mb-0">{{ attendance_summary.excused|default:0 }}</h6>
+                                <small class="text-muted">Excused</small>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="text-center text-muted py-4">
+                        <i class="bi bi-calendar-x" style="font-size: 2rem;"></i>
+                        <p class="mt-2">No attendance data available</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Actions -->
+    <div class="col-lg-6 mb-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-lightning-charge me-2 text-warning"></i>
+                    Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{% url 'portal:student_assignments' %}?status=pending" class="btn btn-outline-primary">
+                        <i class="bi bi-journal-plus me-2"></i>
+                        View Pending Assignments
+                    </a>
+                    
+                    {% if current_term %}
+                        <a href="{% url 'portal:progress_report' current_term.id %}" class="btn btn-outline-success">
+                            <i class="bi bi-file-earmark-text me-2"></i>
+                            View Progress Report
+                        </a>
+                    {% endif %}
+                    
+                    <a href="{% url 'portal:compose_message' %}" class="btn btn-outline-info">
+                        <i class="bi bi-envelope-plus me-2"></i>
+                        Send Message to Teacher
+                    </a>
+                    
+                    <a href="{% url 'portal:student_profile' %}" class="btn btn-outline-secondary">
+                        <i class="bi bi-person-gear me-2"></i>
+                        Update Profile
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Academic Calendar -->
+{% if current_term %}
+<div class="row">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-transparent border-0">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-calendar-event me-2 text-primary"></i>
+                    Current Term Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h6 class="text-muted">Term</h6>
+                        <p class="fw-bold">{{ current_term.name }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-muted">Start Date</h6>
+                        <p>{{ current_term.start_date|date:"F d, Y" }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h6 class="text-muted">End Date</h6>
+                        <p>{{ current_term.end_date|date:"F d, Y" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Load unread messages count
+    document.addEventListener('DOMContentLoaded', function() {
+        // This would typically be loaded via AJAX
+        // For now, we'll use the server-rendered count
+        const unreadCount = {{ unread_messages|default:0 }};
+        const badge = document.getElementById('unread-count');
+        if (badge) {
+            if (unreadCount > 0) {
+                badge.textContent = unreadCount;
+                badge.style.display = 'inline';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+    });
+</script>
+{% endblock %}

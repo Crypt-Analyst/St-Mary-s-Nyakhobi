@@ -6,17 +6,15 @@ def faculty_list(request):
     departments = Department.objects.all()
     faculty_members = Faculty.objects.filter(is_active=True)
     
-    # Group faculty by position
-    principals = faculty_members.filter(position='principal')
-    vice_principals = faculty_members.filter(position='vice_principal')
+    # Group faculty by position for leadership (principal and vice principals)
+    leadership = faculty_members.filter(position__in=['principal', 'vice_principal'])
     teachers = faculty_members.filter(position='teacher')
     admin_staff = faculty_members.filter(position='admin_staff')
     support_staff = faculty_members.filter(position='support_staff')
     
     context = {
         'departments': departments,
-        'principals': principals,
-        'vice_principals': vice_principals,
+        'leadership': leadership,
         'teachers': teachers,
         'admin_staff': admin_staff,
         'support_staff': support_staff,

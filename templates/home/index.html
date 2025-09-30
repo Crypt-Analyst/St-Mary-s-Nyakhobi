@@ -5,35 +5,35 @@
 
 {% block content %}
 <!-- Hero Section with Carousel -->
-<section class="hero-section">
+<div class="hero-section">
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            {% for image in slider_images %}
-            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="{{ forloop.counter0 }}" 
-                    {% if forloop.first %}class="active"{% endif %}></button>
-            {% endfor %}
-        </div>
-        
         <div class="carousel-inner">
-            {% for image in slider_images %}
-            <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{{ image.image.url }}" class="d-block w-100" alt="{{ image.title }}">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>{{ image.title }}</h2>
-                    <p>{{ image.description }}</p>
-                    {% if image.link_url and image.link_text %}
-                    <a href="{{ image.link_url }}" class="btn btn-primary btn-lg">{{ image.link_text }}</a>
-                    {% endif %}
-                </div>
-            </div>
-            {% empty %}
-            <!-- Default hero content if no slider images -->
+            <!-- Default hero content without images -->
             <div class="carousel-item active">
                 <div class="hero-overlay"></div>
                 <div class="hero-content">
-                    <div class="container">
-                        <h1 class="display-4 fw-bold mb-4">Welcome to St. Mary's Nyakhobi Senior School</h1>
-                        <p class="lead mb-4">Building Leaders for Tomorrow - Excellence in Education since 1980</p>
+                    <div class="container text-center">
+                        <h1 class="display-4 fw-bold mb-3">Welcome to St. Mary's Nyakhobi Senior School</h1>
+                        <p class="lead mb-2">Building Leaders for Tomorrow - Excellence in Education since 1983</p>
+                        
+                        <!-- School Motto and Vision -->
+                        <div class="hero-motto-vision mb-4">
+                            <div class="row justify-content-center">
+                                <div class="col-md-5">
+                                    <div class="motto-box p-3 mb-3 mb-md-0">
+                                        <h5 class="text-warning mb-2"><i class="fas fa-star"></i> Our Motto</h5>
+                                        <p class="mb-0 fw-bold">"Sacrifice for Success"</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="vision-box p-3">
+                                        <h5 class="text-warning mb-2"><i class="fas fa-eye"></i> Our Vision</h5>
+                                        <p class="mb-0">"To be an institution of excellence in pursuit of quality and holistic education"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div>
                             <a href="{% url 'admissions:info' %}" class="btn btn-primary btn-lg me-3">Apply Now</a>
                             <a href="{% url 'home:about' %}" class="btn btn-outline-light btn-lg">Learn More</a>
@@ -41,7 +41,6 @@
                     </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
         
         <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
@@ -147,51 +146,12 @@
     </div>
 </section>
 
-<!-- Latest News and Events -->
+<!-- Latest News -->
 <section class="py-5">
     <div class="container">
         <div class="row">
-            <!-- Latest Events -->
-            <div class="col-lg-6 mb-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-primary-custom">Upcoming Events</h3>
-                    <a href="{% url 'events:events' %}" class="btn btn-outline-primary">View All</a>
-                </div>
-                
-                {% for event in latest_events %}
-                <div class="card event-card mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="event-date">
-                                    <div class="fw-bold">{{ event.event_date|date:"d" }}</div>
-                                    <div>{{ event.event_date|date:"M" }}</div>
-                                </div>
-                            </div>
-                            <div class="col-9">
-                                <h6 class="card-title">{{ event.title }}</h6>
-                                <p class="card-text small text-muted">{{ event.description|truncatewords:15 }}</p>
-                                {% if event.location %}
-                                <small class="text-muted">
-                                    <i class="fas fa-map-marker-alt"></i> {{ event.location }}
-                                </small>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
-                <div class="card">
-                    <div class="card-body text-center text-muted">
-                        <i class="fas fa-calendar-alt fa-3x mb-3"></i>
-                        <p>No upcoming events at the moment.</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            
             <!-- Latest News -->
-            <div class="col-lg-6 mb-5">
+            <div class="col-lg-8 mx-auto mb-5">
                 <div class="d-flex justify-content-between align-items-center mb-4">
                     <h3 class="text-primary-custom">Latest News</h3>
                     <a href="{% url 'events:news' %}" class="btn btn-outline-primary">View All</a>
@@ -231,8 +191,12 @@
                 <a href="{% url 'home:about' %}" class="btn btn-primary">Learn More About Us</a>
             </div>
             <div class="col-lg-6">
-                <img src="{% static 'images/school-building.jpg' %}" alt="School Building" 
-                     class="img-fluid rounded shadow">
+                <!-- School image will be updated with new photos -->
+                <div class="text-center bg-light rounded shadow p-5">
+                    <i class="fas fa-school display-1 text-primary mb-3"></i>
+                    <h3>New School Photos Coming Soon</h3>
+                    <p class="text-muted">We're updating our image gallery with fresh new photos.</p>
+                </div>
             </div>
         </div>
     </div>

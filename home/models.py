@@ -5,13 +5,13 @@ class SchoolInfo(models.Model):
     """Basic school information for the homepage"""
     name = models.CharField(max_length=200, default="St. Mary's Nyakhobi Senior School")
     tagline = models.CharField(max_length=300, default="Building Leaders for Tomorrow", help_text="Short description of the school")
-    welcome_message = models.TextField(default="St. Mary's Nyakhobi Senior School is a Sub-County public mixed day school committed to academic excellence, discipline and community service.", help_text="Welcome message for homepage")
-    mission_statement = models.TextField(default="To provide quality, holistic education that develops academic excellence, discipline, character, and life skills in our students, preparing them to be responsible leaders and productive citizens in their communities and beyond.")
-    vision_statement = models.TextField(default="To be a leading educational institution in Busia County that builds leaders for tomorrow through academic excellence, community service, and character development.")
-    established_year = models.IntegerField(default=1980)
-    phone = models.CharField(max_length=50, default="+254 722 231798 / +254 723 273109")
-    email = models.EmailField(default="nyakhobisecondaryschool@gmail.com")
-    address = models.TextField(default="Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County, Kenya")
+    welcome_message = models.TextField(default="St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is located in Nyakhobi Sub-location, Namboboto Location, Samia Sub-County, Busia County, Kenya. The school is sponsored by ACK Church Nambale Diocese and started in 1983 with 6 students.", help_text="Welcome message for homepage")
+    mission_statement = models.TextField(default="To consistently provide quality secondary education.")
+    vision_statement = models.TextField(default="To be an institution of excellence in pursuit of quality and holistic education.")
+    established_year = models.IntegerField(default=1983)
+    phone = models.CharField(max_length=50, default="+254 719 831 346")
+    email = models.EmailField(default="nyakhobisecsch@gmail.com")
+    address = models.TextField(default="P.O. Box 254-50406, Funyula, Nyakhobi Sub-location, Namboboto Location, Samia Sub-County, Busia County, Kenya")
     
     def __str__(self):
         return self.name

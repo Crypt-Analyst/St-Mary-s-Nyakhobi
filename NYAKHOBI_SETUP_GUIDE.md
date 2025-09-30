@@ -4,7 +4,7 @@
 This website was created for St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) located in Funyula, Busia County, Kenya.
 
 **School Details:**
-- **Principal:** Longinus Okuku Wewa
+- **Principal:** Mr. Dan F. Olopi
 - **Location:** Off Nambuku/Funyula Rd, Funyula
 - **Address:** P.O. Box 254, Funyula 50406, Busia County
 - **Phone:** +254 722 231798 / +254 723 273109
@@ -63,7 +63,7 @@ python manage.py runserver
 - **Mobile-Responsive** design
 
 ### 📱 **Real Content Already Added:**
-- Principal: Longinus Okuku Wewa
+- Principal: Mr. Dan F. Olopi
 - School location and contact details
 - Academic departments (Sciences, Languages, Humanities, Technical)
 - Sample news about NACADA programs

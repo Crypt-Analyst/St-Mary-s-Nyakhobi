@@ -57,7 +57,7 @@ echo 3. Visit: http://127.0.0.1:8000
 echo.
 echo SCHOOL INFORMATION CONFIGURED:
 echo - School: St. Mary's Nyakhobi Senior School
-echo - Principal: Longinus Okuku Wewa
+echo - Principal: Mr. Dan F. Olopi
 echo - Location: Funyula, Busia County
 echo - Colors: Maroon ^& White (uniform colors)
 echo.

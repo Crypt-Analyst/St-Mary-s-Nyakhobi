@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, News, Gallery
+from .models import Event, News
 
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
@@ -72,17 +72,3 @@ class NewsAdmin(admin.ModelAdmin):
         self.message_user(request, f"{queryset.count()} news articles published.")
     publish_news.short_description = "Publish selected news"
 
-@admin.register(Gallery)
-class GalleryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'event', 'uploaded_at', 'image_preview')
-    list_filter = ('uploaded_at', 'event__event_type')
-    search_fields = ('title', 'description', 'event__title')
-    date_hierarchy = 'uploaded_at'
-    ordering = ('-uploaded_at',)
-    
-    def image_preview(self, obj):
-        if obj.image:
-            return f'<img src="{obj.image.url}" width="50" height="50" style="object-fit: cover; border-radius: 4px;">'
-        return "No image"
-    image_preview.allow_tags = True
-    image_preview.short_description = 'Preview'

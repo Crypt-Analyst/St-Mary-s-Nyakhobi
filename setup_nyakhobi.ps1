@@ -52,7 +52,7 @@ if ($pythonCheck) {
 Write-Host ""
 Write-Host "=== SCHOOL INFORMATION ALREADY CONFIGURED ===" -ForegroundColor White -BackgroundColor DarkRed
 Write-Host "🏫 School: St. Mary's Nyakhobi Senior School" -ForegroundColor DarkRed
-Write-Host "👨‍💼 Principal: Longinus Okuku Wewa" -ForegroundColor DarkRed
+Write-Host "👨‍💼 Principal: Mr. Dan F. Olopi" -ForegroundColor DarkRed
 Write-Host "📍 Location: Funyula, Busia County" -ForegroundColor DarkRed
 Write-Host "📞 Phone: +254 722 231798 / +254 723 273109" -ForegroundColor DarkRed
 Write-Host "✉️ Email: nyakhobisecondaryschool@gmail.com" -ForegroundColor DarkRed
