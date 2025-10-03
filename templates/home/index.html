@@ -3,49 +3,22 @@
 
 {% block title %}Home - St. Mary's Nyakhobi Senior School{% endblock %}
 
+{% block hero %}
+<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg'); min-height: 100vh;">
+    <div class="hero-content">
+        <h1 class="hero-title">St. Mary's Nyakhobi Senior School</h1>
+        <p class="hero-subtitle">The Mission</p>
+        <p class="hero-motto">Sacrifice for Success</p>
+        <div class="mt-4">
+            <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg me-3">Join Us Today</a>
+            <a href="{% url 'academics:programs' %}" class="btn btn-outline-light btn-lg">Our Programs</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
 {% block extra_css %}
 <style>
-    .fullpage-hero {
-        height: 100vh;
-        background: url('/static/images/school-hero-bg.png') center/cover no-repeat;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        color: white;
-        overflow: hidden;
-    }
-    
-    .fullpage-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(139, 0, 0, 0.3);
-        z-index: 1;
-    }
-    
-    .hero-content {
-        text-align: center;
-        z-index: 2;
-        position: relative;
-    }
-    
-    .hero-title {
-        font-size: 4rem;
-        font-weight: 700;
-        margin-bottom: 1rem;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    }
-    
-    .hero-subtitle {
-        font-size: 1.5rem;
-        margin-bottom: 2rem;
-        opacity: 0.95;
-    }
-    
     .hero-motto {
         font-size: 1.2rem;
         font-style: italic;
@@ -297,20 +270,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- Full Page Hero Section -->
-<section class="fullpage-hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title">Welcome to St. Mary's Nyakhobi Senior School</h1>
-            <p class="hero-subtitle">Excellence in Education Since 1983</p>
-            <p class="hero-motto">"Sacrifice for Success"</p>
-            <div class="hero-cta">
-                <a href="{% url 'admissions:info' %}" class="btn btn-hero-primary me-3">Apply Now</a>
-                <a href="{% url 'home:about' %}" class="btn btn-hero-outline">Learn More</a>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Key Features Section -->
 <section class="features-section">
@@ -552,6 +511,139 @@
     </div>
 </section>
 
+<!-- Student Testimonials & School Videos -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">Student Voices & School Life</h2>
+                <p class="lead text-muted">Hear directly from our students and see life at St. Mary's Nyakhobi through our videos</p>
+            </div>
+        </div>
+
+        <!-- YouTube Videos Section -->
+        <div class="row mb-5">
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-lg h-100">
+                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <!-- Replace VIDEO_ID_1 with your actual YouTube video ID -->
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            src="https://www.youtube.com/embed/VIDEO_ID_1" 
+                            title="St. Mary's Nyakhobi School Life" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">School Life at St. Mary's</h5>
+                        <p class="card-text text-muted">Experience a day in the life of our students - from morning assembly to evening prep.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-lg h-100">
+                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                        <!-- Replace VIDEO_ID_2 with your actual YouTube video ID -->
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
+                            src="https://www.youtube.com/embed/VIDEO_ID_2" 
+                            title="Academic Excellence at St. Mary's Nyakhobi" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-success">Academic Excellence</h5>
+                        <p class="card-text text-muted">Discover our modern facilities, dedicated teachers, and exceptional academic programs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Student Testimonials -->
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h3 class="fw-bold text-primary">Student Testimonials</h3>
+                <p class="text-muted">What our students say about their experience at St. Mary's Nyakhobi</p>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex mb-3">
+                            <div class="testimonial-avatar me-3">
+                                <img src="{{ MEDIA_URL }}images/student-avatar-1.jpg" alt="Student" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" onerror="this.src='/static/images/default-avatar.png'">
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-bold">Sarah Wanjiku</h6>
+                                <small class="text-muted">Form 4 Student, 2024</small>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"St. Mary's Nyakhobi has been my home away from home for four years. The teachers are dedicated, the facilities are excellent, and I've grown both academically and personally. I'm confident about my KCSE results!"</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="d-flex mb-3">
+                            <div class="testimonial-avatar me-3">
+                                <img src="{{ MEDIA_URL }}images/student-avatar-2.jpg" alt="Student" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" onerror="this.src='/static/images/default-avatar.png'">
+                            </div>
+                            <div>
+                                <h6 class="mb-1 fw-bold">John Odhiambo</h6>
+                                <small class="text-muted">Alumni, Class of 2023</small>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <blockquote class="blockquote">
+                            <p class="mb-0">"The strong foundation I received at St. Mary's helped me secure direct admission to university. The science laboratory and library resources were exceptional. I'm proud to be an alumnus!"</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- YouTube Channel Link -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="bg-primary text-white rounded p-4">
+                    <h4 class="fw-bold mb-3">
+                        <i class="fab fa-youtube me-2"></i>
+                        Subscribe to Our YouTube Channel
+                    </h4>
+                    <p class="mb-3">Stay updated with the latest videos from St. Mary's Nyakhobi Senior School</p>
+                    <a href="https://www.youtube.com/@StMarysNyakhobi" target="_blank" class="btn btn-light btn-lg">
+                        <i class="fab fa-youtube me-2"></i>Visit Our Channel
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Latest News -->
 <section class="py-5">
     <div class="container">
@@ -586,9 +678,28 @@
     </div>
 </section>
 
+<!-- Student Life Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h2 class="text-primary-custom mb-4">Student Life</h2>
+                <h5 class="mb-3">A section of girl students after lunch</h5>
+                <p class="lead">Our students enjoy a balanced school life with proper meal times and recreational activities.</p>
+                <a href="{% url 'home:about' %}" class="btn btn-primary">Learn More About School Life</a>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center">
+                    <img src="{{ MEDIA_URL }}images/students-after-lunch.jpeg" alt="Students after lunch at St. Mary's Nyakhobi" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Welcome Message -->
 {% if school_info.welcome_message %}
-<section class="py-5 bg-light">
+<section class="py-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
@@ -597,11 +708,8 @@
                 <a href="{% url 'home:about' %}" class="btn btn-primary">Learn More About Us</a>
             </div>
             <div class="col-lg-6">
-                <!-- School image will be updated with new photos -->
-                <div class="text-center bg-light rounded shadow p-5">
-                    <i class="fas fa-school display-1 text-primary mb-3"></i>
-                    <h3>New School Photos Coming Soon</h3>
-                    <p class="text-muted">We're updating our image gallery with fresh new photos.</p>
+                <div class="text-center">
+                    <img src="{{ MEDIA_URL }}images/academic-environment-1.jpeg" alt="St. Mary's Nyakhobi Senior School" class="img-fluid rounded shadow">
                 </div>
             </div>
         </div>

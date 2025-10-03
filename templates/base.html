@@ -34,8 +34,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'home:home' %}">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home:about' %}">About</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Our School
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'home:about' %}"><i class="fas fa-school"></i> About St. Mary's</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:history' %}"><i class="fas fa-history"></i> Our History</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:mission_vision' %}"><i class="fas fa-bullseye"></i> Mission & Vision</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{% url 'home:facilities' %}"><i class="fas fa-building"></i> School Facilities</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:achievements' %}"><i class="fas fa-trophy"></i> Achievements</a></li>
+                            <li><a class="dropdown-item" href="{% url 'home:leadership' %}"><i class="fas fa-users"></i> School Leadership</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
@@ -58,12 +69,13 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{% url 'events:events' %}">Events Calendar</a></li>
-                            <li><a class="dropdown-item" href="{% url 'news:news_home' %}">📰 News & Updates</a></li>
+                            <li><a class="dropdown-item" href="{% url 'news:news_home' %}"><i class="fas fa-newspaper"></i> News & Updates</a></li>
+                            <li><a class="dropdown-item" href="{% url 'events:testimonials' %}"><i class="fas fa-video"></i> Videos & Testimonials</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-maroon text-white px-3 py-2 rounded ms-2" href="{% url 'portal:login' %}">
-                            🎓 Student Portal
+                            <i class="fas fa-user-graduate"></i> Student Portal
                         </a>
                     </li>
                     <li class="nav-item">
@@ -73,6 +85,10 @@
             </div>
         </div>
     </nav>
+
+    <!-- Page Hero Section -->
+    {% block hero %}
+    {% endblock %}
 
     <!-- Main Content -->
     <main class="main-content">

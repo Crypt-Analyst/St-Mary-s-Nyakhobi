@@ -1,188 +1,243 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - St. Mary's Nyakhobi School Portal</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
-    
-    <style>
-        :root {
-            --maroon: #8B0000;
-            --maroon-light: #A52A2A;
-        }
-        
-        body {
-            background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-light) 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-        
-        .login-container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-        
-        .school-logo {
-            width: 80px;
-            height: 80px;
-            background: var(--maroon);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        .btn-maroon {
-            background-color: var(--maroon);
-            border-color: var(--maroon);
-            color: white;
-        }
-        
-        .btn-maroon:hover {
-            background-color: var(--maroon-light);
-            border-color: var(--maroon-light);
-            color: white;
-        }
-        
+{% extends 'base.html' %}{% extends 'base.html' %}
+
+{% load static %}{% load static %}
+
+
+
+{% block title %}Student Portal - St. Mary's Nyakhobi Senior School{% endblock %}{% block title %}Student Portal - St. Mary's Nyakhobi Senior School{% endblock %}
+
+
+
+{% block hero %}{% block hero %}
+
+<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg'); min-height: 60vh;"><section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg'); min-height: 60vh;">
+
+    <div class="hero-content">    <div class="hero-content">
+
+        <h1 class="hero-title"><i class="fas fa-user-graduate"></i> Student Portal</h1>        <h1 class="hero-title"><i class="fas fa-user-graduate"></i> Student Portal</h1>
+
+        <p class="hero-subtitle">Coming Soon</p>        <p class="hero-subtitle">Coming Soon</p>
+
+    </div>    </div>
+
+</section></section>
+
+{% endblock %}{% endblock %}
+
+
+
+{% block extra_css %}{% block extra_css %}
+
+<style><style>
+
+    .coming-soon-container {        .coming-soon-container {
+
+        background: rgba(255, 255, 255, 0.95);            background: rgba(255, 255, 255, 0.95);
+
+        border-radius: 20px;            border-radius: 20px;
+
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+        backdrop-filter: blur(10px);            backdrop-filter: blur(10px);
+
+    }        }
+
+            
+
+    .school-logo {        .school-logo {
+
+        width: 80px;            width: 80px;
+
+        height: 80px;            height: 80px;
+
+        background: var(--primary-color);            background: var(--maroon);
+
+        border-radius: 50%;            border-radius: 50%;
+
+        display: flex;            display: flex;
+
+        align-items: center;            align-items: center;
+
+        justify-content: center;            justify-content: center;
+
+        margin: 0 auto 20px;            margin: 0 auto 20px;
+
+        color: white;            color: white;
+
+        font-size: 2rem;            font-size: 2rem;
+
+    }        }
+
+            
+
+    .feature-card {        .btn-maroon {
+
+        border: 2px solid #f8f9fa;            background-color: var(--maroon);
+
+        border-radius: 10px;            border-color: var(--maroon);
+
+        transition: all 0.3s ease;            color: white;
+
+    }        }
+
+            
+
+    .feature-card:hover {        .btn-maroon:hover {
+
+        border-color: var(--primary-color);            background-color: var(--maroon-light);
+
+        transform: translateY(-2px);            border-color: var(--maroon-light);
+
+    }            color: white;
+
+</style>        }
+
+{% endblock %}        
+
         .form-control:focus {
-            border-color: var(--maroon);
-            box-shadow: 0 0 0 0.2rem rgba(139, 0, 0, 0.25);
-        }
-        
-        .text-maroon {
-            color: var(--maroon) !important;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-5">
-                <div class="login-container p-5">
-                    <!-- School Logo/Icon -->
-                    <div class="school-logo">
-                        <i class="bi bi-mortarboard-fill"></i>
-                    </div>
-                    
-                    <!-- School Name -->
-                    <div class="text-center mb-4">
-                        <h2 class="text-maroon mb-1">St. Mary's Nyakhobi</h2>
-                        <h4 class="text-muted">Student Portal</h4>
-                        <p class="text-muted small">Please sign in to your account</p>
-                    </div>
-                    
-                    <!-- Messages -->
-                    {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-{{ message.tags|default:'info' }} alert-dismissible fade show" role="alert">
-                                {% if message.tags == 'error' %}
-                                    <i class="bi bi-exclamation-triangle me-2"></i>
-                                {% else %}
-                                    <i class="bi bi-info-circle me-2"></i>
-                                {% endif %}
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+
+{% block content %}            border-color: var(--maroon);
+
+<section class="py-5">            box-shadow: 0 0 0 0.2rem rgba(139, 0, 0, 0.25);
+
+    <div class="container">        }
+
+        <div class="row justify-content-center">        
+
+            <div class="col-md-8 col-lg-6">        .text-maroon {
+
+                <div class="coming-soon-container p-5 text-center">            color: var(--maroon) !important;
+
+                    <!-- School Logo/Icon -->        }
+
+                    <div class="school-logo">        
+
+                        <i class="fas fa-user-graduate"></i>        .feature-card {
+
+                    </div>            border: 2px solid #f8f9fa;
+
+                                border-radius: 10px;
+
+                    <!-- Coming Soon Message -->            transition: all 0.3s ease;
+
+                    <div class="mb-4">        }
+
+                        <h1 style="color: var(--primary-color);" class="mb-3">        
+
+                            <i class="fas fa-clock me-2"></i>        .feature-card:hover {
+
+                            Coming Soon            border-color: var(--maroon);
+
+                        </h1>            transform: translateY(-2px);
+
+                        <h3 class="text-muted mb-4">Student Portal</h3>        }
+
+                        <p class="lead text-muted mb-4">    </style>
+
+                            We're working hard to bring you an amazing student portal experience. </head>
+
+                            The portal will provide access to grades, assignments, schedules, and more.<body>
+
+                        </p>    <div class="container">
+
+                                <div class="row justify-content-center">
+
+                        <div class="row g-3 mb-4">            <div class="col-md-8 col-lg-6">
+
+                            <div class="col-md-4">                <div class="coming-soon-container p-5 text-center">
+
+                                <div class="feature-card p-3">                    <!-- School Logo/Icon -->
+
+                                    <i class="fas fa-chart-line mb-2" style="font-size: 2rem; color: var(--primary-color);"></i>                    <div class="school-logo">
+
+                                    <h6>View Grades</h6>                        <i class="fas fa-user-graduate"></i>
+
+                                    <small class="text-muted">Access your academic performance</small>                    </div>
+
+                                </div>                    
+
+                            </div>                    <!-- Coming Soon Message -->
+
+                            <div class="col-md-4">                    <div class="mb-4">
+
+                                <div class="feature-card p-3">                        <h1 class="text-maroon mb-3">
+
+                                    <i class="fas fa-calendar-alt mb-2" style="font-size: 2rem; color: var(--primary-color);"></i>                            <i class="fas fa-clock me-2"></i>
+
+                                    <h6>Class Schedule</h6>                            Coming Soon
+
+                                    <small class="text-muted">View your daily timetable</small>                        </h1>
+
+                                </div>                        <h3 class="text-muted mb-4">Student Portal</h3>
+
+                            </div>                        <p class="lead text-muted mb-4">
+
+                            <div class="col-md-4">                            We're working hard to bring you an amazing student portal experience. 
+
+                                <div class="feature-card p-3">                            The portal will provide access to grades, assignments, schedules, and more.
+
+                                    <i class="fas fa-book mb-2" style="font-size: 2rem; color: var(--primary-color);"></i>                        </p>
+
+                                    <h6>Assignments</h6>                        
+
+                                    <small class="text-muted">Submit and track homework</small>                        <div class="row g-3 mb-4">
+
+                                </div>                            <div class="col-md-4">
+
+                            </div>                                <div class="feature-card p-3">
+
+                        </div>                                    <i class="fas fa-chart-line text-maroon mb-2" style="font-size: 2rem;"></i>
+
+                                                            <h6>View Grades</h6>
+
+                        <p class="text-muted">                                    <small class="text-muted">Access your academic performance</small>
+
+                            <i class="fas fa-info-circle me-1"></i>                                </div>
+
+                            For inquiries, please contact the school administration.                            </div>
+
+                        </p>                            <div class="col-md-4">
+
+                                                        <div class="feature-card p-3">
+
+                        <a href="{% url 'home:index' %}" class="btn btn-lg mt-3" style="background-color: var(--primary-color); border-color: var(--primary-color); color: white;">                                    <i class="fas fa-calendar-alt text-maroon mb-2" style="font-size: 2rem;"></i>
+
+                            <i class="fas fa-home me-2"></i>                                    <h6>Class Schedule</h6>
+
+                            Back to Home                                    <small class="text-muted">View your daily timetable</small>
+
+                        </a>                                </div>
+
+                    </div>                            </div>
+
+                </div>                            <div class="col-md-4">
+
+            </div>                                <div class="feature-card p-3">
+
+        </div>                                    <i class="fas fa-book text-maroon mb-2" style="font-size: 2rem;"></i>
+
+    </div>                                    <h6>Assignments</h6>
+
+</section>                                    <small class="text-muted">Submit and track homework</small>
+
+{% endblock %}                                </div>
                             </div>
-                        {% endfor %}
-                    {% endif %}
-                    
-                    <!-- Login Form -->
-                    <form method="post" novalidate>
-                        {% csrf_token %}
-                        
-                        <div class="mb-3">
-                            <label for="{{ form.username.id_for_label }}" class="form-label">
-                                <i class="bi bi-person me-1"></i>Username or Email
-                            </label>
-                            {{ form.username }}
-                            {% if form.username.errors %}
-                                <div class="text-danger small mt-1">
-                                    {{ form.username.errors|first }}
-                                </div>
-                            {% endif %}
                         </div>
                         
-                        <div class="mb-3">
-                            <label for="{{ form.password.id_for_label }}" class="form-label">
-                                <i class="bi bi-lock me-1"></i>Password
-                            </label>
-                            {{ form.password }}
-                            {% if form.password.errors %}
-                                <div class="text-danger small mt-1">
-                                    {{ form.password.errors|first }}
-                                </div>
-                            {% endif %}
-                        </div>
+                        <p class="text-muted">
+                            <i class="fas fa-info-circle me-1"></i>
+                            For inquiries, please contact the school administration.
+                        </p>
                         
-                        {% if form.non_field_errors %}
-                            <div class="alert alert-danger">
-                                {{ form.non_field_errors|first }}
-                            </div>
-                        {% endif %}
-                        
-                        <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-maroon btn-lg">
-                                <i class="bi bi-box-arrow-in-right me-2"></i>Sign In
-                            </button>
-                        </div>
-                    </form>
-                    
-                    <!-- Additional Links -->
-                    <div class="text-center mt-4 pt-3 border-top">
-                        <p class="text-muted small mb-2">Need help accessing your account?</p>
-                        <div class="d-flex justify-content-center gap-3">
-                            <a href="#" class="text-decoration-none text-maroon small">
-                                <i class="bi bi-question-circle me-1"></i>Forgot Password?
-                            </a>
-                            <a href="{% url 'contact:contact' %}" class="text-decoration-none text-maroon small">
-                                <i class="bi bi-telephone me-1"></i>Contact School
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Return to Website -->
-                    <div class="text-center mt-3">
-                        <a href="{% url 'home:index' %}" class="text-decoration-none text-muted">
-                            <i class="bi bi-arrow-left me-1"></i>Back to School Website
+                        <a href="/" class="btn btn-maroon btn-lg mt-3">
+                            <i class="fas fa-home me-2"></i>
+                            Back to Home
                         </a>
                     </div>
-                </div>
-                
-                <!-- User Type Info -->
-                <div class="text-center text-white mt-4">
-                    <h6 class="mb-3">Portal Access For:</h6>
-                    <div class="row g-2">
-                        <div class="col-4">
-                            <div class="bg-white bg-opacity-10 rounded p-2">
-                                <i class="bi bi-person-badge d-block fs-4 mb-1"></i>
-                                <small>Students</small>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="bg-white bg-opacity-10 rounded p-2">
-                                <i class="bi bi-person-heart d-block fs-4 mb-1"></i>
-                                <small>Parents</small>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="bg-white bg-opacity-10 rounded p-2">
-                                <i class="bi bi-mortarboard d-block fs-4 mb-1"></i>
-                                <small>Teachers</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    
+
+
+
             </div>
         </div>
     </div>
@@ -190,25 +245,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
-    <script>
-        // Auto-focus on username field
-        document.addEventListener('DOMContentLoaded', function() {
-            const usernameField = document.querySelector('input[name="username"]');
-            if (usernameField) {
-                usernameField.focus();
-            }
-        });
-        
-        // Remove alert messages after 5 seconds
-        document.addEventListener('DOMContentLoaded', function() {
-            const alerts = document.querySelectorAll('.alert');
-            alerts.forEach(function(alert) {
-                setTimeout(function() {
-                    const bsAlert = new bootstrap.Alert(alert);
-                    bsAlert.close();
-                }, 5000);
-            });
-        });
-    </script>
+
 </body>
 </html>

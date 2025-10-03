@@ -1,0 +1,279 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our History - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block hero %}
+<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
+    <div class="hero-content">
+        <h1 class="hero-title"><i class="fas fa-history"></i> Our History</h1>
+        <p class="hero-subtitle">45 Years of Educational Excellence (1979-2024)</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+
+    .timeline {
+        position: relative;
+        padding: 20px 0;
+    }
+
+    .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--maroon);
+        transform: translateX(-50%);
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 50px;
+        width: 45%;
+    }
+
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: right;
+        padding-right: 30px;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 55%;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        top: 20px;
+        width: 20px;
+        height: 20px;
+        background: var(--maroon);
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 0 0 4px var(--maroon);
+    }
+
+    .timeline-item:nth-child(odd)::before {
+        right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::before {
+        left: -10px;
+    }
+
+    .timeline-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .timeline-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    .history-section {
+        padding: 80px 0;
+    }
+
+    .milestone-year {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--maroon);
+        margin-bottom: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- History Introduction -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4">A Legacy of Excellence</h2>
+                <p class="lead text-muted mb-5">
+                    Since our founding, St. Mary's Nyakhobi Senior School has been committed to providing quality education 
+                    and nurturing young minds to become responsible citizens and future leaders. Our journey spans over four decades 
+                    of unwavering dedication to academic excellence and character development.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="history-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center fw-bold mb-5">Our Journey Through Time</h3>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">1980</div>
+                            <h4 class="fw-bold text-primary mb-3">Foundation</h4>
+                            <p class="text-muted">
+                                St. Mary's Nyakhobi Senior School was established with a vision to provide quality secondary 
+                                education to the children of Nyakhobi and surrounding areas. Started with just 50 students 
+                                and 8 teachers in temporary structures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">1985</div>
+                            <h4 class="fw-bold text-success mb-3">First Permanent Buildings</h4>
+                            <p class="text-muted">
+                                Construction of the first permanent classroom blocks and administration offices was completed. 
+                                The school population grew to 200 students with expanded teaching staff and improved facilities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">1990</div>
+                            <h4 class="fw-bold text-warning mb-3">Academic Recognition</h4>
+                            <p class="text-muted">
+                                The school achieved its first major academic milestone with excellent KCSE results, 
+                                establishing itself as a leading institution in the region. Introduction of science laboratories 
+                                and library facilities.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">2000</div>
+                            <h4 class="fw-bold text-info mb-3">Modernization Era</h4>
+                            <p class="text-muted">
+                                Introduction of computer studies and modern teaching methodologies. Construction of new 
+                                dormitories and dining hall to accommodate boarding students. Student population reached 500.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">2010</div>
+                            <h4 class="fw-bold text-danger mb-3">Infrastructure Expansion</h4>
+                            <p class="text-muted">
+                                Major infrastructure development including new classroom blocks, upgraded laboratories, 
+                                and sports facilities. Implementation of ICT integration in learning and teaching processes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">2020</div>
+                            <h4 class="fw-bold text-primary mb-3">Digital Transformation</h4>
+                            <p class="text-muted">
+                                Adaptation to digital learning during the pandemic era. Introduction of e-learning platforms 
+                                and enhanced ICT infrastructure to support modern education delivery methods.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-card">
+                            <div class="milestone-year">2025</div>
+                            <h4 class="fw-bold text-success mb-3">Continuous Growth</h4>
+                            <p class="text-muted">
+                                Ongoing construction of new laboratory building and additional classrooms with support 
+                                from Funyula NG-CDF. Commitment to maintaining high academic standards while expanding 
+                                opportunities for all students.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Legacy Statistics -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold mb-5">45 Years of Impact</h3>
+                
+                <div class="row g-4">
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center p-4">
+                                <h2 class="display-4 fw-bold text-primary">1000+</h2>
+                                <h6 class="fw-bold">Graduates</h6>
+                                <p class="text-muted small">Alumni making impact in various fields</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center p-4">
+                                <h2 class="display-4 fw-bold text-success">85%</h2>
+                                <h6 class="fw-bold">University Admission</h6>
+                                <p class="text-muted small">Students qualifying for higher education</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center p-4">
+                                <h2 class="display-4 fw-bold text-warning">45</h2>
+                                <h6 class="fw-bold">Years of Service</h6>
+                                <p class="text-muted small">Continuous commitment to education</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <div class="card border-0 shadow-sm h-100">
+                            <div class="card-body text-center p-4">
+                                <h2 class="display-4 fw-bold text-danger">600+</h2>
+                                <h6 class="fw-bold">Current Students</h6>
+                                <p class="text-muted small">Young minds being shaped today</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h3 class="fw-bold mb-3">Be Part of Our Continuing Story</h3>
+                <p class="lead mb-4">
+                    Join a school with a proven track record of excellence and become part of our ongoing legacy 
+                    of nurturing future leaders and responsible citizens.
+                </p>
+                <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg">
+                    <i class="fas fa-graduation-cap me-2"></i>Join Our School
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

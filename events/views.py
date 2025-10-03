@@ -37,3 +37,7 @@ def news_detail(request, news_id):
     }
     return render(request, 'events/news_detail.html', context)
 
+def testimonials(request):
+    """Display testimonials and videos"""
+    context = {}
+    return render(request, 'events/testimonials.html', context)

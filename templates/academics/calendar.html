@@ -1,0 +1,289 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Academic Calendar - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .calendar-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .calendar-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/school-hero-bg.png') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .calendar-section {
+        padding: 80px 0;
+        background: #f8f9fa;
+    }
+
+    .calendar-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+        border-left: 5px solid var(--maroon);
+    }
+
+    .term-header {
+        color: var(--maroon);
+        font-weight: 700;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .term-header i {
+        margin-right: 15px;
+        font-size: 1.5rem;
+    }
+
+    .event-item {
+        display: flex;
+        align-items: center;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .event-item:last-child {
+        border-bottom: none;
+    }
+
+    .event-date {
+        background: var(--maroon);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-weight: 600;
+        margin-right: 20px;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .event-details h5 {
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .event-details p {
+        color: #666;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .current-term {
+        background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+        border-left-color: #ffc107;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Calendar Hero Section -->
+<div class="calendar-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Academic Calendar</h1>
+                <p class="lead">Stay updated with important dates and events throughout the academic year</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Calendar Content Section -->
+<section class="calendar-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Academic Year 2025</h2>
+                <p class="text-muted">Important dates and events for students and parents</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- First Term -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="calendar-card">
+                    <div class="term-header">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>First Term</h3>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Jan 15</div>
+                        <div class="event-details">
+                            <h5>Term Opening</h5>
+                            <p>Students report back to school</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Feb 14</div>
+                        <div class="event-details">
+                            <h5>Mid-Term Break</h5>
+                            <p>One week break</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Mar 15</div>
+                        <div class="event-details">
+                            <h5>First Term Exams</h5>
+                            <p>End of term examinations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Apr 12</div>
+                        <div class="event-details">
+                            <h5>Term Closing</h5>
+                            <p>Students go home for holidays</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Term -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="calendar-card">
+                    <div class="term-header">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Second Term</h3>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">May 06</div>
+                        <div class="event-details">
+                            <h5>Term Opening</h5>
+                            <p>Students report back to school</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Jun 10</div>
+                        <div class="event-details">
+                            <h5>Mid-Term Break</h5>
+                            <p>One week break</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Jul 15</div>
+                        <div class="event-details">
+                            <h5>Second Term Exams</h5>
+                            <p>End of term examinations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Aug 08</div>
+                        <div class="event-details">
+                            <h5>Term Closing</h5>
+                            <p>Students go home for holidays</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Third Term -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="calendar-card current-term">
+                    <div class="term-header">
+                        <i class="fas fa-star"></i>
+                        <h3>Third Term <small>(Current)</small></h3>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Sep 02</div>
+                        <div class="event-details">
+                            <h5>Term Opening</h5>
+                            <p>Students report back to school</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Oct 14</div>
+                        <div class="event-details">
+                            <h5>Mid-Term Break</h5>
+                            <p>One week break</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Nov 15</div>
+                        <div class="event-details">
+                            <h5>KCSE Exams</h5>
+                            <p>National examinations begin</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">Dec 06</div>
+                        <div class="event-details">
+                            <h5>Term Closing</h5>
+                            <p>End of academic year</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Notes -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="calendar-card">
+                    <h3 class="term-header">
+                        <i class="fas fa-info-circle"></i>
+                        Important Notes
+                    </h3>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>School Hours:</strong> Monday - Friday, 7:00 AM - 5:00 PM
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Visiting Hours:</strong> Sundays, 2:00 PM - 5:00 PM
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Fee Payment:</strong> Due at the beginning of each term
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-3">
+                                    <strong>Contact:</strong> 0719 831 346
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Email:</strong> nyakhobisecsch@gmail.com
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Emergency Contact:</strong> Principal's Office
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -37,3 +37,28 @@ def about(request):
         'school_info': school_info,
     }
     return render(request, 'home/about.html', context)
+
+def history(request):
+    """School history page"""
+    context = {}
+    return render(request, 'home/history.html', context)
+
+def mission_vision(request):
+    """Mission and vision page"""
+    context = {}
+    return render(request, 'home/mission_vision.html', context)
+
+def facilities(request):
+    """School facilities page"""
+    context = {}
+    return render(request, 'home/facilities.html', context)
+
+def achievements(request):
+    """School achievements page"""
+    context = {}
+    return render(request, 'home/achievements.html', context)
+
+def leadership(request):
+    """School leadership page"""
+    context = {}
+    return render(request, 'home/leadership.html', context)

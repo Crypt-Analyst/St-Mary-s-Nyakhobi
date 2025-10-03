@@ -4,27 +4,17 @@
 
 {% block title %}Faculty & Staff - St. Mary's Nyakhobi Senior School{% endblock %}
 
+{% block hero %}
+<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
+    <div class="hero-content">
+        <h1 class="hero-title"><i class="fas fa-users"></i> Faculty & Staff</h1>
+        <p class="hero-subtitle">Dedicated Educators Shaping Future Leaders</p>
+    </div>
+</section>
+{% endblock %}
+
 {% block extra_css %}
 <style>
-    .faculty-hero {
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-        color: white;
-        padding: 100px 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .faculty-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('/static/images/faculty-bg.jpg') center/cover;
-        opacity: 0.2;
-        z-index: -1;
-    }
 
     .leadership-section {
         background: #f8f9fa;
@@ -104,16 +94,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="faculty-hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-4 fw-bold mb-3">Faculty & Staff</h1>
-                <p class="lead">Meet our dedicated educators and administrators committed to academic excellence</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="leadership-section">
     <div class="container">

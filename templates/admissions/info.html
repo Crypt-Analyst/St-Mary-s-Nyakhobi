@@ -3,27 +3,17 @@
 
 {% block title %}Admissions Information - St. Mary's Nyakhobi Senior School{% endblock %}
 
+{% block hero %}
+<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
+    <div class="hero-content">
+        <h1 class="hero-title"><i class="fas fa-door-open"></i> Admissions</h1>
+        <p class="hero-subtitle">Your Journey to Excellence Starts Here</p>
+    </div>
+</section>
+{% endblock %}
+
 {% block extra_css %}
 <style>
-    .admissions-hero {
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-        color: white;
-        padding: 100px 0;
-        text-align: center;
-        position: relative;
-    }
-    
-    .admissions-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('/static/images/school-hero-bg.png') center/cover;
-        opacity: 0.2;
-        z-index: -1;
-    }
     
     .info-section {
         padding: 80px 0;
@@ -102,17 +92,6 @@
 {% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<div class="admissions-hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-4 fw-bold mb-3">Admissions Information</h1>
-                <p class="lead">Join St. Mary's Nyakhobi Senior School - Where Excellence Meets Opportunity</p>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Admission Information Section -->
 <section class="info-section">
@@ -162,6 +141,50 @@
                         is accessible to all families seeking the best for their children.
                     </p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- School Showcase Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-lg">
+                    <img src="{{ MEDIA_URL }}images/academic-environment-3.jpeg" alt="St. Mary's Nyakhobi Campus" class="card-img-top" style="height: 400px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">Our Beautiful Campus</h5>
+                        <p class="card-text text-muted">Experience our modern facilities and conducive learning environment at St. Mary's Nyakhobi Senior School.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <h3 class="fw-bold mb-4 text-primary">Why Choose St. Mary's Nyakhobi?</h3>
+                <div class="mb-3">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <strong>Excellent Academic Performance:</strong> Consistent high KCSE results and university admission rates
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <strong>Modern Facilities:</strong> Well-equipped laboratories, library, and classrooms
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <strong>Dedicated Teachers:</strong> Qualified and experienced teaching staff
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <strong>Holistic Development:</strong> Academic excellence combined with character building
+                </div>
+                <div class="mb-3">
+                    <i class="fas fa-check-circle text-success me-2"></i>
+                    <strong>Safe Environment:</strong> Secure and nurturing school environment
+                </div>
+                <a href="{% url 'contact:contact' %}" class="btn btn-primary btn-lg mt-3">
+                    <i class="fas fa-phone me-2"></i>Contact Us for More Information
+                </a>
             </div>
         </div>
     </div>
@@ -296,7 +319,7 @@
                 <a href="{% url 'admissions:apply' %}" class="btn btn-light btn-lg me-3">
                     <i class="fas fa-edit me-2"></i>Apply Now
                 </a>
-                <a href="{% url 'contact:info' %}" class="btn btn-outline-light btn-lg">
+                <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg">
                     <i class="fas fa-phone me-2"></i>Contact Us
                 </a>
             </div>
