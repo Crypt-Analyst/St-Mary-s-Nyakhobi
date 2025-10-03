@@ -180,6 +180,89 @@
         margin: 1.5rem 0;
     }
     
+    /* Welcome & History Section Styles */
+    .welcome-section {
+        padding: 100px 0;
+        background: white;
+        position: relative;
+    }
+    
+    .welcome-content {
+        padding-right: 2rem;
+    }
+    
+    .welcome-title {
+        color: var(--maroon);
+        font-weight: 700;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .welcome-subtitle {
+        color: #666;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 2rem;
+    }
+    
+    .history-text {
+        color: #555;
+        line-height: 1.8;
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .established-badge {
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 2rem;
+    }
+    
+    .student-gallery {
+        position: relative;
+    }
+    
+    .student-photo {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .student-photo:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+    }
+    
+    .photo-overlay {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        background: rgba(139, 0, 0, 0.9);
+        color: white;
+        padding: 15px 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+    }
+    
+    .photo-caption {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    
+    .photo-description {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin: 0;
+    }
+    
     @media (max-width: 768px) {
         .hero-title {
             font-size: 2.5rem;
@@ -197,6 +280,17 @@
         .principal-home-photo {
             width: 200px;
             height: 200px;
+        }
+        .welcome-content {
+            padding-right: 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .welcome-title {
+            font-size: 2rem;
+        }
+        .student-photo {
+            height: 300px;
         }
     }
 </style>
@@ -271,6 +365,62 @@
                         high-quality education that is both affordable and valuable for your child's bright future, ensuring 
                         excellence is accessible to all.
                     </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Welcome & History Section -->
+<section class="welcome-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="welcome-content">
+                    <div class="established-badge">
+                        <i class="fas fa-calendar-alt me-2"></i>Established 1983
+                    </div>
+                    <h2 class="welcome-title">Welcome to St. Mary's Nyakhobi Senior School</h2>
+                    <p class="welcome-subtitle">A Legacy of Excellence in Secondary Education</p>
+                    
+                    <div class="history-text">
+                        <p>For over four decades, St. Mary's Nyakhobi Senior School has stood as a beacon of educational excellence in our community. Founded in 1983 with a vision to provide quality, affordable education, we have grown from humble beginnings to become one of the region's most respected secondary schools.</p>
+                        
+                        <p>Our journey has been marked by unwavering commitment to academic excellence, character development, and holistic education. We have nurtured thousands of students who have gone on to excel in various fields, from medicine and engineering to business and public service.</p>
+                        
+                        <p>At St. Mary's Nyakhobi, we believe that every student has the potential to achieve greatness. Our dedicated faculty, modern facilities, and comprehensive curriculum create an environment where students can discover their passions, develop their talents, and prepare for future success.</p>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <h4 class="fw-bold" style="color: var(--maroon);">40+</h4>
+                                <p class="mb-0 text-muted">Years of Excellence</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <h4 class="fw-bold" style="color: var(--maroon);">1000+</h4>
+                                <p class="mb-0 text-muted">Graduates</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="text-center">
+                                <h4 class="fw-bold" style="color: var(--maroon);">98%</h4>
+                                <p class="mb-0 text-muted">KCSE Success Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-5">
+                <div class="student-gallery">
+                    <img src="/media/images/school-compound.jpg" alt="St. Mary's Nyakhobi Students" class="student-photo">
+                    <div class="photo-overlay">
+                        <div class="photo-caption">Our Learning Community</div>
+                        <p class="photo-description">Students engaged in collaborative learning and character development at St. Mary's Nyakhobi Senior School</p>
+                    </div>
                 </div>
             </div>
         </div>
