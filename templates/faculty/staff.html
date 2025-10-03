@@ -1,397 +1,199 @@
-﻿{% extends 'base.html' %}{% extends 'base.html' %}
-
-
-
-{% load static %}{% load static %}
-
-
-
-{% block title %}Faculty & Staff - St. Mary's Nyakhobi Senior School{% endblock %}{% block title %}Faculty & Staff - St. Mary's Nyakhobi Senior School{% endblock %}
-
-
-
-{% block extra_css %}{% block extra_css %}
-
-<style><style>
-
-    .faculty-hero {    .faculty-hero {
-
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-
-        color: white;        color: white;
-
-        padding: 100px 0;        padding: 100px 0;
-
-        text-align: center;        text-align: center;
-
-        position: relative;        position: relative;
-
-    }    }
-
-
-
-    .faculty-hero::before {    .faculty-hero::before {
-
-        content: '';        content: '';
-
-        position: absolute;        position: absolute;
-
-        top: 0;        top: 0;
-
-        left: 0;        left: 0;
-
-        right: 0;        right: 0;
-
-        bottom: 0;        bottom: 0;
-
-        background: url('/static/images/faculty-bg.jpg') center/cover;        background: url('/static/images/faculty-bg.jpg') center/cover;
-
-        opacity: 0.2;        opacity: 0.2;
-
-        z-index: -1;        z-index: -1;
-
-    }    }
-
-
-
-    .leadership-section {    .leadership-section {
-
-        background: #f8f9fa;        background: #f8f9fa;
-
-        padding: 80px 0;        padding: 80px 0;
-
-    }    }
-
-
-
-    .leadership-card {    .leadership-card {
-
-        background: white;        background: white;
-
-        border-radius: 20px;        border-radius: 20px;
-
-        padding: 40px 30px;        padding: 40px 30px;
-
-        text-align: center;        text-align: center;
-
-        box-shadow: 0 10px 40px rgba(0,0,0,0.1);        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-
-        position: relative;        position: relative;
-
-        overflow: hidden;        overflow: hidden;
-
-        margin-bottom: 30px;        margin-bottom: 30px;
-
-    }    }
-
-
-
-    .leadership-card::before {    .leadership-card::before {
-
-        content: '';        content: '';
-
-        position: absolute;        position: absolute;
-
-        top: 0;        top: 0;
-
-        left: 0;        left: 0;
-
-        right: 0;        right: 0;
-
-        height: 5px;        height: 5px;
-
-        background: linear-gradient(45deg, var(--maroon), #a0002a);        background: linear-gradient(45deg, var(--maroon), #a0002a);
-
-    }    }
-
-
-
-    .leadership-photo {    .leadership-photo {
-
-        width: 150px;        width: 150px;
-
-        height: 150px;        height: 150px;
-
-        border-radius: 50%;        border-radius: 50%;
-
-        object-fit: cover;        object-fit: cover;
-
-        margin: 0 auto 25px auto;        margin: 0 auto 25px auto;
-
-        border: 5px solid #f8f9fa;        border: 5px solid #f8f9fa;
-
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-
-    }    }
-
-
-
-    .leadership-name {    .leadership-name {
-
-        font-size: 1.5rem;        font-size: 1.5rem;
-
-        font-weight: 600;        font-weight: 600;
-
-        color: var(--maroon);        color: var(--maroon);
-
-        margin-bottom: 10px;        margin-bottom: 10px;
-
-    }    }
-
-
-
-    .leadership-title {    .leadership-title {
-
-        font-size: 1.1rem;        font-size: 1.1rem;
-
-        color: #666;        color: #666;
-
-        margin-bottom: 20px;        margin-bottom: 20px;
-
-        font-style: italic;        font-style: italic;
-
-    }    }
-
-
-
-    .leadership-bio {    .leadership-bio {
-
-        color: #555;        color: #555;
-
-        line-height: 1.6;        line-height: 1.6;
-
-        font-size: 0.95rem;        font-size: 0.95rem;
-
-    }    }
-
-
-
-    .contact-info {    .contact-info {
-
-        background: #f8f9fa;        background: #f8f9fa;
-
-        padding: 20px;        padding: 20px;
-
-        border-radius: 10px;        border-radius: 10px;
-
-        margin-top: 20px;        margin-top: 20px;
-
-    }    }
-
-
-
-    .contact-info .contact-item {    .contact-info .contact-item {
-
-        display: flex;        display: flex;
-
-        align-items: center;        align-items: center;
-
-        margin-bottom: 10px;        margin-bottom: 10px;
-
-    }    }
-
-
-
-    .contact-info .contact-item i {    .contact-info .contact-item i {
-
-        color: var(--maroon);        color: var(--maroon);
-
-        width: 20px;        width: 20px;
-
-        margin-right: 10px;        margin-right: 10px;
-
-    }    }
-
-</style></style>
-
-{% endblock %}{% endblock %}
-
-
-
-{% block content %}{% block content %}
-
-<div class="faculty-hero"><div class="faculty-hero">
-
-    <div class="container">    <div class="container">
-
-        <div class="row">        <div class="row">
-
-            <div class="col-12">            <div class="col-12">
-
-                <h1 class="display-4 fw-bold mb-3">Faculty & Staff</h1>                <h1 class="display-4 fw-bold mb-3">Faculty & Staff</h1>
-
-                <p class="lead">Meet our dedicated educators and administrators committed to academic excellence</p>                <p class="lead">Meet our dedicated educators and administrators committed to academic excellence</p>
-
-            </div>            </div>
-
-        </div>        </div>
-
-    </div>    </div>
-
-</div></div>
-
-
-
-<div class="leadership-section"><div class="leadership-section">
-
-    <div class="container">    <div class="container">
-
-        <div class="row">        <div class="row">
-
-            <div class="col-12 text-center mb-5">            <div class="col-12 text-center mb-5">
-
-                <h2 class="section-title">School Leadership</h2>                <h2 class="section-title">School Leadership</h2>
-
-                <p class="text-muted">Our experienced leadership team guides St. Mary's Nyakhobi Senior School towards excellence</p>                <p class="text-muted">Our experienced leadership team guides St. Mary's Nyakhobi Senior School towards excellence</p>
-
-            </div>            </div>
-
-        </div>        </div>
-
-
-
-        <div class="row justify-content-center">        <div class="row justify-content-center">
-
-            <!-- Principal -->            <!-- Principal -->
-
-            <div class="col-lg-8 col-md-10">            <div class="col-lg-8 col-md-10">
-
-                <div class="leadership-card">                <div class="leadership-card">
-
-                    <img src="/media/principal-photo.jpg" alt="Mr. Dan F. Olopi - Principal" class="leadership-photo">                    <img src="/media/principal-photo.jpg" alt="Mr. Dan F. Olopi - Principal" class="leadership-photo">
-
-                    <div class="leadership-name">Mr. Dan F. Olopi</div>                    <div class="leadership-name">Mr. Dan F. Olopi</div>
-
-                    <div class="leadership-title">Principal</div>                    <div class="leadership-title">Principal</div>
-
-                    <div class="leadership-bio">                    <div class="leadership-bio">
-
-                        <p>Mr. Dan F. Olopi serves as the Principal of St. Mary's Nyakhobi Senior School, bringing years of educational leadership and administrative experience to our institution. Under his guidance, the school continues to maintain high academic standards while fostering a nurturing environment for student growth and development.</p>                        <p>Mr. Dan F. Olopi serves as the Principal of St. Mary's Nyakhobi Senior School, bringing years of educational leadership and administrative experience to our institution. Under his guidance, the school continues to maintain high academic standards while fostering a nurturing environment for student growth and development.</p>
-
-                                                
-
-                        <p>His commitment to educational excellence and student welfare has been instrumental in establishing St. Mary's Nyakhobi as a leading secondary school in the region. He works closely with faculty, students, and parents to ensure that every student receives quality education and pastoral care.</p>                        <p>His commitment to educational excellence and student welfare has been instrumental in establishing St. Mary's Nyakhobi as a leading secondary school in the region. He works closely with faculty, students, and parents to ensure that every student receives quality education and pastoral care.</p>
-
-                    </div>                    </div>
-
-                                        
-
-                    <div class="contact-info">                    <div class="contact-info">
-
-                        <div class="contact-item">                        <div class="contact-item">
-
-                            <i class="fas fa-envelope"></i>                            <i class="fas fa-envelope"></i>
-
-                            <span>nyakhobisecsch@gmail.com</span>                            <span>nyakhobisecsch@gmail.com</span>
-
-                        </div>                        </div>
-
-                        <div class="contact-item">                        <div class="contact-item">
-
-                            <i class="fas fa-phone"></i>                            <i class="fas fa-phone"></i>
-
-                            <span>0719 831 346</span>                            <span>0719 831 346</span>
-
-                        </div>                        </div>
-
-                        <div class="contact-item">                        <div class="contact-item">
-
-                            <i class="fas fa-map-marker-alt"></i>                            <i class="fas fa-map-marker-alt"></i>
-
-                            <span>St. Mary's Nyakhobi Senior School, Nyakhobi</span>                            <span>St. Mary's Nyakhobi Senior School, Nyakhobi</span>
-
-                        </div>                        </div>
-
-                    </div>                    </div>
-
-                </div>                </div>
-
-            </div>            </div>
-
-        </div>        </div>
-
-
-
-        <!-- Additional Staff Section -->        <!-- Additional Staff Section -->
-
-        <div class="row mt-5">        <div class="row mt-5">
-
-            <div class="col-12 text-center">            <div class="col-12 text-center">
-
-                <h3 class="mb-4">Our Dedicated Staff</h3>                <h3 class="mb-4">Our Dedicated Staff</h3>
-
-                <p class="text-muted mb-5">St. Mary's Nyakhobi Senior School is staffed by qualified and experienced teachers who are committed to providing quality education. Our faculty members work collaboratively to ensure that each student receives personalized attention and support in their academic journey.</p>                <p class="text-muted mb-5">St. Mary's Nyakhobi Senior School is staffed by qualified and experienced teachers who are committed to providing quality education. Our faculty members work collaboratively to ensure that each student receives personalized attention and support in their academic journey.</p>
-
-            </div>            </div>
-
-        </div>        </div>
-
-
-
-        <div class="row">        <div class="row">
-
-            <div class="col-md-4 mb-4">            <div class="col-md-4 mb-4">
-
-                <div class="leadership-card">                <div class="leadership-card">
-
-                    <div class="leadership-name">Academic Department</div>                    <div class="leadership-name">Academic Department</div>
-
-                    <div class="leadership-title">Teaching Staff</div>                    <div class="leadership-title">Teaching Staff</div>
-
-                    <div class="leadership-bio">                    <div class="leadership-bio">
-
-                        <p>Our qualified teachers across all subjects including Mathematics, English, Sciences, Humanities, and Technical subjects.</p>                        <p>Our qualified teachers across all subjects including Mathematics, English, Sciences, Humanities, and Technical subjects.</p>
-
-                    </div>                    </div>
-
-                </div>                </div>
-
-            </div>            </div>
-
+﻿{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Faculty & Staff - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .faculty-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+    }
+
+    .faculty-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/faculty-bg.jpg') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+
+    .leadership-section {
+        background: #f8f9fa;
+        padding: 80px 0;
+    }
+
+    .leadership-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: center;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+
+    .leadership-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+    }
+
+    .leadership-photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 25px auto;
+        border: 5px solid #f8f9fa;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .leadership-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--maroon);
+        margin-bottom: 10px;
+    }
+
+    .leadership-title {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 20px;
+        font-style: italic;
+    }
+
+    .leadership-bio {
+        color: #555;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .contact-info {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+
+    .contact-info .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .contact-info .contact-item i {
+        color: var(--maroon);
+        width: 20px;
+        margin-right: 10px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="faculty-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Faculty & Staff</h1>
+                <p class="lead">Meet our dedicated educators and administrators committed to academic excellence</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="leadership-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">School Leadership</h2>
+                <p class="text-muted">Our experienced leadership team guides St. Mary's Nyakhobi Senior School towards excellence</p>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <!-- Principal -->
+            <div class="col-lg-8 col-md-10">
+                <div class="leadership-card">
+                    <img src="/media/principal-photo.jpg" alt="Mr. Dan F. Olopi - Principal" class="leadership-photo">
+                    <div class="leadership-name">Mr. Dan F. Olopi</div>
+                    <div class="leadership-title">Principal</div>
+                    <div class="leadership-bio">
+                        <p>Mr. Dan F. Olopi serves as the Principal of St. Mary's Nyakhobi Senior School, bringing years of educational leadership and administrative experience to our institution. Under his guidance, the school continues to maintain high academic standards while fostering a nurturing environment for student growth and development.</p>
                         
+                        <p>His commitment to educational excellence and student welfare has been instrumental in establishing St. Mary's Nyakhobi as a leading secondary school in the region. He works closely with faculty, students, and parents to ensure that every student receives quality education and pastoral care.</p>
+                    </div>
+                    
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>nyakhobisecsch@gmail.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0719 831 346</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>St. Mary's Nyakhobi Senior School, Nyakhobi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-            <div class="col-md-4 mb-4">            <div class="col-md-4 mb-4">
+        <!-- Additional Staff Section -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <h3 class="mb-4">Our Dedicated Staff</h3>
+                <p class="text-muted mb-5">St. Mary's Nyakhobi Senior School is staffed by qualified and experienced teachers who are committed to providing quality education. Our faculty members work collaboratively to ensure that each student receives personalized attention and support in their academic journey.</p>
+            </div>
+        </div>
 
-                <div class="leadership-card">                <div class="leadership-card">
-
-                    <div class="leadership-name">Administration</div>                    <div class="leadership-name">Administration</div>
-
-                    <div class="leadership-title">Support Staff</div>                    <div class="leadership-title">Support Staff</div>
-
-                    <div class="leadership-bio">                    <div class="leadership-bio">
-
-                        <p>Our administrative team ensures smooth school operations and provides excellent student services.</p>                        <p>Our administrative team ensures smooth school operations and provides excellent student services.</p>
-
-                    </div>                    </div>
-
-                </div>                </div>
-
-            </div>            </div>
-
-                        
-
-            <div class="col-md-4 mb-4">            <div class="col-md-4 mb-4">
-
-                <div class="leadership-card">                <div class="leadership-card">
-
-                    <div class="leadership-name">Student Services</div>                    <div class="leadership-name">Student Services</div>
-
-                    <div class="leadership-title">Guidance & Counseling</div>                    <div class="leadership-title">Guidance & Counseling</div>
-
-                    <div class="leadership-bio">                    <div class="leadership-bio">
-
-                        <p>Dedicated counselors and mentors providing pastoral care and academic guidance to all students.</p>                        <p>Dedicated counselors and mentors providing pastoral care and academic guidance to all students.</p>
-
-                    </div>                    </div>
-
-                </div>                </div>
-
-            </div>            </div>
-
-        </div>        </div>
-
-    </div>    </div>
-
-</div></div>
-
-{% endblock %}{% endblock %}
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="leadership-card">
+                    <div class="leadership-name">Academic Department</div>
+                    <div class="leadership-title">Teaching Staff</div>
+                    <div class="leadership-bio">
+                        <p>Our qualified teachers across all subjects including Mathematics, English, Sciences, Humanities, and Technical subjects.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="leadership-card">
+                    <div class="leadership-name">Administration</div>
+                    <div class="leadership-title">Support Staff</div>
+                    <div class="leadership-bio">
+                        <p>Our administrative team ensures smooth school operations and provides excellent student services.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="leadership-card">
+                    <div class="leadership-name">Student Services</div>
+                    <div class="leadership-title">Guidance & Counseling</div>
+                    <div class="leadership-bio">
+                        <p>Dedicated counselors and mentors providing pastoral care and academic guidance to all students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
