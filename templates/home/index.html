@@ -3,52 +3,309 @@
 
 {% block title %}Home - St. Mary's Nyakhobi Senior School{% endblock %}
 
+{% block extra_css %}
+<style>
+    .fullpage-hero {
+        height: 100vh;
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: white;
+        overflow: hidden;
+    }
+    
+    .fullpage-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/school-hero-bg.jpg') center/cover no-repeat;
+        opacity: 0.4;
+        z-index: 1;
+    }
+    
+    .hero-content {
+        text-align: center;
+        z-index: 2;
+        position: relative;
+    }
+    
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+    }
+    
+    .hero-motto {
+        font-size: 1.2rem;
+        font-style: italic;
+        color: #ffd700;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-cta {
+        margin-top: 2rem;
+    }
+    
+    .btn-hero-primary {
+        background: #ffd700;
+        color: var(--maroon);
+        border: none;
+        padding: 15px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-hero-primary:hover {
+        background: #ffed4a;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+    }
+    
+    .btn-hero-outline {
+        border: 2px solid white;
+        color: white;
+        background: transparent;
+        padding: 13px 30px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-hero-outline:hover {
+        background: white;
+        color: var(--maroon);
+    }
+    
+    .features-section {
+        padding: 100px 0;
+        background: #f8f9fa;
+    }
+    
+    .feature-card {
+        background: white;
+        border-radius: 20px;
+        padding: 40px 30px;
+        text-align: left;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+        border-left: 5px solid var(--maroon);
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+    
+    .feature-icon i {
+        font-size: 2.5rem;
+        color: white;
+    }
+    
+    .feature-title {
+        color: var(--maroon);
+        font-weight: 700;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    
+    .feature-description {
+        color: #6c757d;
+        line-height: 1.7;
+        font-size: 1rem;
+    }
+    
+    /* Principal Section Styles */
+    .principal-section {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .principal-photo-wrapper {
+        position: relative;
+    }
+    
+    .principal-home-photo {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 8px solid white;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .principal-home-photo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 20px 45px rgba(0,0,0,0.15);
+    }
+    
+    .principal-content {
+        padding-left: 2rem;
+    }
+    
+    .principal-content blockquote {
+        border-left: 4px solid var(--maroon);
+        padding-left: 1.5rem;
+        font-style: italic;
+        color: #6c757d;
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 10px;
+        margin: 1.5rem 0;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+        .fullpage-hero {
+            padding: 20px;
+        }
+        .principal-content {
+            padding-left: 0;
+            text-align: center;
+        }
+        .principal-home-photo {
+            width: 200px;
+            height: 200px;
+        }
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<!-- Hero Section with Carousel -->
-<div class="hero-section">
-    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <!-- Default hero content without images -->
-            <div class="carousel-item active">
-                <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <div class="container text-center">
-                        <h1 class="display-4 fw-bold mb-3">Welcome to St. Mary's Nyakhobi Senior School</h1>
-                        <p class="lead mb-2">Building Leaders for Tomorrow - Excellence in Education since 1983</p>
-                        
-                        <!-- School Motto and Vision -->
-                        <div class="hero-motto-vision mb-4">
-                            <div class="row justify-content-center">
-                                <div class="col-md-5">
-                                    <div class="motto-box p-3 mb-3 mb-md-0">
-                                        <h5 class="text-warning mb-2"><i class="fas fa-star"></i> Our Motto</h5>
-                                        <p class="mb-0 fw-bold">"Sacrifice for Success"</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="vision-box p-3">
-                                        <h5 class="text-warning mb-2"><i class="fas fa-eye"></i> Our Vision</h5>
-                                        <p class="mb-0">"To be an institution of excellence in pursuit of quality and holistic education"</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div>
-                            <a href="{% url 'admissions:info' %}" class="btn btn-primary btn-lg me-3">Apply Now</a>
-                            <a href="{% url 'home:about' %}" class="btn btn-outline-light btn-lg">Learn More</a>
-                        </div>
+<!-- Full Page Hero Section -->
+<section class="fullpage-hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to St. Mary's Nyakhobi Senior School</h1>
+            <p class="hero-subtitle">Excellence in Education Since 1983</p>
+            <p class="hero-motto">"Sacrifice for Success"</p>
+            <div class="hero-cta">
+                <a href="{% url 'admissions:info' %}" class="btn btn-hero-primary me-3">Apply Now</a>
+                <a href="{% url 'home:about' %}" class="btn btn-hero-outline">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Key Features Section -->
+<section class="features-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-4" style="color: var(--maroon);">Why Choose St. Mary's Nyakhobi?</h2>
+                <p class="lead text-muted">We are committed to providing exceptional education that shapes tomorrow's leaders</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Academic Excellence -->
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-title">Academic Excellence</h3>
+                    <p class="feature-description">
+                        We are committed to achieving significant academic progress by leveraging data-driven insights to 
+                        progressively develop each learner's competencies incrementally. We apply cutting-edge technology 
+                        and global standards in curriculum delivery to ensure that every learner achieves their full potential.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Pastoral Care -->
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="feature-title">Pastoral Care</h3>
+                    <p class="feature-description">
+                        We embrace our fundamental principles of putting learners' happiness first to create a genuinely happy 
+                        learning environment, instill discipline, cultivate leadership qualities, and inculcate strong moral values 
+                        that will serve them throughout their lives.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Affordability -->
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="feature-title">Affordability</h3>
+                    <p class="feature-description">
+                        We strive to run efficient operations and invest in aspirational amenities that make it possible to provide 
+                        high-quality education that is both affordable and valuable for your child's bright future, ensuring 
+                        excellence is accessible to all.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Principal Section -->
+<section class="principal-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                <div class="principal-photo-wrapper">
+                    <img src="/media/principal-photo.jpg" alt="Mr. Dan F. Olopi - Principal" class="principal-home-photo">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="principal-content">
+                    <h2 class="mb-3" style="color: var(--maroon);">A Message from Our Principal</h2>
+                    <h4 class="text-muted mb-3">Mr. Dan F. Olopi</h4>
+                    <p class="lead mb-4">
+                        "Welcome to St. Mary's Nyakhobi Senior School, where we are committed to nurturing excellence in every student. 
+                        Our dedicated faculty and staff work tirelessly to provide quality education that prepares students for success 
+                        in their academic journey and beyond."
+                    </p>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Education is the most powerful weapon which you can use to change the world. At St. Mary's Nyakhobi, 
+                        we empower our students to become responsible global citizens and future leaders."</p>
+                    </blockquote>
+                    <div class="mt-4">
+                        <a href="/faculty/" class="btn btn-outline-primary">Meet Our Faculty</a>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
     </div>
 </section>
 
