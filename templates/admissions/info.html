@@ -1,0 +1,306 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admissions Information - St. Mary's Nyakhobi Senior School{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admissions-hero {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 100px 0;
+        text-align: center;
+        position: relative;
+    }
+    
+    .admissions-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('/static/images/school-hero-bg.png') center/cover;
+        opacity: 0.2;
+        z-index: -1;
+    }
+    
+    .info-section {
+        padding: 80px 0;
+    }
+    
+    .info-card {
+        background: white;
+        border-radius: 15px;
+        padding: 40px 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        height: 100%;
+        border-left: 5px solid var(--maroon);
+    }
+    
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .info-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(45deg, var(--maroon), #a0002a);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px auto;
+    }
+    
+    .info-icon i {
+        font-size: 2rem;
+        color: white;
+    }
+    
+    .requirements-section {
+        background: #f8f9fa;
+        padding: 80px 0;
+    }
+    
+    .requirement-item {
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        border-left: 4px solid var(--maroon);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .fee-structure {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    
+    .fee-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .fee-item:last-child {
+        border-bottom: none;
+    }
+    
+    .cta-section {
+        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="admissions-hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold mb-3">Admissions Information</h1>
+                <p class="lead">Join St. Mary's Nyakhobi Senior School - Where Excellence Meets Opportunity</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Admission Information Section -->
+<section class="info-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title">Why Choose St. Mary's Nyakhobi?</h2>
+                <p class="text-muted">Discover what makes our school the ideal choice for your child's education</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="mb-3" style="color: var(--maroon);">Academic Excellence</h4>
+                    <p class="text-muted">
+                        Our commitment to academic excellence ensures students achieve their full potential through 
+                        quality curriculum delivery and experienced teaching staff.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h4 class="mb-3" style="color: var(--maroon);">Pastoral Care</h4>
+                    <p class="text-muted">
+                        We provide comprehensive pastoral care and guidance to ensure students develop strong 
+                        moral values and leadership qualities in a supportive environment.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h4 class="mb-3" style="color: var(--maroon);">Affordable Quality</h4>
+                    <p class="text-muted">
+                        High-quality education that is both affordable and valuable, ensuring excellence 
+                        is accessible to all families seeking the best for their children.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Admission Requirements Section -->
+<section class="requirements-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Admission Requirements</h2>
+                    <p class="text-muted">Please ensure you have all the required documents for a smooth application process</p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5><i class="fas fa-file-alt text-primary me-3"></i>Academic Documents</h5>
+                    <p class="mb-0 text-muted">
+                        KCPE certificate or equivalent, previous school reports, and academic transcripts
+                    </p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5><i class="fas fa-id-card text-primary me-3"></i>Identification</h5>
+                    <p class="mb-0 text-muted">
+                        Birth certificate, national ID card (for students 18+), and passport-size photographs
+                    </p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5><i class="fas fa-medical-kit text-primary me-3"></i>Medical Records</h5>
+                    <p class="mb-0 text-muted">
+                        Medical certificate, immunization records, and any special medical requirements
+                    </p>
+                </div>
+                
+                <div class="requirement-item">
+                    <h5><i class="fas fa-money-bill text-primary me-3"></i>Financial Documents</h5>
+                    <p class="mb-0 text-muted">
+                        Proof of financial capability and completed fee payment forms
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fee Structure Section -->
+<section class="info-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Fee Structure</h2>
+                    <p class="text-muted">Affordable quality education with transparent fee structure</p>
+                </div>
+                
+                <div class="fee-structure">
+                    <div class="fee-item">
+                        <span class="fw-bold">Application Fee</span>
+                        <span class="text-primary fw-bold">KSh 1,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span class="fw-bold">Admission Fee (One-time)</span>
+                        <span class="text-primary fw-bold">KSh 5,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span class="fw-bold">Tuition Fee (Per Term)</span>
+                        <span class="text-primary fw-bold">KSh 15,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span class="fw-bold">Development Fee (Per Year)</span>
+                        <span class="text-primary fw-bold">KSh 3,000</span>
+                    </div>
+                    <div class="fee-item">
+                        <span class="fw-bold">Activity Fee (Per Term)</span>
+                        <span class="text-primary fw-bold">KSh 2,000</span>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info mt-4">
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong>Note:</strong> Fee structure is subject to annual review. Payment plans and scholarships may be available for qualified students.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Important Dates Section -->
+<section class="requirements-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="mb-4">Important Dates</h3>
+                <div class="requirement-item">
+                    <h5><i class="fas fa-calendar text-primary me-3"></i>Application Deadline</h5>
+                    <p class="mb-0 text-muted">Form 1: January 15th | Form 2-4: Rolling basis</p>
+                </div>
+                <div class="requirement-item">
+                    <h5><i class="fas fa-calendar-check text-primary me-3"></i>Term Dates</h5>
+                    <p class="mb-0 text-muted">First Term: January - April | Second Term: May - August | Third Term: September - November</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <h3 class="mb-4">Contact Information</h3>
+                <div class="requirement-item">
+                    <h5><i class="fas fa-phone text-primary me-3"></i>Phone</h5>
+                    <p class="mb-0 text-muted">0719 831 346</p>
+                </div>
+                <div class="requirement-item">
+                    <h5><i class="fas fa-envelope text-primary me-3"></i>Email</h5>
+                    <p class="mb-0 text-muted">nyakhobisecsch@gmail.com</p>
+                </div>
+                <div class="requirement-item">
+                    <h5><i class="fas fa-map-marker-alt text-primary me-3"></i>Location</h5>
+                    <p class="mb-0 text-muted">St. Mary's Nyakhobi Senior School, Nyakhobi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="mb-4">Ready to Apply?</h2>
+                <p class="lead mb-4">Take the first step towards your child's bright future at St. Mary's Nyakhobi Senior School</p>
+                <a href="{% url 'admissions:apply' %}" class="btn btn-light btn-lg me-3">
+                    <i class="fas fa-edit me-2"></i>Apply Now
+                </a>
+                <a href="{% url 'contact:info' %}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
