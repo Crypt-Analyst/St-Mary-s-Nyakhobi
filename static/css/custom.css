@@ -57,7 +57,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(128, 0, 0, 0.6), rgba(160, 0, 42, 0.6));
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
     z-index: 1;
 }
 
@@ -66,7 +66,7 @@
     z-index: 2;
     max-width: 800px;
     padding: 20px;
-    background: rgba(128, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
@@ -76,6 +76,7 @@
     margin-bottom: 20px;
     text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
     color: white !important;
+    line-height: 1.2;
 }
 
 .hero-subtitle {
@@ -83,6 +84,7 @@
     margin-bottom: 30px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     color: white !important;
+    line-height: 1.4;
 }
 
 .hero-motto {
@@ -99,11 +101,70 @@
         padding: 60px 0;
         background-attachment: scroll;
     }
+    
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
+    
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .hero-motto {
+        font-size: 1rem;
+    }
+    
+    .hero-content {
+        padding: 15px;
+        max-width: 90%;
+    }
+    
+    .hero-section .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+        margin: 5px;
+    }
+    
+    .hero-section .btn-lg {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 300px;
+        padding: 40px 0;
+    }
+    
+    .hero-title {
+        font-size: 1.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-motto {
+        font-size: 0.9rem;
+    }
+    
+    .hero-content {
+        padding: 10px;
+        max-width: 95%;
+    }
+    
+    .hero-section .btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .hero-section .btn-lg {
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
 }
 
