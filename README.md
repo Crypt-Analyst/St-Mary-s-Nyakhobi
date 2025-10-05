@@ -3,9 +3,27 @@
 [![Django](https://img.shields.io/badge/Django-4.2.7-green.svg)](https://www.djangoproject.com/)
 [![Python](https://img.shields.io/badge/Python-3.13-blue.svg)](https://www.python.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Cloud-blue.svg)](https://supabase.com/)
+[![Security](https://img.shields.io/badge/Security-Hardened-brightgreen.svg)](SECURITY.md)
 [![License](https://img.shields.io/badge/License-Educational-yellow.svg)](LICENSE)
 
 > **Official website for St. Mary's Nyakhobi Senior School - Empowering minds, building futures in Funyula, Busia County, Kenya.**
+
+## 🔐 Security Features
+
+**Enterprise-grade security implemented!** This website includes:
+- ✅ HTTPS/SSL encryption with HSTS
+- ✅ Secure session management & cookies
+- ✅ CSRF & XSS protection
+- ✅ Strong password policies (12+ characters)
+- ✅ reCAPTCHA spam protection
+- ✅ Automated logging & monitoring
+- ✅ Environment variable configuration
+- ✅ Complete security documentation
+
+**📚 Documentation:**
+- [SECURITY.md](SECURITY.md) - Comprehensive security guide
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Production deployment checklist
+- [QUICKSTART_SECURITY.md](QUICKSTART_SECURITY.md) - Quick security setup
 
 ## 🌟 About St. Mary's Nyakhobi Senior School
 
