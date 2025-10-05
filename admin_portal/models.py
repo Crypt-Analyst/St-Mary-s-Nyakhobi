@@ -253,3 +253,230 @@ class ContactMessage(models.Model):
             self.read_at = timezone.now()
             self.read_by = user
             self.save()
+
+
+class HomePageBanner(models.Model):
+    """Homepage slider/banner management"""
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=300, blank=True)
+    description = models.TextField(blank=True)
+    
+    image = models.ImageField(upload_to='banners/')
+    button_text = models.CharField(max_length=50, blank=True, help_text="e.g., 'Learn More', 'Apply Now'")
+    button_link = models.CharField(max_length=200, blank=True, help_text="URL or page path")
+    
+    is_active = models.BooleanField(default=True)
+    display_order = models.IntegerField(default=0, help_text="Lower numbers appear first")
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['display_order', '-created_at']
+        verbose_name = 'Homepage Banner'
+        verbose_name_plural = 'Homepage Banners'
+    
+    def __str__(self):
+        return self.title
+
+
+class AcademicDepartment(models.Model):
+    """Academic departments and subjects"""
+    name = models.CharField(max_length=100, help_text="e.g., Sciences, Languages, Mathematics")
+    description = models.TextField()
+    head_of_department = models.CharField(max_length=200, blank=True)
+    
+    subjects_offered = models.TextField(help_text="List all subjects in this department")
+    department_image = models.ImageField(upload_to='academics/', blank=True, null=True)
+    
+    display_order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['display_order', 'name']
+        verbose_name = 'Academic Department'
+        verbose_name_plural = 'Academic Departments'
+    
+    def __str__(self):
+        return self.name
+
+
+class CurriculumInfo(models.Model):
+    """Curriculum and academic program information"""
+    LEVEL_CHOICES = [
+        ('form1', 'Form 1'),
+        ('form2', 'Form 2'),
+        ('form3', 'Form 3'),
+        ('form4', 'Form 4'),
+    ]
+    
+    level = models.CharField(max_length=20, choices=LEVEL_CHOICES, unique=True)
+    description = models.TextField(help_text="Overview of this level")
+    core_subjects = models.TextField(help_text="List core/compulsory subjects")
+    elective_subjects = models.TextField(blank=True, help_text="List optional subjects")
+    
+    curriculum_file = models.FileField(upload_to='curriculum/', blank=True, null=True)
+    
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    
+    class Meta:
+        ordering = ['level']
+        verbose_name = 'Curriculum Information'
+        verbose_name_plural = 'Curriculum Information'
+    
+    def __str__(self):
+        return f"{self.get_level_display()} Curriculum"
+
+
+class AdmissionInfo(models.Model):
+    """Admissions requirements and information"""
+    INFO_TYPE_CHOICES = [
+        ('requirements', 'Admission Requirements'),
+        ('process', 'Application Process'),
+        ('fees', 'Fee Structure'),
+        ('documents', 'Required Documents'),
+        ('deadlines', 'Important Dates'),
+    ]
+    
+    info_type = models.CharField(max_length=20, choices=INFO_TYPE_CHOICES, unique=True)
+    title = models.CharField(max_length=200)
+    content = models.TextField(help_text="Detailed information")
+    
+    application_form = models.FileField(upload_to='admissions/', blank=True, null=True)
+    is_published = models.BooleanField(default=True)
+    
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    
+    class Meta:
+        verbose_name = 'Admission Information'
+        verbose_name_plural = 'Admission Information'
+    
+    def __str__(self):
+        return self.title
+
+
+class ParentInfo(models.Model):
+    """Parent information - fees, policies, uniform, etc."""
+    CATEGORY_CHOICES = [
+        ('fees', 'Fees & Payments'),
+        ('uniform', 'Uniform Requirements'),
+        ('policy', 'School Policies'),
+        ('calendar', 'Academic Calendar'),
+        ('transport', 'Transport Information'),
+        ('general', 'General Information'),
+    ]
+    
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    
+    attachment = models.FileField(upload_to='parent_info/', blank=True, null=True, 
+                                  help_text="PDF or document file")
+    
+    is_published = models.BooleanField(default=True)
+    display_order = models.IntegerField(default=0)
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['category', 'display_order']
+        verbose_name = 'Parent Information'
+        verbose_name_plural = 'Parent Information'
+    
+    def __str__(self):
+        return f"{self.get_category_display()}: {self.title}"
+
+
+class SchoolValue(models.Model):
+    """Core values and principles"""
+    title = models.CharField(max_length=100, help_text="e.g., Integrity, Excellence, Respect")
+    description = models.TextField()
+    icon_class = models.CharField(max_length=50, blank=True, 
+                                  help_text="Font Awesome icon class, e.g., 'fas fa-star'")
+    
+    display_order = models.IntegerField(default=0)
+    is_active = models.BooleanField(default=True)
+    
+    class Meta:
+        ordering = ['display_order']
+        verbose_name = 'School Value'
+        verbose_name_plural = 'School Values'
+    
+    def __str__(self):
+        return self.title
+
+
+class Newsletter(models.Model):
+    """Newsletter management and subscriptions"""
+    subject = models.CharField(max_length=200)
+    content = models.TextField()
+    
+    pdf_file = models.FileField(upload_to='newsletters/', blank=True, null=True)
+    
+    sent_date = models.DateTimeField(blank=True, null=True)
+    is_published = models.BooleanField(default=False)
+    
+    created_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='admin_newsletters')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Newsletter'
+        verbose_name_plural = 'Newsletters'
+    
+    def __str__(self):
+        return self.subject
+
+
+class NewsletterSubscription(models.Model):
+    """Newsletter subscriber management"""
+    email = models.EmailField(unique=True)
+    name = models.CharField(max_length=200, blank=True)
+    
+    is_active = models.BooleanField(default=True)
+    subscribed_at = models.DateTimeField(auto_now_add=True)
+    unsubscribed_at = models.DateTimeField(blank=True, null=True)
+    
+    class Meta:
+        ordering = ['-subscribed_at']
+        verbose_name = 'Newsletter Subscription'
+        verbose_name_plural = 'Newsletter Subscriptions'
+    
+    def __str__(self):
+        return self.email
+
+
+class AdminActivityLog(models.Model):
+    """Track admin actions for security and auditing"""
+    ACTION_CHOICES = [
+        ('create', 'Created'),
+        ('update', 'Updated'),
+        ('delete', 'Deleted'),
+        ('login', 'Logged In'),
+        ('logout', 'Logged Out'),
+    ]
+    
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    action = models.CharField(max_length=20, choices=ACTION_CHOICES)
+    content_type = models.CharField(max_length=100, help_text="Type of content modified")
+    object_id = models.IntegerField(blank=True, null=True)
+    object_repr = models.CharField(max_length=200, blank=True)
+    
+    description = models.TextField(blank=True)
+    ip_address = models.GenericIPAddressField(blank=True, null=True)
+    
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-timestamp']
+        verbose_name = 'Activity Log'
+        verbose_name_plural = 'Activity Logs'
+    
+    def __str__(self):
+        return f"{self.user} - {self.action} - {self.content_type} at {self.timestamp}"
