@@ -13,5 +13,9 @@ django-recaptcha==4.0.0
 gunicorn==21.2.0
 dj-database-url==2.1.0
 
+# Cloud storage for media files
+cloudinary==1.41.0
+django-cloudinary-storage==0.3.0
+
 # Environment variables
 python-dotenv==1.0.0

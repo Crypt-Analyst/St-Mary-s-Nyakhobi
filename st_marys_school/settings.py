@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Third party apps
+    'cloudinary_storage',
+    'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
     # 'captcha',  # django-recaptcha - uncomment after pip install django-recaptcha
@@ -257,3 +259,28 @@ if 'DATABASE_URL' in os.environ:
         conn_health_checks=True,
         ssl_require=True
     )
+
+# Cloudinary Configuration for Media Storage
+# Use Cloudinary in production to persist uploaded images
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
+    'API_KEY': config('CLOUDINARY_API_KEY', default=''),
+    'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
+}
+
+# Use Cloudinary for media files if configured
+if CLOUDINARY_STORAGE['CLOUD_NAME']:
+    cloudinary.config(
+        cloud_name=CLOUDINARY_STORAGE['CLOUD_NAME'],
+        api_key=CLOUDINARY_STORAGE['API_KEY'],
+        api_secret=CLOUDINARY_STORAGE['API_SECRET'],
+        secure=True
+    )
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    # Fall back to local storage for development
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
