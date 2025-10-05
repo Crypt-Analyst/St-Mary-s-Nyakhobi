@@ -5,3 +5,12 @@ crispy-bootstrap5==0.7
 whitenoise==6.6.0
 python-decouple==3.8
 psycopg2-binary==2.9.7
+
+# Security
+django-recaptcha==4.0.0
+
+# Production server
+gunicorn==21.2.0
+
+# Environment variables
+python-dotenv==1.0.0
