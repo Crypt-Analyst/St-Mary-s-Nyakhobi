@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: st-marys-nyakhobi
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn st_marys_school.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.4
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: ALLOWED_HOSTS
+        sync: false
+      - key: DATABASE_URL
+        fromDatabase:
+          name: st-marys-db
+          property: connectionString
+    
+databases:
+  - name: st-marys-db
+    databaseName: st_marys_school
+    user: st_marys_user
