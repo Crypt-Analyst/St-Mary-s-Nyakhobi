@@ -44,10 +44,12 @@ Static Site (Wrong):          Web Service (Correct):
    Runtime: Python 3
    
    Build Command:
-   ./build.sh
+   chmod +x build.sh && ./build.sh
    
    Start Command:
    gunicorn st_marys_school.wsgi:application
+   
+   Root Directory: (leave blank)
    ```
 
 5. **Add Environment Variables:**
