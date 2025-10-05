@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Event, News
+from .models import Event, News  # OLD models (keeping for now)
+from admin_portal.models import NewsAnnouncement, SchoolEvent  # NEW admin portal models
 
 def events_list(request):
-    """Display all events"""
-    events = Event.objects.filter(is_published=True).order_by('-event_date')
+    """Display all events - now using admin portal"""
+    events = SchoolEvent.objects.filter(published=True).order_by('-start_date')
     
     context = {
         'events': events,
@@ -11,8 +12,8 @@ def events_list(request):
     return render(request, 'events/calendar.html', context)
 
 def event_detail(request, event_id):
-    """Display event details"""
-    event = get_object_or_404(Event, id=event_id, is_published=True)
+    """Display event details - now using admin portal"""
+    event = get_object_or_404(SchoolEvent, id=event_id, published=True)
     
     context = {
         'event': event,
@@ -20,17 +21,17 @@ def event_detail(request, event_id):
     return render(request, 'events/event_detail.html', context)
 
 def news_list(request):
-    """Display all news"""
-    news = News.objects.filter(is_published=True).order_by('-created_at')
+    """Display all news - now using admin portal"""
+    news_items = NewsAnnouncement.objects.filter(published=True).order_by('-created_at')
     
     context = {
-        'news': news,
+        'news_items': news_items,
     }
     return render(request, 'events/news_list.html', context)
 
 def news_detail(request, news_id):
-    """Display news details"""
-    news_item = get_object_or_404(News, id=news_id, is_published=True)
+    """Display news details - now using admin portal"""
+    news_item = get_object_or_404(NewsAnnouncement, id=news_id, published=True)
     
     context = {
         'news_item': news_item,

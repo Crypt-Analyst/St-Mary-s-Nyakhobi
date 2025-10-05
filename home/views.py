@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import SchoolInfo, HomePageSlider, QuickLink
-from events.models import News
+from events.models import News  # OLD model (keeping for compatibility)
+from admin_portal.models import NewsAnnouncement  # NEW admin portal model
 
 def home(request):
     """Homepage view"""
@@ -12,9 +13,9 @@ def home(request):
     slider_images = HomePageSlider.objects.filter(is_active=True)
     quick_links = QuickLink.objects.filter(is_active=True)
     
-    # Get latest news only (events removed from home page)
+    # Get latest news from admin portal (NEW)
     try:
-        latest_news = News.objects.filter(is_published=True).order_by('-created_at')[:3]
+        latest_news = NewsAnnouncement.objects.filter(published=True).order_by('-created_at')[:3]
     except:
         latest_news = []
     
