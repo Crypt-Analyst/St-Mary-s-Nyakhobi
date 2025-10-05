@@ -74,6 +74,12 @@ class NewsAnnouncement(models.Model):
     
     def __str__(self):
         return self.title
+    
+    def summary(self):
+        """Return first 150 characters of content as summary"""
+        if len(self.content) > 150:
+            return self.content[:150] + '...'
+        return self.content
 
 
 class GalleryImage(models.Model):
