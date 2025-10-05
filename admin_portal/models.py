@@ -313,10 +313,9 @@ class AcademicDepartment(models.Model):
 class CurriculumInfo(models.Model):
     """Curriculum and academic program information"""
     LEVEL_CHOICES = [
-        ('form1', 'Form 1'),
-        ('form2', 'Form 2'),
-        ('form3', 'Form 3'),
-        ('form4', 'Form 4'),
+        ('grade10', 'Grade 10 - Senior Secondary Year 1'),
+        ('grade11', 'Grade 11 - Senior Secondary Year 2'),
+        ('grade12', 'Grade 12 - Senior Secondary Year 3'),
     ]
     
     level = models.CharField(max_length=20, choices=LEVEL_CHOICES, unique=True)
