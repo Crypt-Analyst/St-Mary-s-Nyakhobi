@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'contact',
     'news',
     'portal',
+    'admin_portal',  # Custom admin portal
 ]
 
 MIDDLEWARE = [
