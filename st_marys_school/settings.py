@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Third party apps
+    'axes',  # Login attempt tracking and brute-force protection
     'cloudinary_storage',
     'cloudinary',
     'crispy_forms',
@@ -72,6 +73,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Axes middleware for tracking login attempts (must be last)
+    'axes.middleware.AxesMiddleware',
 ]
 
 ROOT_URLCONF = 'st_marys_school.urls'
@@ -284,3 +287,81 @@ if CLOUDINARY_STORAGE['CLOUD_NAME']:
 else:
     # Fall back to local storage for development
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+
+# ============================================================================
+# DJANGO-AXES CONFIGURATION - BRUTE FORCE PROTECTION
+# ============================================================================
+
+# Authentication backends (required for django-axes)
+AUTHENTICATION_BACKENDS = [
+    # AxesStandaloneBackend should be the first backend in the AUTHENTICATION_BACKENDS list.
+    'axes.backends.AxesStandaloneBackend',
+    
+    # Django ModelBackend is the default authentication backend.
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# Django-Axes Settings for Login Protection
+AXES_ENABLED = True  # Enable axes
+AXES_FAILURE_LIMIT = 5  # Lock after 5 failed attempts
+AXES_COOLOFF_TIME = 1  # Lock for 1 hour (in hours)
+AXES_LOCKOUT_TEMPLATE = None  # Use default lockout message
+AXES_LOCKOUT_URL = None  # Redirect to same page with error message
+
+# NEW: Updated lockout tracking settings (replaces deprecated settings)
+# Track by both username AND IP address for stronger security
+AXES_LOCKOUT_PARAMETERS = [['username', 'ip_address']]
+
+AXES_RESET_ON_SUCCESS = True  # Reset counter on successful login
+AXES_ONLY_ADMIN_SITE = False  # Protect all login pages (admin + portal)
+AXES_VERBOSE = True  # Show detailed messages
+
+# What to track
+AXES_LOCK_OUT_AT_FAILURE = True  # Enable lockout
+AXES_USERNAME_FORM_FIELD = 'username'  # Form field name for username
+AXES_PASSWORD_FORM_FIELD = 'password'  # Form field name for password
+
+# Security enhancements
+AXES_RESET_COOL_OFF_ON_FAILURE_DURING_LOCKOUT = False  # Don't extend lockout on attempts
+AXES_NEVER_LOCKOUT_WHITELIST = False  # No whitelist bypass
+AXES_NEVER_LOCKOUT_GET = False  # Protect GET requests too
+AXES_IPWARE_PROXY_COUNT = 1  # For reverse proxy setups (Render, etc.)
+AXES_IPWARE_META_PRECEDENCE_ORDER = [
+    'HTTP_X_FORWARDED_FOR',
+    'HTTP_X_REAL_IP',
+    'REMOTE_ADDR',
+]
+
+# Failure messages
+AXES_COOLOFF_MESSAGE = (
+    'Account locked: too many login attempts. '
+    'Try again after %(cooloff_time)s.'
+)
+
+# ============================================================================
+# SESSION SECURITY ENHANCEMENTS
+# ============================================================================
+
+# Session timeout (auto-logout after 1 hour of inactivity)
+SESSION_COOKIE_AGE = 3600  # 1 hour in seconds
+SESSION_SAVE_EVERY_REQUEST = True  # Extend session on every request
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Keep session if browser closes
+
+# Additional session security
+SESSION_COOKIE_HTTPONLY = True  # Prevent JavaScript access to session cookie
+SESSION_COOKIE_SECURE = not DEBUG  # HTTPS only in production
+SESSION_COOKIE_SAMESITE = 'Lax'  # CSRF protection
+
+# ============================================================================
+# PASSWORD STRENGTH REQUIREMENTS (Enhanced)
+# ============================================================================
+
+# Already defined above but adding comment for clarity
+# Passwords must be:
+# - At least 8 characters
+# - Not too similar to other personal info
+# - Not a commonly used password
+# - Not entirely numeric
+# - Must contain mix of characters (via CommonPasswordValidator)
+
