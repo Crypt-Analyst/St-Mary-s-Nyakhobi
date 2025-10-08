@@ -1,642 +1,115 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Home - St. Mary's Nyakhobi Senior School{% endblock %}
-
-{% block hero %}
-<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg'); min-height: 100vh;">
-    <div class="hero-content">
-        <h1 class="hero-title">St. Mary's Nyakhobi Senior School</h1>
-        <p class="hero-subtitle">The Mission</p>
-        <p class="hero-motto">Sacrifice for Success</p>
-        <div class="mt-4">
-            <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg me-3">Join Us Today</a>
-            <a href="{% url 'academics:programs' %}" class="btn btn-outline-light btn-lg">Our Programs</a>
-        </div>
-    </div>
-</section>
-{% endblock %}
-
-{% block extra_css %}
-<style>
-    .hero-motto {
-        font-size: 1.2rem;
-        font-style: italic;
-        color: #ffd700;
-        margin-bottom: 3rem;
-    }
-    
-    .hero-cta {
-        margin-top: 2rem;
-    }
-    
-    .btn-hero-primary {
-        background: #ffd700;
-        color: var(--maroon);
-        border: none;
-        padding: 15px 30px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-    }
-    
-    .btn-hero-primary:hover {
-        background: #ffed4a;
-        transform: translateY(-2px);
-        box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
-    }
-    
-    .btn-hero-outline {
-        border: 2px solid white;
-        color: white;
-        background: transparent;
-        padding: 13px 30px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        border-radius: 50px;
-        transition: all 0.3s ease;
-    }
-    
-    .btn-hero-outline:hover {
-        background: white;
-        color: var(--maroon);
-    }
-    
-    .features-section {
-        padding: 100px 0;
-        background: #f8f9fa;
-    }
-    
-    .feature-card {
-        background: white;
-        border-radius: 20px;
-        padding: 40px 30px;
-        text-align: left;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        height: 100%;
-        border-left: 5px solid var(--maroon);
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    
-    .feature-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 25px;
-    }
-    
-    .feature-icon i {
-        font-size: 2.5rem;
-        color: white;
-    }
-    
-    .feature-title {
-        color: var(--maroon);
-        font-weight: 700;
-        margin-bottom: 20px;
-        font-size: 1.5rem;
-    }
-    
-    .feature-description {
-        color: #6c757d;
-        line-height: 1.7;
-        font-size: 1rem;
-    }
-    
-    /* Principal Section Styles */
-    .principal-section {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .principal-photo-wrapper {
-        position: relative;
-    }
-    
-    .principal-home-photo {
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 8px solid white;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-    
-    .principal-home-photo:hover {
-        transform: scale(1.05);
-        box-shadow: 0 20px 45px rgba(0,0,0,0.15);
-    }
-    
-    .principal-content {
-        padding-left: 2rem;
-    }
-    
-    .principal-content blockquote {
-        border-left: 4px solid var(--maroon);
-        padding-left: 1.5rem;
-        font-style: italic;
-        color: #6c757d;
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin: 1.5rem 0;
-    }
-    
-    /* Welcome & History Section Styles */
-    .welcome-section {
-        padding: 100px 0;
-        background: white;
-        position: relative;
-    }
-    
-    .welcome-content {
-        padding-right: 2rem;
-    }
-    
-    .welcome-title {
-        color: var(--maroon);
-        font-weight: 700;
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .welcome-subtitle {
-        color: #666;
-        font-size: 1.2rem;
-        font-weight: 500;
-        margin-bottom: 2rem;
-    }
-    
-    .history-text {
-        color: #555;
-        line-height: 1.8;
-        font-size: 1.1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    .established-badge {
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        color: white;
-        padding: 10px 20px;
-        border-radius: 25px;
-        font-weight: 600;
-        display: inline-block;
-        margin-bottom: 2rem;
-    }
-    
-    .student-gallery {
-        position: relative;
-    }
-    
-    .student-photo {
-        width: 100%;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-    
-    .student-photo:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-    }
-    
-    .photo-overlay {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-        background: rgba(139, 0, 0, 0.9);
-        color: white;
-        padding: 15px 20px;
-        border-radius: 10px;
-        backdrop-filter: blur(10px);
-    }
-    
-    .photo-caption {
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
-    
-    .photo-description {
-        font-size: 0.9rem;
-        opacity: 0.9;
-        margin: 0;
-    }
-    
-    @media (max-width: 768px) {
-        .hero-title {
-            font-size: 2.5rem;
-        }
-        .hero-subtitle {
-            font-size: 1.2rem;
-        }
-        .fullpage-hero {
-            padding: 20px;
-        }
-        .principal-content {
-            padding-left: 0;
-            text-align: center;
-        }
-        .principal-home-photo {
-            width: 200px;
-            height: 200px;
-        }
-        .welcome-content {
-            padding-right: 0;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .welcome-title {
-            font-size: 2rem;
-        }
-        .student-photo {
-            height: 300px;
-        }
-    }
-</style>
-{% endblock %}
+{% block title %}Home - St. Mary's Nyakhobi Senior School | CBC Grade 10-12 | Funyula, Busia{% endblock %}
 
 {% block content %}
 
-<!-- Key Features Section -->
-<section class="features-section">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4" style="color: var(--maroon);">Why Choose St. Mary's Nyakhobi?</h2>
-                <p class="lead text-muted">We are committed to providing exceptional education that shapes tomorrow's leaders</p>
-            </div>
+<!-- Hero Section - Senior School Focus -->
+<section class="hero-section">
+    <div class="hero-content fade-in-up">
+        <h1 class="hero-title">Welcome to St. Mary's Nyakhobi Senior School</h1>
+        <p class="hero-subtitle">Excellence in CBC Senior Secondary Education | Grade 10, 11 & 12</p>
+        <p style="font-size: 1.25rem; margin-bottom: 2rem; color: rgba(255,255,255,0.95);">
+            <strong>Motto:</strong> Sacrifice for Success
+        </p>
+        <div class="hero-buttons">
+            <a href="{% url 'admissions:apply' %}" class="btn btn-primary">
+                <i class="fas fa-edit"></i> Apply Now for 2025
+            </a>
+            <a href="{% url 'academics:programs' %}" class="btn btn-outline-light">
+                <i class="fas fa-book"></i> Explore Our Programs
+            </a>
         </div>
-        
+    </div>
+</section>
+
+<!-- Quick Action Cards - School-Specific -->
+<section class="quick-actions">
+    <div class="container">
         <div class="row g-4">
-            <!-- Academic Excellence -->
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="feature-title">Academic Excellence</h3>
-                    <p class="feature-description">
-                        We are committed to achieving significant academic progress by leveraging data-driven insights to 
-                        progressively develop each learner's competencies incrementally. We apply cutting-edge technology 
-                        and global standards in curriculum delivery to ensure that every learner achieves their full potential.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Pastoral Care -->
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3 class="feature-title">Pastoral Care</h3>
-                    <p class="feature-description">
-                        We embrace our fundamental principles of putting learners' happiness first to create a genuinely happy 
-                        learning environment, instill discipline, cultivate leadership qualities, and inculcate strong moral values 
-                        that will serve them throughout their lives.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Affordability -->
-            <div class="col-lg-4 col-md-6">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-coins"></i>
-                    </div>
-                    <h3 class="feature-title">Affordability</h3>
-                    <p class="feature-description">
-                        We strive to run efficient operations and invest in aspirational amenities that make it possible to provide 
-                        high-quality education that is both affordable and valuable for your child's bright future, ensuring 
-                        excellence is accessible to all.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Welcome & History Section -->
-<section class="welcome-section">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-7">
-                <div class="welcome-content">
-                    <div class="established-badge">
-                        <i class="fas fa-calendar-alt me-2"></i>Established 1983
-                    </div>
-                    <h2 class="welcome-title">Welcome to St. Mary's Nyakhobi Senior School</h2>
-                    <p class="welcome-subtitle">A Legacy of Excellence in Secondary Education</p>
-                    
-                    <div class="history-text">
-                        <p>For over four decades, St. Mary's Nyakhobi Senior School has stood as a beacon of educational excellence in our community. Founded in 1983 with a vision to provide quality, affordable education, we have grown from humble beginnings to become one of the region's most respected secondary schools.</p>
-                        
-                        <p>Our journey has been marked by unwavering commitment to academic excellence, character development, and holistic education. We have nurtured thousands of students who have gone on to excel in various fields, from medicine and engineering to business and public service.</p>
-                        
-                        <p>At St. Mary's Nyakhobi, we believe that every student has the potential to achieve greatness. Our dedicated faculty, modern facilities, and comprehensive curriculum create an environment where students can discover their passions, develop their talents, and prepare for future success.</p>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-4 mb-3">
-                            <div class="text-center">
-                                <h4 class="fw-bold" style="color: var(--maroon);">40+</h4>
-                                <p class="mb-0 text-muted">Years of Excellence</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="text-center">
-                                <h4 class="fw-bold" style="color: var(--maroon);">1000+</h4>
-                                <p class="mb-0 text-muted">Graduates</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 mb-3">
-                            <div class="text-center">
-                                <h4 class="fw-bold" style="color: var(--maroon);">98%</h4>
-                                <p class="mb-0 text-muted">KCSE Success Rate</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-5">
-                <div class="student-gallery">
-                    <img src="/media/images/school-compound.jpg" alt="St. Mary's Nyakhobi Students" class="student-photo">
-                    <div class="photo-overlay">
-                        <div class="photo-caption">Our Learning Community</div>
-                        <p class="photo-description">Students engaged in collaborative learning and character development at St. Mary's Nyakhobi Senior School</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Principal Section -->
-<section class="principal-section py-5" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                <div class="principal-photo-wrapper">
-                    <img src="/media/principal-photo.jpg" alt="Mr. Dan F. Olopi - Principal" class="principal-home-photo">
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="principal-content">
-                    <h2 class="mb-3" style="color: var(--maroon);">A Message from Our Principal</h2>
-                    <h4 class="text-muted mb-3">Mr. Dan F. Olopi</h4>
-                    <p class="lead mb-4">
-                        "Welcome to St. Mary's Nyakhobi Senior School, where we are committed to nurturing excellence in every student. 
-                        Our dedicated faculty and staff work tirelessly to provide quality education that prepares students for success 
-                        in their academic journey and beyond."
-                    </p>
-                    <blockquote class="blockquote">
-                        <p class="mb-0">"Education is the most powerful weapon which you can use to change the world. At St. Mary's Nyakhobi, 
-                        we empower our students to become responsible global citizens and future leaders."</p>
-                    </blockquote>
-                    <div class="mt-4">
-                        <a href="/faculty/" class="btn btn-outline-primary">Meet Our Faculty</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Quick Links Section -->
-<section class="quick-links">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary-custom">Quick Access</h2>
-            <p class="lead">Find what you're looking for quickly</p>
-        </div>
-        
-        <div class="row g-4">
-            {% for link in quick_links %}
-            <div class="col-lg-3 col-md-6">
-                <a href="{{ link.link_url }}" class="text-decoration-none">
-                    <div class="quick-link-item">
-                        <i class="{{ link.icon }}"></i>
-                        <h5>{{ link.title }}</h5>
-                        <p>{{ link.description }}</p>
-                    </div>
-                </a>
-            </div>
-            {% empty %}
-            <!-- Default quick links -->
+            <!-- Admissions Card -->
             <div class="col-lg-3 col-md-6">
                 <a href="{% url 'admissions:info' %}" class="text-decoration-none">
-                    <div class="quick-link-item">
-                        <i class="fas fa-user-graduate"></i>
-                        <h5>Admissions</h5>
-                        <p>Apply for admission and learn about our requirements</p>
+                    <div class="quick-action-card">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>Admissions</h3>
+                        <p>Join our CBC Senior Secondary School. Grade 10-12 applications open for 2025 intake.</p>
+                        <span class="btn btn-maroon btn-sm">Learn More <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
+
+            <!-- CBC Programs Card -->
             <div class="col-lg-3 col-md-6">
                 <a href="{% url 'academics:programs' %}" class="text-decoration-none">
-                    <div class="quick-link-item">
-                        <i class="fas fa-book"></i>
-                        <h5>Academics</h5>
-                        <p>Explore our academic programs and curriculum</p>
+                    <div class="quick-action-card">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>CBC Programs</h3>
+                        <p>Explore our Grade 10, 11 & 12 curriculum with 40+ CBC subject combinations.</p>
+                        <span class="btn btn-maroon btn-sm">View Programs <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
+
+            <!-- Student Life Card -->
             <div class="col-lg-3 col-md-6">
                 <a href="{% url 'events:events' %}" class="text-decoration-none">
-                    <div class="quick-link-item">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h5>Events</h5>
-                        <p>Stay updated with school events and activities</p>
+                    <div class="quick-action-card">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Student Life</h3>
+                        <p>Clubs, sports, leadership opportunities, and community service programs.</p>
+                        <span class="btn btn-maroon btn-sm">Explore Life <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
+
+            <!-- Contact Card -->
             <div class="col-lg-3 col-md-6">
                 <a href="{% url 'contact:contact' %}" class="text-decoration-none">
-                    <div class="quick-link-item">
-                        <i class="fas fa-envelope"></i>
-                        <h5>Contact</h5>
-                        <p>Get in touch with us for any inquiries</p>
+                    <div class="quick-action-card">
+                        <div class="quick-action-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3>Contact Us</h3>
+                        <p>Get in touch with our admissions office and school administration.</p>
+                        <span class="btn btn-maroon btn-sm">Contact <i class="fas fa-arrow-right"></i></span>
                     </div>
                 </a>
             </div>
-            {% endfor %}
         </div>
     </div>
 </section>
 
-<!-- School Statistics -->
-<section class="stats-section">
+<!-- About CBC Senior Secondary -->
+<section class="section section-light">
     <div class="container">
-        <div class="row text-center">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="stat-item">
-                    <div class="stat-number">800+</div>
-                    <h5>Students</h5>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="student-life-image">
+                    <img src="{% static 'images/school-building.jpg' %}" alt="St. Mary's Nyakhobi Senior School" class="img-fluid">
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="stat-item">
-                    <div class="stat-number">35+</div>
-                    <h5>Faculty Members</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="stat-item">
-                    <div class="stat-number">45+</div>
-                    <h5>Years of Excellence</h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="stat-item">
-                    <div class="stat-number">88%</div>
-                    <h5>KCSE Success Rate</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Student Testimonials & School Videos -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Student Voices & School Life</h2>
-                <p class="lead text-muted">Hear directly from our students and see life at St. Mary's Nyakhobi through our videos</p>
-            </div>
-        </div>
-
-        <!-- YouTube Videos Section -->
-        <div class="row mb-5">
-            <div class="col-lg-6 mb-4">
-                <div class="card border-0 shadow-lg h-100">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <!-- Replace VIDEO_ID_1 with your actual YouTube video ID -->
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                            src="https://www.youtube.com/embed/VIDEO_ID_1" 
-                            title="St. Mary's Nyakhobi School Life" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-primary">School Life at St. Mary's</h5>
-                        <p class="card-text text-muted">Experience a day in the life of our students - from morning assembly to evening prep.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 mb-4">
-                <div class="card border-0 shadow-lg h-100">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <!-- Replace VIDEO_ID_2 with your actual YouTube video ID -->
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                            src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                            title="Academic Excellence at St. Mary's Nyakhobi" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-success">Academic Excellence</h5>
-                        <p class="card-text text-muted">Discover our modern facilities, dedicated teachers, and exceptional academic programs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Student Testimonials -->
-        <div class="row">
-            <div class="col-12 text-center mb-4">
-                <h3 class="fw-bold text-primary">Student Testimonials</h3>
-                <p class="text-muted">What our students say about their experience at St. Mary's Nyakhobi</p>
-            </div>
-        </div>
-
-        <div class="row g-4">
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <div class="d-flex mb-3">
-                            <div class="testimonial-avatar me-3">
-                                <img src="{{ MEDIA_URL }}images/student-avatar-1.jpg" alt="Student" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" onerror="this.src='/static/images/default-avatar.png'">
-                            </div>
-                            <div>
-                                <h6 class="mb-1 fw-bold">Sarah Wanjiku</h6>
-                                <small class="text-muted">Form 4 Student, 2024</small>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"St. Mary's Nyakhobi has been my home away from home for four years. The teachers are dedicated, the facilities are excellent, and I've grown both academically and personally. I'm confident about my KCSE results!"</p>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-4">
-                        <div class="d-flex mb-3">
-                            <div class="testimonial-avatar me-3">
-                                <img src="{{ MEDIA_URL }}images/student-avatar-2.jpg" alt="Student" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;" onerror="this.src='/static/images/default-avatar.png'">
-                            </div>
-                            <div>
-                                <h6 class="mb-1 fw-bold">John Odhiambo</h6>
-                                <small class="text-muted">Alumni, Class of 2023</small>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"The strong foundation I received at St. Mary's helped me secure direct admission to university. The science laboratory and library resources were exceptional. I'm proud to be an alumnus!"</p>
-                        </blockquote>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- YouTube Channel Link -->
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <div class="bg-primary text-white rounded p-4">
-                    <h4 class="fw-bold mb-3">
-                        <i class="fab fa-youtube me-2"></i>
-                        Subscribe to Our YouTube Channel
-                    </h4>
-                    <p class="mb-3">Stay updated with the latest videos from St. Mary's Nyakhobi Senior School</p>
-                    <a href="https://www.youtube.com/@StMarysNyakhobi" target="_blank" class="btn btn-light btn-lg">
-                        <i class="fab fa-youtube me-2"></i>Visit Our Channel
+                <div class="student-life-content">
+                    <h2>CBC Senior Secondary Education</h2>
+                    <p>
+                        St. Mary's Nyakhobi Senior School is a progressive institution dedicated to implementing Kenya's Competency-Based Curriculum (CBC) for Senior Secondary learners. We offer comprehensive education for <strong>Grade 10, Grade 11, and Grade 12</strong> students, preparing them for the Kenya Certificate of Secondary Education (KSCE) examination.
+                    </p>
+                    <p>
+                        Our school provides a nurturing environment where students develop critical thinking, practical skills, and strong character values. We offer <strong>over 40 CBC subject combinations</strong> across STEM, Social Sciences, Arts, and Sports pathways, ensuring every student finds their path to success.
+                    </p>
+                    <p>
+                        Located in Funyula, Busia County, we serve the community with quality education, modern facilities, and dedicated teachers committed to academic excellence and holistic development.
+                    </p>
+                    <a href="{% url 'home:about' %}" class="btn btn-maroon mt-3">
+                        <i class="fas fa-info-circle"></i> Learn More About Us
                     </a>
                 </div>
             </div>
@@ -644,86 +117,234 @@
     </div>
 </section>
 
-<!-- Latest News -->
-<section class="py-5">
+<!-- Statistics Counter - School Achievements -->
+<section class="stats-section">
     <div class="container">
-        <div class="row">
-            <!-- Latest News -->
-            <div class="col-lg-8 mx-auto mb-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="text-primary-custom">Latest News</h3>
-                    <a href="{% url 'events:news' %}" class="btn btn-outline-primary">View All</a>
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="500">500+</span>
+                    <span class="stat-label">Students Enrolled</span>
                 </div>
-                
-                {% for news_item in latest_news %}
-                <div class="news-item">
-                    <h6><a href="#" class="text-decoration-none">{{ news_item.title }}</a></h6>
-                    <p class="text-muted">{{ news_item.summary }}</p>
-                    <div class="news-meta">
-                        <small class="text-muted">
-                            <i class="fas fa-clock"></i> {{ news_item.created_at|date:"M d, Y" }}
-                        </small>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="40">40+</span>
+                    <span class="stat-label">CBC Subject Combinations</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="30">30+</span>
+                    <span class="stat-label">Qualified Teachers</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="stat-box">
+                    <span class="stat-number" data-target="20">20+</span>
+                    <span class="stat-label">Years of Excellence</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CBC Grade Levels -->
+<section class="section section-gray">
+    <div class="container">
+        <h2 class="section-title">Our CBC Grade Levels</h2>
+        <p class="section-subtitle">
+            Comprehensive Senior Secondary education following Kenya's new Competency-Based Curriculum
+        </p>
+        
+        <div class="row g-4">
+            <!-- Grade 10 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="content-card">
+                    <div class="content-card-body">
+                        <span class="content-card-category">Year 1</span>
+                        <h3 class="content-card-title">Grade 10</h3>
+                        <p class="content-card-text">
+                            Foundation year for Senior Secondary. Students explore diverse CBC subjects, develop core competencies, and begin specializing in their chosen pathway (STEM, Social Sciences, Arts, or Sports).
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Core CBC subjects</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Subject exploration</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Career guidance</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Co-curricular activities</li>
+                        </ul>
+                        <a href="{% url 'academics:programs' %}" class="content-card-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                {% empty %}
-                <div class="card">
-                    <div class="card-body text-center text-muted">
-                        <i class="fas fa-newspaper fa-3x mb-3"></i>
-                        <p>No news available at the moment.</p>
+            </div>
+
+            <!-- Grade 11 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="content-card">
+                    <div class="content-card-body">
+                        <span class="content-card-category">Year 2</span>
+                        <h3 class="content-card-title">Grade 11</h3>
+                        <p class="content-card-text">
+                            Skills development year. Students deepen their understanding of chosen subjects, engage in practical projects, and prepare for advanced learning. Focus on competency mastery and real-world application.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>Advanced CBC topics</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Practical projects</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Leadership roles</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Community service</li>
+                        </ul>
+                        <a href="{% url 'academics:programs' %}" class="content-card-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                {% endfor %}
             </div>
-        </div>
-    </div>
-</section>
 
-<!-- Student Life Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="text-primary-custom mb-4">Student Life</h2>
-                <h5 class="mb-3">A section of girl students after lunch</h5>
-                <p class="lead">Our students enjoy a balanced school life with proper meal times and recreational activities.</p>
-                <a href="{% url 'home:about' %}" class="btn btn-primary">Learn More About School Life</a>
-            </div>
-            <div class="col-lg-6">
-                <div class="text-center">
-                    <img src="{{ MEDIA_URL }}images/students-after-lunch.jpeg" alt="Students after lunch at St. Mary's Nyakhobi" class="img-fluid rounded shadow">
+            <!-- Grade 12 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="content-card">
+                    <div class="content-card-body">
+                        <span class="content-card-category">Year 3 - KSCE</span>
+                        <h3 class="content-card-title">Grade 12</h3>
+                        <p class="content-card-text">
+                            Specialization and KSCE preparation year. Students complete their Senior Secondary education, sit for national examinations, and prepare for tertiary education or careers. Intensive exam preparation and guidance.
+                        </p>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-check text-success me-2"></i>KSCE examination prep</li>
+                            <li><i class="fas fa-check text-success me-2"></i>University guidance</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Career counseling</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Final projects</li>
+                        </ul>
+                        <a href="{% url 'academics:programs' %}" class="content-card-link">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Welcome Message -->
-{% if school_info.welcome_message %}
-<section class="py-5">
+<!-- Latest News & Events -->
+<section class="section section-light">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="text-primary-custom mb-4">Welcome to Our School</h2>
-                <p class="lead">{{ school_info.welcome_message }}</p>
-                <a href="{% url 'home:about' %}" class="btn btn-primary">Learn More About Us</a>
+        <h2 class="section-title">Latest News & Events</h2>
+        <p class="section-subtitle">
+            Stay updated with the latest happenings at St. Mary's Nyakhobi Senior School
+        </p>
+        
+        <div class="row g-4">
+            {% for news in latest_news %}
+            <div class="col-lg-4 col-md-6">
+                <div class="content-card">
+                    {% if news.image %}
+                    <img src="{{ news.image.url }}" alt="{{ news.title }}" class="content-card-image">
+                    {% else %}
+                    <img src="{% static 'images/news-placeholder.jpg' %}" alt="{{ news.title }}" class="content-card-image">
+                    {% endif %}
+                    <div class="content-card-body">
+                        <span class="content-card-category">{{ news.category|default:"News" }}</span>
+                        <h3 class="content-card-title">{{ news.title }}</h3>
+                        <p class="content-card-text">{{ news.summary }}</p>
+                        <div class="content-card-footer">
+                            <span class="content-card-date">
+                                <i class="fas fa-calendar me-1"></i>{{ news.created_at|date:"M d, Y" }}
+                            </span>
+                            <a href="{% url 'events:news_detail' news.pk %}" class="content-card-link">
+                                Read More <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6">
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No news articles available at the moment. Check back soon!</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if latest_news %}
+        <div class="text-center mt-5">
+            <a href="{% url 'events:news' %}" class="btn btn-maroon">
+                <i class="fas fa-newspaper"></i> View All News & Updates
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Why Choose St. Mary's -->
+<section class="section section-maroon">
+    <div class="container">
+        <h2 class="section-title text-white">Why Choose St. Mary's Nyakhobi?</h2>
+        <p class="section-subtitle text-white">
+            Excellence in CBC Senior Secondary Education
+        </p>
+        
+        <div class="row g-4 mt-4">
+            <div class="col-lg-3 col-md-6">
                 <div class="text-center">
-                    <img src="{{ MEDIA_URL }}images/academic-environment-1.jpeg" alt="St. Mary's Nyakhobi Senior School" class="img-fluid rounded shadow">
+                    <div class="mb-3">
+                        <i class="fas fa-certificate" style="font-size: 3rem; color: #d4af37;"></i>
+                    </div>
+                    <h4 class="text-white">CBC Certified</h4>
+                    <p class="text-white">Fully accredited to offer Kenya's new Competency-Based Curriculum for Senior Secondary</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-chalkboard-teacher" style="font-size: 3rem; color: #d4af37;"></i>
+                    </div>
+                    <h4 class="text-white">Qualified Teachers</h4>
+                    <p class="text-white">Experienced TSC-registered teachers trained in CBC pedagogy and modern teaching methods</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-book-open" style="font-size: 3rem; color: #d4af37;"></i>
+                    </div>
+                    <h4 class="text-white">40+ CBC Subjects</h4>
+                    <p class="text-white">Wide range of subject combinations across STEM, Social Sciences, Arts, and Sports pathways</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <i class="fas fa-trophy" style="font-size: 3rem; color: #d4af37;"></i>
+                    </div>
+                    <h4 class="text-white">Proven Excellence</h4>
+                    <p class="text-white">Track record of academic success, KSCE performance, and university placements</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% endif %}
 
-{% endblock %}
+<!-- Call to Action -->
+<section class="section section-light">
+    <div class="container text-center">
+        <h2 class="section-title">Ready to Join St. Mary's Nyakhobi?</h2>
+        <p class="section-subtitle">
+            Applications are open for Grade 10, 11 & 12 for the 2025 academic year
+        </p>
+        <div class="mt-4">
+            <a href="{% url 'admissions:apply' %}" class="btn btn-maroon btn-lg me-3">
+                <i class="fas fa-edit"></i> Apply Online Now
+            </a>
+            <a href="{% url 'admissions:info' %}" class="btn btn-outline-dark btn-lg">
+                <i class="fas fa-info-circle"></i> Admissions Information
+            </a>
+        </div>
+        <p class="mt-4 text-muted">
+            <i class="fas fa-phone me-2"></i>Call us: +254 719 831 346 | 
+            <i class="fas fa-envelope ms-3 me-2"></i>Email: nyakhobisecsch@gmail.com
+        </p>
+    </div>
+</section>
 
-{% block extra_js %}
-<script>
-    // Initialize counter animations
-    document.addEventListener('DOMContentLoaded', function() {
-        initCounters();
-    });
-</script>
 {% endblock %}

@@ -3,149 +3,57 @@
 
 {% block title %}Mission & Vision - St. Mary's Nyakhobi Senior School{% endblock %}
 
-{% block hero %}
-<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
-    <div class="hero-content">
-        <h1 class="hero-title"><i class="fas fa-compass"></i> Mission & Vision</h1>
-        <p class="hero-subtitle">Our Purpose & Future Direction</p>
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('/media/images/academic-environment-4.jpeg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="hero-title mb-3" style="font-size: 3rem; font-weight: 700; text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">
+            <i class="fas fa-compass me-3"></i>Mission & Vision
+        </h1>
+        <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 300; text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Our Purpose & Future Direction</p>
     </div>
 </section>
-{% endblock %}
 
-{% block extra_css %}
-<style>
-
-    .mission-card {
-        background: white;
-        border-radius: 20px;
-        padding: 50px 40px;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        height: 100%;
-        border: 3px solid transparent;
-    }
-
-    .mission-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-        border-color: var(--maroon);
-    }
-
-    .mission-icon {
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 30px;
-        color: white;
-        font-size: 2.5rem;
-    }
-
-    .values-section {
-        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-        padding: 80px 0;
-    }
-
-    .value-item {
-        background: white;
-        border-radius: 15px;
-        padding: 30px 25px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        transition: all 0.3s ease;
-        height: 100%;
-        border-left: 5px solid var(--maroon);
-    }
-
-    .value-item:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-    }
-
-    .value-icon {
-        width: 70px;
-        height: 70px;
-        background: var(--maroon);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        color: white;
-        font-size: 1.8rem;
-    }
-
-    .section-divider {
-        height: 4px;
-        background: linear-gradient(90deg, transparent, var(--maroon), transparent);
-        border: none;
-        margin: 50px auto;
-        width: 100px;
-    }
-</style>
-{% endblock %}
-
-{% block content %}
+<!-- Motto Section -->
+<section class="py-5" style="background: linear-gradient(135deg, #800000, #a00000);">
+    <div class="container text-center text-white">
+        <div class="mb-4">
+            <i class="fas fa-flag fa-4x mb-3" style="color: #d4af37;"></i>
+        </div>
+        <h2 class="display-4 fw-bold mb-3">Our Motto</h2>
+        <p class="display-5" style="font-weight: 300; font-style: italic; color: #d4af37;">"Sacrifice for Success"</p>
+        <p class="lead mt-4" style="max-width: 800px; margin: 0 auto;">This motto embodies our belief that excellence requires dedication, hard work, and commitment from both students and staff.</p>
+    </div>
+</section>
 
 <!-- Mission & Vision Cards -->
 <section class="py-5">
     <div class="container">
-        <div class="row g-5 py-5">
+        <div class="row g-4 py-4">
             <div class="col-lg-6">
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h2 class="fw-bold text-primary mb-4">Our Mission</h2>
-                    <p class="lead text-muted mb-4">
-                        To provide quality, affordable and accessible secondary education that nurtures academic excellence, 
-                        character development, and practical life skills, preparing our students to become responsible 
-                        citizens and future leaders in their communities and beyond.
-                    </p>
-                    <div class="row text-center">
-                        <div class="col-4">
-                            <h4 class="fw-bold text-primary">Quality</h4>
-                            <small class="text-muted">Education</small>
+                <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                    <div class="card-body p-5 text-center">
+                        <div class="icon-circle mb-4 mx-auto" style="width: 100px; height: 100px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bullseye fa-3x text-white"></i>
                         </div>
-                        <div class="col-4">
-                            <h4 class="fw-bold text-success">Character</h4>
-                            <small class="text-muted">Building</small>
-                        </div>
-                        <div class="col-4">
-                            <h4 class="fw-bold text-warning">Leadership</h4>
-                            <small class="text-muted">Development</small>
-                        </div>
+                        <h2 class="mb-4" style="color: #800000; font-weight: 700;">Our Mission</h2>
+                        <p class="lead mb-0" style="font-size: 1.2rem; line-height: 1.8;">
+                            To consistently provide quality CBC senior secondary education that prepares students for KSCE excellence and future success.
+                        </p>
                     </div>
                 </div>
             </div>
-
+            
             <div class="col-lg-6">
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h2 class="fw-bold text-success mb-4">Our Vision</h2>
-                    <p class="lead text-muted mb-4">
-                        To be a leading educational institution that transforms lives through excellence in teaching, 
-                        character formation, and holistic development, producing confident, competent, and morally 
-                        upright graduates who contribute positively to society.
-                    </p>
-                    <div class="row text-center">
-                        <div class="col-4">
-                            <h4 class="fw-bold text-info">Excellence</h4>
-                            <small class="text-muted">Academic</small>
+                <div class="card h-100 border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                    <div class="card-body p-5 text-center">
+                        <div class="icon-circle mb-4 mx-auto" style="width: 100px; height: 100px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-eye fa-3x text-white"></i>
                         </div>
-                        <div class="col-4">
-                            <h4 class="fw-bold text-danger">Transform</h4>
-                            <small class="text-muted">Lives</small>
-                        </div>
-                        <div class="col-4">
-                            <h4 class="fw-bold text-dark">Impact</h4>
-                            <small class="text-muted">Society</small>
-                        </div>
+                        <h2 class="mb-4" style="color: #800000; font-weight: 700;">Our Vision</h2>
+                        <p class="lead mb-0" style="font-size: 1.2rem; line-height: 1.8;">
+                            To be an institution of excellence in pursuit of quality and holistic education, nurturing well-rounded individuals.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -153,95 +61,84 @@
     </div>
 </section>
 
-<!-- Core Values Section -->
-<section class="values-section">
+<!-- Core Values -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center mb-5">
-                <h2 class="display-5 fw-bold mb-4">Our Core Values</h2>
-                <p class="lead text-muted">
-                    These fundamental principles guide our daily operations and shape the character of our school community
-                </p>
-                <hr class="section-divider">
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">Our Core Values</h2>
+            <p class="lead text-muted">The principles that guide everything we do</p>
         </div>
-
+        
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-star"></i>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 70px; height: 70px; background: #fff3e0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-trophy fa-2x" style="color: #800000;"></i>
+                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Excellence</h4>
+                        <p class="mb-0">We strive for the highest standards in academic achievement, character development, and all school activities.</p>
                     </div>
-                    <h4 class="fw-bold mb-3">Excellence</h4>
-                    <p class="text-muted">
-                        We strive for the highest standards in all our endeavors, encouraging students and staff 
-                        to achieve their full potential in academics, character, and service.
-                    </p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 70px; height: 70px; background: #e3f2fd; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-hands-helping fa-2x" style="color: #800000;"></i>
+                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Integrity</h4>
+                        <p class="mb-0">We uphold honesty, transparency, and ethical behavior in all interactions within our school community.</p>
                     </div>
-                    <h4 class="fw-bold mb-3">Integrity</h4>
-                    <p class="text-muted">
-                        We uphold honesty, transparency, and moral uprightness in all our interactions, 
-                        building trust and respect within our school community.
-                    </p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 70px; height: 70px; background: #f3e5f5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-heart fa-2x" style="color: #800000;"></i>
+                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Respect</h4>
+                        <p class="mb-0">We treat everyone with dignity and value diversity, fostering a welcoming and inclusive environment.</p>
                     </div>
-                    <h4 class="fw-bold mb-3">Respect</h4>
-                    <p class="text-muted">
-                        We value diversity and treat all members of our community with dignity, fostering 
-                        an inclusive environment where everyone can thrive.
-                    </p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 70px; height: 70px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-lightbulb fa-2x" style="color: #800000;"></i>
+                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Innovation</h4>
+                        <p class="mb-0">We embrace creative approaches to learning and adapt to meet the demands of modern education.</p>
                     </div>
-                    <h4 class="fw-bold mb-3">Innovation</h4>
-                    <p class="text-muted">
-                        We embrace creative thinking and modern approaches to education, continuously 
-                        improving our methods to meet evolving educational needs.
-                    </p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-hands-helping"></i>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 70px; height: 70px; background: #fff8e1; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-users fa-2x" style="color: #800000;"></i>
+                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Community</h4>
+                        <p class="mb-0">We build strong partnerships with parents, staff, and the wider community to support student success.</p>
                     </div>
-                    <h4 class="fw-bold mb-3">Service</h4>
-                    <p class="text-muted">
-                        We instill a spirit of service and social responsibility, encouraging students 
-                        to contribute positively to their communities and society.
-                    </p>
                 </div>
             </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="value-item">
-                    <div class="value-icon">
-                        <i class="fas fa-shield-alt"></i>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4 text-center">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 70px; height: 70px; background: #fce4ec; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-praying-hands fa-2x" style="color: #800000;"></i>
+                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Faith</h4>
+                        <p class="mb-0">As an ACK-sponsored school, we integrate Christian values and principles into our educational approach.</p>
                     </div>
-                    <h4 class="fw-bold mb-3">Responsibility</h4>
-                    <p class="text-muted">
-                        We promote accountability and ownership of actions, preparing students to be 
-                        responsible citizens and leaders in their future endeavors.
-                    </p>
                 </div>
             </div>
         </div>
@@ -252,33 +149,31 @@
 <section class="py-5">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-4">
-                <img src="{{ MEDIA_URL }}images/academic-environment-4.jpeg" alt="Educational Philosophy" class="img-fluid rounded-3 shadow-lg">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="/media/images/school-building-1.jpg" alt="School Building" class="img-fluid rounded shadow-lg">
             </div>
-            <div class="col-lg-6 mb-4">
-                <h3 class="fw-bold mb-4 text-primary">Our Educational Philosophy</h3>
-                <p class="text-muted mb-3">
-                    At St. Mary's Nyakhobi Senior School, we believe that education is a transformative process that 
-                    goes beyond academic achievement. Our holistic approach focuses on developing the whole person - 
-                    intellectually, morally, socially, and spiritually.
-                </p>
-                <p class="text-muted mb-4">
-                    We are committed to creating a nurturing environment where students can explore their potential, 
-                    develop critical thinking skills, and build the confidence needed to face future challenges with 
-                    determination and integrity.
-                </p>
+            <div class="col-lg-6">
+                <h2 class="mb-4" style="color: #800000; font-weight: 700;">Our Educational Philosophy</h2>
+                <p class="lead mb-4">At St. Mary's Nyakhobi Senior School, we believe in developing the whole student - academically, socially, emotionally, and spiritually.</p>
                 
-                <div class="d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span><strong>Student-Centered Learning:</strong> Tailored approaches to individual needs</span>
+                <div class="mb-4">
+                    <h5 style="color: #800000;"><i class="fas fa-check-circle me-2"></i>Student-Centered Learning</h5>
+                    <p>We place students at the center of the learning experience, recognizing their unique abilities and learning styles through the CBC framework.</p>
                 </div>
-                <div class="d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span><strong>Character Development:</strong> Building moral and ethical foundations</span>
+                
+                <div class="mb-4">
+                    <h5 style="color: #800000;"><i class="fas fa-check-circle me-2"></i>Competency-Based Curriculum</h5>
+                    <p>Our CBC programs focus on developing practical skills and competencies that prepare students for real-world challenges beyond the classroom.</p>
                 </div>
-                <div class="d-flex align-items-center mb-3">
-                    <i class="fas fa-check-circle text-success me-3"></i>
-                    <span><strong>Community Engagement:</strong> Connecting learning to real-world applications</span>
+                
+                <div class="mb-4">
+                    <h5 style="color: #800000;"><i class="fas fa-check-circle me-2"></i>Holistic Development</h5>
+                    <p>We nurture academic excellence while also developing character, leadership, critical thinking, and social responsibility.</p>
+                </div>
+                
+                <div class="mb-0">
+                    <h5 style="color: #800000;"><i class="fas fa-check-circle me-2"></i>Continuous Improvement</h5>
+                    <p>We constantly evaluate and improve our programs, facilities, and teaching methods to provide the best possible education.</p>
                 </div>
             </div>
         </div>
@@ -286,24 +181,17 @@
 </section>
 
 <!-- Call to Action -->
-<section class="py-5 bg-primary text-white">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <h3 class="fw-bold mb-3">Experience Our Values in Action</h3>
-                <p class="lead mb-4">
-                    Join a school community where these values are not just words on a page, but lived experiences 
-                    that shape every aspect of school life and student development.
-                </p>
-                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                    <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg">
-                        <i class="fas fa-graduation-cap me-2"></i>Apply Today
-                    </a>
-                    <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-phone me-2"></i>Learn More
-                    </a>
-                </div>
-            </div>
+<section class="py-5" style="background: linear-gradient(135deg, #800000, #a00000);">
+    <div class="container text-center text-white">
+        <h2 class="mb-3" style="font-weight: 700;">Join Us in Our Mission</h2>
+        <p class="lead mb-4">Be part of a school community dedicated to excellence and holistic education</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg px-5" style="font-weight: 600;">
+                <i class="fas fa-file-alt me-2"></i>Apply Now
+            </a>
+            <a href="{% url 'home:about' %}" class="btn btn-outline-light btn-lg px-5" style="font-weight: 600;">
+                <i class="fas fa-info-circle me-2"></i>Learn More About Us
+            </a>
         </div>
     </div>
 </section>

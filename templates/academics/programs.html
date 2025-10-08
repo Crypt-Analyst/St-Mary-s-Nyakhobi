@@ -1,210 +1,88 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Academic Programs - St. Mary's Nyakhobi Senior School{% endblock %}
-
-{% block hero %}
-<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
-    <div class="hero-content">
-        <h1 class="hero-title"><i class="fas fa-graduation-cap"></i> Academic Programs</h1>
-        <p class="hero-subtitle">Excellence in Education - Shaping Tomorrow's Leaders</p>
-    </div>
-</section>
-{% endblock %}
-
-{% block extra_css %}
-<style>
-    .program-card {
-        border: none;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        overflow: hidden;
-        height: 100%;
-    }
-    .program-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 50px rgba(128,0,0,0.3);
-    }
-    .program-header {
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        color: white;
-        padding: 20px;
-        position: relative;
-    }
-    .program-header h4 {
-        margin: 0;
-        font-weight: 600;
-    }
-    .program-icon {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        opacity: 0.9;
-    }
-    .subject-badge {
-        background: var(--maroon);
-        color: white;
-        padding: 5px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        margin: 3px;
-        display: inline-block;
-    }
-    .academic-stats {
-        background: #f8f9fa;
-        padding: 60px 0;
-    }
-    .stat-card {
-        text-align: center;
-        padding: 30px 20px;
-        background: white;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
-    .stat-number {
-        font-size: 3rem;
-        font-weight: 700;
-        color: var(--maroon);
-        line-height: 1;
-    }
-    .curriculum-section {
-        padding: 80px 0;
-    }
-    .curriculum-timeline {
-        position: relative;
-        padding: 20px 0;
-    }
-    .timeline-item {
-        padding: 20px 0 20px 60px;
-        position: relative;
-        border-left: 3px solid var(--maroon);
-    }
-    .timeline-item::before {
-        content: '';
-        position: absolute;
-        left: -8px;
-        top: 30px;
-        width: 15px;
-        height: 15px;
-        background: var(--maroon);
-        border-radius: 50%;
-    }
-    .performance-chart {
-        background: white;
-        padding: 30px;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    }
-</style>
-{% endblock %}
+{% block title %}CBC Academic Programs - St. Mary's Nyakhobi Senior School{% endblock %}
 
 {% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('/media/images/academic-environment-1.jpeg') center/cover; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="hero-title mb-3" style="font-size: 3rem; font-weight: 700; text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">
+            <i class="fas fa-graduation-cap me-3"></i>CBC Academic Programs
+        </h1>
+        <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 300; text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Excellence in Competency-Based Curriculum | Grade 10, 11 & 12</p>
+        <div class="mt-4">
+            <span class="badge bg-light text-dark px-4 py-2 me-2" style="font-size: 1rem;">40+ CBC Subjects</span>
+            <span class="badge bg-light text-dark px-4 py-2 me-2" style="font-size: 1rem;">KSCE Preparation</span>
+            <span class="badge bg-light text-dark px-4 py-2" style="font-size: 1rem;">Qualified Teachers</span>
+        </div>
+    </div>
+</section>
 
-<!-- Academic Programs -->
+<!-- Grade Levels -->
 <section class="py-5">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Our Academic Programs</h2>
-                <p class="lead text-muted">Senior Secondary Education - Grade 10, 11, and 12 under the Competency-Based Curriculum (CBC), preparing students for national examinations and beyond.</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">CBC Senior Secondary Grade Levels</h2>
+            <p class="lead text-muted">Structured pathways for academic excellence</p>
         </div>
         
         <div class="row g-4">
-            <!-- Grade 10 Program -->
-            <div class="col-lg-6">
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h4>Grade 10</h4>
-                        <p class="mb-0">Foundation Year - Senior Secondary</p>
-                    </div>
-                    <div class="program-image">
-                        <img src="{{ MEDIA_URL }}images/academic-environment-2.jpeg" alt="Grade 10 Academic Environment" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
-                    </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-lg" style="border-radius: 15px; overflow: hidden; border-top: 5px solid #800000 !important;">
                     <div class="card-body p-4">
-                        <h6 class="fw-bold mb-3">Core Subjects:</h6>
-                        <div class="mb-3">
-                            <span class="subject-badge">Mathematics</span>
-                            <span class="subject-badge">English</span>
-                            <span class="subject-badge">Kiswahili</span>
-                            <span class="subject-badge">Biology</span>
-                            <span class="subject-badge">Physics</span>
-                            <span class="subject-badge">Chemistry</span>
-                            <span class="subject-badge">History</span>
-                            <span class="subject-badge">Geography</span>
-                            <span class="subject-badge">CRE</span>
-                        </div>
-                        <p class="text-muted">Building strong foundations in all subjects with emphasis on study skills and academic discipline.</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success"></i> Study skills development</li>
-                            <li><i class="fas fa-check text-success"></i> Academic orientation</li>
-                            <li><i class="fas fa-check text-success"></i> Career guidance introduction</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Grade 11 Program -->
-            <div class="col-lg-6">
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-icon"><i class="fas fa-book"></i></div>
-                        <h4>Grade 11</h4>
-                        <p class="mb-0">Skills Development Year</p>
-                    </div>
-                    <div class="program-image">
-                        <img src="{{ MEDIA_URL }}images/academic-environment-3.jpeg" alt="Grade 11 Learning Environment" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body p-4">
-                        <h6 class="fw-bold mb-3">Expanded Curriculum:</h6>
-                        <div class="mb-3">
-                            <span class="subject-badge">Advanced Mathematics</span>
-                            <span class="subject-badge">Literature</span>
-                            <span class="subject-badge">Computer Studies</span>
-                            <span class="subject-badge">Business Studies</span>
-                            <span class="subject-badge">Agriculture</span>
-                            <span class="subject-badge">Art & Design</span>
-                        </div>
-                        <p class="text-muted">Deepening knowledge while introducing specialization options and practical skills.</p>
-                        <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success"></i> Subject specialization guidance</li>
-                            <li><i class="fas fa-check text-success"></i> Practical skills development</li>
-                            <li><i class="fas fa-check text-success"></i> Leadership opportunities</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Grade 12 Program -->
-            <div class="col-lg-6">
-                <div class="program-card">
-                    <div class="program-header">
-                        <div class="program-icon"><i class="fas fa-microscope"></i></div>
-                        <h4>Grade 12</h4>
-                        <p class="mb-0">Specialization & KSCE Preparation Year</p>
-                    </div>
-                    <div class="program-image">
-                        <img src="{{ MEDIA_URL }}images/academic-environment-4.jpeg" alt="Grade 12 Advanced Learning Facilities" class="img-fluid" style="height: 200px; width: 100%; object-fit: cover;">
-                    </div>
-                    <div class="card-body p-4">
-                        <h6 class="fw-bold mb-3">Stream Selection & KSCE Prep:</h6>
-                        <div class="mb-3">
-                            <div class="alert alert-info">
-                                <strong>Sciences Stream:</strong> Mathematics, Physics, Chemistry, Biology
+                        <div class="text-center mb-3">
+                            <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <h2 class="text-white mb-0 fw-bold">10</h2>
                             </div>
-                            <div class="alert alert-success">
-                                <strong>Arts Stream:</strong> History, Geography, Literature, Business
-                            </div>
+                            <h3 style="color: #800000; font-weight: 700;">Grade 10</h3>
+                            <p class="text-muted mb-3">Foundation Year</p>
                         </div>
-                        <p class="text-muted">Final year combines specialization with intensive KSCE examination preparation and university transition planning.</p>
                         <ul class="list-unstyled">
-                            <li><i class="fas fa-check text-success"></i> Career-focused learning</li>
-                            <li><i class="fas fa-check text-success"></i> KSCE examination preparation</li>
-                            <li><i class="fas fa-check text-success"></i> University application support</li>
-                            <li><i class="fas fa-check text-success"></i> Advanced practical work</li>
-                            <li><i class="fas fa-check text-success"></i> Career counseling & life skills</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Introduction to CBC senior secondary</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Subject selection and career guidance</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Foundation skills development</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Core and elective subjects</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-lg" style="border-radius: 15px; overflow: hidden; border-top: 5px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-3">
+                            <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <h2 class="text-white mb-0 fw-bold">11</h2>
+                            </div>
+                            <h3 style="color: #800000; font-weight: 700;">Grade 11</h3>
+                            <p class="text-muted mb-3">Skills Development</p>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Advanced competency building</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Practical skills and projects</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Career pathway focus</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Enhanced learning experiences</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-lg" style="border-radius: 15px; overflow: hidden; border-top: 5px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-3">
+                            <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                <h2 class="text-white mb-0 fw-bold">12</h2>
+                            </div>
+                            <h3 style="color: #800000; font-weight: 700;">Grade 12</h3>
+                            <p class="text-muted mb-3">KSCE Preparation</p>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Intensive KSCE exam preparation</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Career and university readiness</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Final competency assessments</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2" style="color: #800000;"></i>Mock exams and revision</li>
                         </ul>
                     </div>
                 </div>
@@ -213,281 +91,212 @@
     </div>
 </section>
 
-<!-- Academic Statistics -->
-<section class="academic-stats">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-number">95%</div>
-                    <h6 class="mt-3 mb-2">University Admission</h6>
-                    <p class="text-muted mb-0">Students admitted to universities</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-number">A-</div>
-                    <h6 class="mt-3 mb-2">Average KCSE Grade</h6>
-                    <p class="text-muted mb-0">School mean score</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-number">24</div>
-                    <h6 class="mt-3 mb-2">Subjects Offered</h6>
-                    <p class="text-muted mb-0">Comprehensive curriculum</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="stat-card">
-                    <div class="stat-number">15:1</div>
-                    <h6 class="mt-3 mb-2">Student-Teacher Ratio</h6>
-                    <p class="text-muted mb-0">Personalized attention</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Curriculum Details -->
-<section class="curriculum-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h2 class="display-6 fw-bold mb-4">Our Curriculum</h2>
-                <div class="curriculum-timeline">
-                    <div class="timeline-item">
-                        <h5 class="fw-bold">Competency-Based Curriculum (CBC)</h5>
-                        <p class="text-muted mb-3">Following Kenya's modern CBC system for Senior Secondary with enhanced teaching methodologies and practical applications.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5 class="fw-bold">KNEC Certified Programs</h5>
-                        <p class="text-muted mb-3">All programs align with Kenya National Examinations Council standards ensuring national recognition.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5 class="fw-bold">University Preparation</h5>
-                        <p class="text-muted mb-3">Specialized coaching for university entrance and career guidance for future success.</p>
-                    </div>
-                    <div class="timeline-item">
-                        <h5 class="fw-bold">Life Skills Integration</h5>
-                        <p class="text-muted mb-3">Practical life skills embedded throughout the curriculum for holistic development.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="performance-chart">
-                    <h4 class="fw-bold mb-4">Academic Performance Trends</h4>
-                    <div class="row text-center">
-                        <div class="col-4">
-                            <h3 class="text-success">2023</h3>
-                            <p class="fw-bold">Mean Score: 8.7</p>
-                            <small class="text-muted">University Qualification: 96%</small>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="text-success">2024</h3>
-                            <p class="fw-bold">Mean Score: 8.9</p>
-                            <small class="text-muted">University Qualification: 97%</small>
-                        </div>
-                        <div class="col-4">
-                            <h3 class="text-primary">2025</h3>
-                            <p class="fw-bold">Target: 9.2</p>
-                            <small class="text-muted">Projected: 98%</small>
-                        </div>
-                    </div>
-                    <div class="mt-4 p-3 bg-light rounded">
-                        <h6 class="fw-bold">Top University Destinations:</h6>
-                        <ul class="list-unstyled mb-0">
-                            <li>• University of Nairobi</li>
-                            <li>• Moi University</li>
-                            <li>• Kenyatta University</li>
-                            <li>• Maseno University</li>
-                            <li>• Other Public & Private Universities</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Special Programs -->
+<!-- Subject Categories -->
 <section class="py-5 bg-light">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-6 fw-bold mb-4">Special Academic Programs</h2>
-                <p class="lead text-muted">Enhanced learning opportunities beyond the standard curriculum</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">CBC Subject Categories</h2>
+            <p class="lead text-muted">Over 40 subjects across multiple disciplines</p>
         </div>
         
         <div class="row g-4">
-            <div class="col-lg-4">
+            <!-- Sciences -->
+            <div class="col-lg-6">
                 <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3">
-                            <i class="fas fa-laptop-code fa-3x text-primary"></i>
+                    <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #800000, #a00000);">
+                        <h4 class="mb-0"><i class="fas fa-flask me-2"></i>Sciences</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Biology</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Chemistry</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Physics</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Mathematics</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Computer Science</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <h5 class="fw-bold">ICT Integration</h5>
-                        <p class="text-muted">Computer literacy and digital skills integrated across all subjects with modern computer labs.</p>
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-4">
+            <!-- Languages -->
+            <div class="col-lg-6">
                 <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3">
-                            <i class="fas fa-flask fa-3x text-success"></i>
+                    <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #800000, #a00000);">
+                        <h4 class="mb-0"><i class="fas fa-language me-2"></i>Languages</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">English</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Kiswahili</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">French</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">German</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <h5 class="fw-bold">Science Laboratory</h5>
-                        <p class="text-muted">Well-equipped laboratories for Physics, Chemistry, and Biology with hands-on practical sessions.</p>
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-4">
+            <!-- Humanities -->
+            <div class="col-lg-6">
                 <div class="card h-100 border-0 shadow-sm">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-3">
-                            <i class="fas fa-language fa-3x text-warning"></i>
+                    <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #800000, #a00000);">
+                        <h4 class="mb-0"><i class="fas fa-landmark me-2"></i>Humanities</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">History</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Geography</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">CRE</span></li>
+                                </ul>
+                            </div>
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">IRE</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Government</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Social Studies</span></li>
+                                </ul>
+                            </div>
                         </div>
-                        <h5 class="fw-bold">Language Excellence</h5>
-                        <p class="text-muted">Strong emphasis on English and Kiswahili proficiency with literature and communication skills.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Academic Calendar -->
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="text-center mb-5">
-                    <h2 class="display-6 fw-bold">Academic Calendar 2025</h2>
-                    <p class="lead text-muted">Important dates and academic milestones</p>
-                </div>
-                
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-header bg-primary text-white">
-                                <h6 class="mb-0">Term 1</h6>
-                            </div>
-                            <div class="card-body">
-                                <p><strong>January 15 - April 12</strong></p>
-                                <small class="text-muted">
-                                    Opening: Jan 15<br>
-                                    Mid-term: Feb 28<br>
-                                    Closing: Apr 12
-                                </small>
-                            </div>
-                        </div>
+            
+            <!-- Technical/Applied -->
+            <div class="col-lg-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #800000, #a00000);">
+                        <h4 class="mb-0"><i class="fas fa-tools me-2"></i>Technical & Applied</h4>
                     </div>
-                    
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-header bg-success text-white">
-                                <h6 class="mb-0">Term 2</h6>
+                    <div class="card-body p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Business Studies</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Agriculture</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Home Science</span></li>
+                                </ul>
                             </div>
-                            <div class="card-body">
-                                <p><strong>May 6 - August 8</strong></p>
-                                <small class="text-muted">
-                                    Opening: May 6<br>
-                                    Mid-term: Jun 20<br>
-                                    Closing: Aug 8
-                                </small>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-4">
-                        <div class="card text-center">
-                            <div class="card-header bg-warning text-white">
-                                <h6 class="mb-0">Term 3</h6>
-                            </div>
-                            <div class="card-body">
-                                <p><strong>September 2 - November 22</strong></p>
-                                <small class="text-muted">
-                                    Opening: Sep 2<br>
-                                    KCSE: Oct-Nov<br>
-                                    Closing: Nov 22
-                                </small>
+                            <div class="col-6">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Art & Design</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Music</span></li>
+                                    <li class="mb-2"><span class="badge" style="background: #800000;">Physical Education</span></li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <div class="text-center mt-4">
+            <p class="text-muted"><em>*Subject availability may vary by term and enrollment</em></p>
+        </div>
     </div>
 </section>
 
-<!-- Academic Excellence Videos -->
+<!-- Career Pathways -->
 <section class="py-5">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Academic Excellence in Action</h2>
-                <p class="lead text-muted">See our academic programs and student achievements through our school videos</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">Career Pathways</h2>
+            <p class="lead text-muted">CBC prepares students for diverse career opportunities</p>
         </div>
         
         <div class="row g-4">
-            <div class="col-lg-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                            src="https://www.youtube.com/embed/ACADEMIC_VIDEO_ID" 
-                            title="Academic Programs at St. Mary's" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Our Academic Programs</h6>
-                        <p class="card-text text-muted small">Comprehensive overview of our Grade 10-12 Senior Secondary curriculum</p>
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-stethoscope fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Medicine & Health</h5>
+                        <p class="small text-muted">Biology, Chemistry, Physics</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                            src="https://www.youtube.com/embed/SCIENCE_VIDEO_ID" 
-                            title="Science Laboratory at St. Mary's" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Science Excellence</h6>
-                        <p class="card-text text-muted small">Modern laboratories and practical learning</p>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-balance-scale fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Law & Governance</h5>
+                        <p class="small text-muted">Government, History, English</p>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                            src="https://www.youtube.com/embed/STUDENT_LIFE_VIDEO_ID" 
-                            title="Student Life at St. Mary's" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-laptop-code fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Technology & IT</h5>
+                        <p class="small text-muted">Mathematics, Computer Science, Physics</p>
                     </div>
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Student Life</h6>
-                        <p class="card-text text-muted small">Daily life and activities of our students</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-chart-line fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Business & Economics</h5>
+                        <p class="small text-muted">Business, Mathematics, Economics</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-building fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Engineering</h5>
+                        <p class="small text-muted">Physics, Mathematics, Chemistry</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-chalkboard-teacher fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Education</h5>
+                        <p class="small text-muted">Any subject combination</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-seedling fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Agriculture</h5>
+                        <p class="small text-muted">Agriculture, Biology, Chemistry</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-palette fa-3x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Arts & Design</h5>
+                        <p class="small text-muted">Art, Music, Languages</p>
                     </div>
                 </div>
             </div>
@@ -495,40 +304,18 @@
     </div>
 </section>
 
-<!-- Infrastructure Development Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Ongoing Development</h2>
-                <p class="lead text-muted">Continuous improvement of our facilities to provide the best learning environment for our students.</p>
-            </div>
-        </div>
-        
-        <div class="row g-4 align-items-center">
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-lg">
-                    <img src="{{ MEDIA_URL }}images/construction-building-new.jpeg" alt="Building Under Construction" class="card-img-top" style="height: 350px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-primary">Future Learning Facilities</h5>
-                        <p class="card-text text-muted">This is a building under construction - Funyula NG-CDF Sponsored classrooms and Laboratory building</p>
-                        <div class="progress mb-3">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">65% Complete</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-lg">
-                    <img src="{{ MEDIA_URL }}images/students-after-lunch.jpeg" alt="Students After Lunch Break" class="card-img-top" style="height: 350px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-success">Student Life</h5>
-                        <p class="card-text text-muted">A section of girl students after lunch</p>
-                        <p class="card-text"><small class="text-muted">Our students enjoy a balanced school life with proper meal times and recreational activities.</small></p>
-                    </div>
-                </div>
-            </div>
+<!-- Call to Action -->
+<section class="py-5" style="background: linear-gradient(135deg, #800000, #a00000);">
+    <div class="container text-center text-white">
+        <h2 class="mb-3" style="font-weight: 700;">Ready to Start Your CBC Journey?</h2>
+        <p class="lead mb-4">Join St. Mary's Nyakhobi Senior School and explore 40+ subject combinations</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg px-5" style="font-weight: 600;">
+                <i class="fas fa-file-alt me-2"></i>Apply Now
+            </a>
+            <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg px-5" style="font-weight: 600;">
+                <i class="fas fa-phone me-2"></i>Contact Us
+            </a>
         </div>
     </div>
 </section>

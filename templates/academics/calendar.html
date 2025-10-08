@@ -1,284 +1,36 @@
 {% extends 'base.html' %}
-
 {% load static %}
 
 {% block title %}Academic Calendar - St. Mary's Nyakhobi Senior School{% endblock %}
 
-{% block extra_css %}
-<style>
-    .calendar-hero {
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-        color: white;
-        padding: 100px 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .calendar-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('/static/images/school-hero-bg.png') center/cover;
-        opacity: 0.2;
-        z-index: -1;
-    }
-
-    .calendar-section {
-        padding: 80px 0;
-        background: #f8f9fa;
-    }
-
-    .calendar-card {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        margin-bottom: 30px;
-        border-left: 5px solid var(--maroon);
-    }
-
-    .term-header {
-        color: var(--maroon);
-        font-weight: 700;
-        margin-bottom: 20px;
-        display: flex;
-        align-items: center;
-    }
-
-    .term-header i {
-        margin-right: 15px;
-        font-size: 1.5rem;
-    }
-
-    .event-item {
-        display: flex;
-        align-items: center;
-        padding: 15px 0;
-        border-bottom: 1px solid #eee;
-    }
-
-    .event-item:last-child {
-        border-bottom: none;
-    }
-
-    .event-date {
-        background: var(--maroon);
-        color: white;
-        padding: 10px 15px;
-        border-radius: 10px;
-        font-weight: 600;
-        margin-right: 20px;
-        min-width: 120px;
-        text-align: center;
-    }
-
-    .event-details h5 {
-        color: #333;
-        margin-bottom: 5px;
-    }
-
-    .event-details p {
-        color: #666;
-        margin: 0;
-        font-size: 0.9rem;
-    }
-
-    .current-term {
-        background: linear-gradient(45deg, #fff3cd, #ffeaa7);
-        border-left-color: #ffc107;
-    }
-</style>
-{% endblock %}
-
 {% block content %}
-<!-- Calendar Hero Section -->
-<div class="calendar-hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-4 fw-bold mb-3">Academic Calendar</h1>
-                <p class="lead">Stay updated with important dates and events throughout the academic year</p>
-            </div>
-        </div>
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('{{ MEDIA_URL }}images/academic-environment-3.jpeg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="display-3 fw-bold mb-3" style="text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);"><i class="fas fa-calendar-alt me-3"></i>Academic Calendar 2025</h1>
+        <p class="lead mb-0" style="text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Important dates and events for CBC Senior Secondary School</p>
     </div>
-</div>
+</section>
 
-<!-- Calendar Content Section -->
-<section class="calendar-section">
+<!-- Current Term Overview -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="section-title">Academic Year 2025</h2>
-                <p class="text-muted">Important dates and events for students and parents</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- First Term -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="calendar-card">
-                    <div class="term-header">
-                        <i class="fas fa-calendar-alt"></i>
-                        <h3>First Term</h3>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Jan 15</div>
-                        <div class="event-details">
-                            <h5>Term Opening</h5>
-                            <p>Students report back to school</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Feb 14</div>
-                        <div class="event-details">
-                            <h5>Mid-Term Break</h5>
-                            <p>One week break</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Mar 15</div>
-                        <div class="event-details">
-                            <h5>First Term Exams</h5>
-                            <p>End of term examinations</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Apr 12</div>
-                        <div class="event-details">
-                            <h5>Term Closing</h5>
-                            <p>Students go home for holidays</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Term -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="calendar-card">
-                    <div class="term-header">
-                        <i class="fas fa-calendar-check"></i>
-                        <h3>Second Term</h3>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">May 06</div>
-                        <div class="event-details">
-                            <h5>Term Opening</h5>
-                            <p>Students report back to school</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Jun 10</div>
-                        <div class="event-details">
-                            <h5>Mid-Term Break</h5>
-                            <p>One week break</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Jul 15</div>
-                        <div class="event-details">
-                            <h5>Second Term Exams</h5>
-                            <p>End of term examinations</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Aug 08</div>
-                        <div class="event-details">
-                            <h5>Term Closing</h5>
-                            <p>Students go home for holidays</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Third Term -->
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="calendar-card current-term">
-                    <div class="term-header">
-                        <i class="fas fa-star"></i>
-                        <h3>Third Term <small>(Current)</small></h3>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Sep 02</div>
-                        <div class="event-details">
-                            <h5>Term Opening</h5>
-                            <p>Students report back to school</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Oct 14</div>
-                        <div class="event-details">
-                            <h5>Mid-Term Break</h5>
-                            <p>One week break</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Nov 15</div>
-                        <div class="event-details">
-                            <h5>KCSE Exams</h5>
-                            <p>National examinations begin</p>
-                        </div>
-                    </div>
-                    
-                    <div class="event-item">
-                        <div class="event-date">Dec 06</div>
-                        <div class="event-details">
-                            <h5>Term Closing</h5>
-                            <p>End of academic year</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Important Notes -->
-        <div class="row mt-5">
-            <div class="col-12">
-                <div class="calendar-card">
-                    <h3 class="term-header">
-                        <i class="fas fa-info-circle"></i>
-                        Important Notes
-                    </h3>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-3">
-                                    <strong>School Hours:</strong> Monday - Friday, 7:00 AM - 5:00 PM
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Visiting Hours:</strong> Sundays, 2:00 PM - 5:00 PM
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Fee Payment:</strong> Due at the beginning of each term
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-3">
-                                    <strong>Contact:</strong> 0719 831 346
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Email:</strong> nyakhobisecsch@gmail.com
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Emergency Contact:</strong> Principal's Office
-                                </li>
-                            </ul>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow-lg" style="border-left: 5px solid #d4af37;">
+                    <div class="card-body p-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 class="fw-bold text-maroon mb-3"><i class="fas fa-circle text-success me-2"></i>Current Term: Term 3, 2025</h3>
+                                <p class="mb-2"><strong>Duration:</strong> September 2, 2025 - November 15, 2025</p>
+                                <p class="mb-0"><strong>Status:</strong> <span class="badge bg-success">In Session</span></p>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="bg-maroon text-white rounded p-4">
+                                    <h2 class="fw-bold mb-0">74</h2>
+                                    <p class="mb-0">Days Remaining</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -286,4 +38,403 @@
         </div>
     </div>
 </section>
+
+<!-- Academic Terms -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">2025 Academic Calendar</h2>
+            <p class="text-muted">Three terms aligned with CBC Senior Secondary curriculum</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Term 1 -->
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000;">
+                    <div class="card-header bg-maroon text-white py-3">
+                        <h4 class="mb-0 fw-bold"><i class="fas fa-calendar-check me-2"></i>Term 1</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-maroon mb-3">January - April 2025</h5>
+                            <p class="mb-2"><strong>Opening:</strong> January 15, 2025</p>
+                            <p class="mb-0"><strong>Closing:</strong> April 12, 2025</p>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Key Events</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Jan 15</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Term Opening</strong>
+                                        <p class="mb-0 small text-muted">Students report to school</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Feb 14</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Mid-Term Break</strong>
+                                        <p class="mb-0 small text-muted">1 week break</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Mar 28</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Parents' Day</strong>
+                                        <p class="mb-0 small text-muted">Academic progress meetings</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-0">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Apr 5-11</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>End Term Exams</strong>
+                                        <p class="mb-0 small text-muted">Term 1 examinations</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <small class="text-muted"><strong>Total Days:</strong> 87 learning days</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Term 2 -->
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000;">
+                    <div class="card-header bg-maroon text-white py-3">
+                        <h4 class="mb-0 fw-bold"><i class="fas fa-calendar-check me-2"></i>Term 2</h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-maroon mb-3">May - August 2025</h5>
+                            <p class="mb-2"><strong>Opening:</strong> May 5, 2025</p>
+                            <p class="mb-0"><strong>Closing:</strong> August 8, 2025</p>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Key Events</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">May 5</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Term Opening</strong>
+                                        <p class="mb-0 small text-muted">Students report to school</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Jun 6</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Mid-Term Break</strong>
+                                        <p class="mb-0 small text-muted">1 week break</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Jul 18</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Sports Day</strong>
+                                        <p class="mb-0 small text-muted">Annual athletics competition</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-0">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Jul 28-Aug 6</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>End Term Exams</strong>
+                                        <p class="mb-0 small text-muted">Term 2 examinations</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <small class="text-muted"><strong>Total Days:</strong> 95 learning days</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Term 3 -->
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-lg" style="border-left: 5px solid #d4af37; border: 2px solid #d4af37;">
+                    <div class="card-header text-white py-3" style="background: linear-gradient(135deg, #800000, #a0002a);">
+                        <h4 class="mb-0 fw-bold"><i class="fas fa-calendar-check me-2"></i>Term 3 <span class="badge bg-success ms-2">Current</span></h4>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-4">
+                            <h5 class="fw-bold text-maroon mb-3">September - November 2025</h5>
+                            <p class="mb-2"><strong>Opening:</strong> September 2, 2025</p>
+                            <p class="mb-0"><strong>Closing:</strong> November 15, 2025</p>
+                        </div>
+
+                        <h6 class="fw-bold mb-3">Key Events</h6>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Sep 2</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Term Opening</strong>
+                                        <p class="mb-0 small text-muted">Students report to school</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Oct 10</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Mid-Term Break</strong>
+                                        <p class="mb-0 small text-muted">1 week break</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Nov 7</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>Prize Giving Day</strong>
+                                        <p class="mb-0 small text-muted">Annual awards ceremony</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="mb-0">
+                                <div class="d-flex">
+                                    <div class="bg-light rounded p-2 me-3 text-center" style="min-width: 60px;">
+                                        <div class="fw-bold text-maroon">Nov 8-14</div>
+                                        <small class="text-muted">2025</small>
+                                    </div>
+                                    <div>
+                                        <strong>End Year Exams</strong>
+                                        <p class="mb-0 small text-muted">Final examinations</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <small class="text-muted"><strong>Total Days:</strong> 74 learning days</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Important Dates -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Important Annual Dates</h2>
+            <p class="text-muted">Major school events and holidays throughout the year</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4"><i class="fas fa-star text-warning me-2"></i>School Events</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Annual Founders' Day</strong>
+                                        <p class="mb-0 small text-muted">Celebrating school heritage</p>
+                                    </div>
+                                    <span class="badge bg-maroon">March 23</span>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Inter-School Music Festival</strong>
+                                        <p class="mb-0 small text-muted">Regional competitions</p>
+                                    </div>
+                                    <span class="badge bg-maroon">May 15-17</span>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Science & Technology Fair</strong>
+                                        <p class="mb-0 small text-muted">Student innovations showcase</p>
+                                    </div>
+                                    <span class="badge bg-maroon">June 20</span>
+                                </div>
+                            </li>
+                            <li class="mb-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Career & University Expo</strong>
+                                        <p class="mb-0 small text-muted">Higher education guidance</p>
+                                    </div>
+                                    <span class="badge bg-maroon">October 25</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4"><i class="fas fa-calendar-day text-info me-2"></i>Public Holidays</h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Good Friday & Easter Monday</strong>
+                                        <p class="mb-0 small text-muted">Easter holidays</p>
+                                    </div>
+                                    <span class="badge bg-secondary">April 18-21</span>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Labour Day</strong>
+                                        <p class="mb-0 small text-muted">National holiday</p>
+                                    </div>
+                                    <span class="badge bg-secondary">May 1</span>
+                                </div>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Madaraka Day</strong>
+                                        <p class="mb-0 small text-muted">National holiday</p>
+                                    </div>
+                                    <span class="badge bg-secondary">June 1</span>
+                                </div>
+                            </li>
+                            <li class="mb-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <strong>Mashujaa Day</strong>
+                                        <p class="mb-0 small text-muted">Heroes' Day</p>
+                                    </div>
+                                    <span class="badge bg-secondary">October 20</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Exam Schedule -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">National Examinations</h2>
+            <p class="text-muted">CBC Senior Secondary assessment timeline</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-5">
+                        <div class="row g-4">
+                            <div class="col-md-4 text-center">
+                                <div class="bg-light rounded p-4 h-100">
+                                    <i class="fas fa-pencil-alt text-maroon display-4 mb-3"></i>
+                                    <h5 class="fw-bold mb-3">Grade 10 CATs</h5>
+                                    <p class="text-muted small mb-3">Continuous Assessment Tests throughout the year</p>
+                                    <span class="badge bg-maroon">Ongoing</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="bg-light rounded p-4 h-100">
+                                    <i class="fas fa-file-alt text-maroon display-4 mb-3"></i>
+                                    <h5 class="fw-bold mb-3">Grade 11 CATs</h5>
+                                    <p class="text-muted small mb-3">Continuous Assessment Tests throughout the year</p>
+                                    <span class="badge bg-maroon">Ongoing</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center">
+                                <div class="bg-light rounded p-4 h-100">
+                                    <i class="fas fa-graduation-cap text-maroon display-4 mb-3"></i>
+                                    <h5 class="fw-bold mb-3">Grade 12 KSCE</h5>
+                                    <p class="text-muted small mb-3">Kenya Secondary Certificate Examination</p>
+                                    <span class="badge bg-danger">November 2025</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4 mb-0">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Note:</strong> Grade 12 students will sit for the Kenya Secondary Certificate Examination (KSCE) in November 2025. Detailed timetables will be issued by KNEC.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Download Section -->
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2 class="text-white fw-bold mb-4">Download Full Calendar</h2>
+        <p class="text-white lead mb-4">Get the complete 2025 academic calendar with all important dates</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="#" class="btn btn-light btn-lg">
+                <i class="fas fa-download me-2"></i>Download PDF
+            </a>
+            <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-envelope me-2"></i>Contact Admissions
+            </a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

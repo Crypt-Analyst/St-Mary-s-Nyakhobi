@@ -3,222 +3,55 @@
 
 {% block title %}Student Testimonials & Videos - St. Mary's Nyakhobi Senior School{% endblock %}
 
-{% block extra_css %}
-<style>
-    .testimonials-hero {
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-        color: white;
-        padding: 100px 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .testimonials-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('/static/images/school-hero-bg.png') center/cover;
-        opacity: 0.2;
-        z-index: -1;
-    }
-
-    .testimonial-card {
-        border: none;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        overflow: hidden;
-        height: 100%;
-    }
-
-    .testimonial-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 50px rgba(128,0,0,0.2);
-    }
-
-    .testimonial-avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid var(--maroon);
-    }
-
-    .video-card {
-        border: none;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
-
-    .video-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-
-    .video-container {
-        position: relative;
-        padding-bottom: 56.25%;
-        height: 0;
-        overflow: hidden;
-    }
-
-    .video-container iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-
-    .star-rating {
-        color: #ffc107;
-        font-size: 1.1rem;
-    }
-
-    .quote-icon {
-        font-size: 3rem;
-        color: var(--maroon);
-        opacity: 0.3;
-    }
-</style>
-{% endblock %}
-
 {% block content %}
-<!-- Testimonials Hero Section -->
-<section class="testimonials-hero">
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('{{ MEDIA_URL }}images/academic-environment-2.jpeg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="display-3 fw-bold mb-3" style="text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);"><i class="fas fa-video me-3"></i>Student Stories & Videos</h1>
+        <p class="lead mb-0" style="text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Hear from our students, alumni, and parents about their St. Mary's experience</p>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-4 fw-bold mb-3">Student Voices & School Videos</h1>
-                <p class="lead">Hear from our students and see life at St. Mary's Nyakhobi through authentic testimonials and videos</p>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="section-title mb-4">What Our Community Says</h2>
+                <p class="lead text-muted mb-4">At St. Mary's Nyakhobi Senior School, we pride ourselves on transforming lives through quality CBC education. Don't just take our word for it - hear directly from our students, alumni, and parents.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- YouTube Channel Section -->
+<!-- Featured Video Section -->
 <section class="py-5">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Our YouTube Channel</h2>
-                <p class="lead text-muted">Subscribe to stay updated with the latest videos from St. Mary's Nyakhobi Senior School</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Featured Video</h2>
+            <p class="text-muted">A day in the life at St. Mary's Nyakhobi</p>
         </div>
 
-        <div class="row g-4">
-            <!-- Featured School Video -->
-            <div class="col-lg-8">
-                <div class="video-card">
-                    <div class="video-container">
-                        <!-- Replace with your main school video ID -->
-                        <iframe 
-                            src="https://www.youtube.com/embed/YOUR_MAIN_VIDEO_ID" 
-                            title="St. Mary's Nyakhobi - School Overview" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body p-4">
-                        <h4 class="card-title fw-bold text-primary">Welcome to St. Mary's Nyakhobi</h4>
-                        <p class="card-text text-muted">Get a comprehensive overview of our school, facilities, academic programs, and student life. This video showcases why St. Mary's Nyakhobi is the right choice for your child's education.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted"><i class="fas fa-eye"></i> 2,450 views</small>
-                            <small class="text-muted"><i class="fas fa-calendar"></i> 2 weeks ago</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Channel Info & Subscribe -->
-            <div class="col-lg-4">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center p-4">
-                        <div class="mb-4">
-                            <i class="fab fa-youtube display-1 text-danger"></i>
-                        </div>
-                        <h4 class="fw-bold mb-3">St. Mary's Nyakhobi</h4>
-                        <p class="text-muted mb-4">Official YouTube Channel</p>
-                        
-                        <div class="mb-4">
-                            <div class="row text-center">
-                                <div class="col-6">
-                                    <h5 class="fw-bold text-primary">15</h5>
-                                    <small class="text-muted">Videos</small>
-                                </div>
-                                <div class="col-6">
-                                    <h5 class="fw-bold text-success">1.2K</h5>
-                                    <small class="text-muted">Subscribers</small>
-                                </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-0">
+                        <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #800000, #a0002a); display: flex; align-items: center; justify-content: center; min-height: 500px;">
+                            <div class="text-center text-white p-5">
+                                <i class="fas fa-play-circle" style="font-size: 6rem; opacity: 0.8; cursor: pointer;"></i>
+                                <h3 class="mt-4 fw-bold">Campus Tour & Student Life</h3>
+                                <p class="mb-0">Experience St. Mary's Nyakhobi Senior School</p>
                             </div>
                         </div>
-
-                        <a href="https://www.youtube.com/@StMarysNyakhobi" target="_blank" class="btn btn-danger btn-lg w-100">
-                            <i class="fab fa-youtube me-2"></i>Subscribe Now
-                        </a>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- More Videos Grid -->
-        <div class="row g-4 mt-4">
-            <div class="col-lg-4">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/ACADEMIC_VIDEO_ID" 
-                            title="Academic Excellence at St. Mary's" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body p-3">
-                        <h6 class="card-title fw-bold">Academic Programs</h6>
-                        <p class="card-text text-muted small">Overview of our comprehensive curriculum</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/FACILITIES_VIDEO_ID" 
-                            title="School Facilities Tour" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body p-3">
-                        <h6 class="card-title fw-bold">School Facilities</h6>
-                        <p class="card-text text-muted small">Tour of our modern learning facilities</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube.com/embed/EVENTS_VIDEO_ID" 
-                            title="School Events and Activities" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="card-body p-3">
-                        <h6 class="card-title fw-bold">School Events</h6>
-                        <p class="card-text text-muted small">Highlights from school events and activities</p>
+                    <div class="card-footer bg-white border-0 p-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <h5 class="fw-bold mb-1">A Day at St. Mary's Nyakhobi</h5>
+                                <small class="text-muted"><i class="fas fa-calendar me-2"></i>September 2025 • 8:45 minutes</small>
+                            </div>
+                            <button class="btn btn-maroon"><i class="fas fa-play me-2"></i>Watch Video</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -229,130 +62,177 @@
 <!-- Student Testimonials -->
 <section class="py-5 bg-light">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">What Our Students Say</h2>
-                <p class="lead text-muted">Authentic testimonials from current students and proud alumni</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Student Testimonials</h2>
+            <p class="text-muted">Current students share their experiences</p>
         </div>
 
         <div class="row g-4">
             <!-- Testimonial 1 -->
-            <div class="col-lg-4">
-                <div class="testimonial-card card">
-                    <div class="card-body p-4 text-center">
-                        <div class="quote-icon mb-3">
-                            <i class="fas fa-quote-left"></i>
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5 class="fw-bold mb-1">Faith Akinyi</h5>
+                            <small class="text-muted">Grade 12 Student</small>
+                            <div class="text-warning mt-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
-                        <img src="{{ MEDIA_URL }}images/student-avatar-1.jpg" alt="Sarah Wanjiku" class="testimonial-avatar mb-3" onerror="this.src='/static/images/default-avatar.png'">
-                        <h5 class="fw-bold mb-2">Sarah Wanjiku</h5>
-                        <p class="text-muted small mb-3">Form 4 Student, 2024</p>
-                        <div class="star-rating mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"St. Mary's Nyakhobi has been my home away from home for four years. The teachers are dedicated, the facilities are excellent, and I've grown both academically and personally. I'm confident about my KCSE results!"</p>
-                        </blockquote>
+                        <p class="text-muted text-center mb-0">"St. Mary's has transformed my life. The teachers are dedicated, the CBC curriculum is well-implemented, and I've developed both academically and personally. I'm confident about my future!"</p>
                     </div>
                 </div>
             </div>
 
             <!-- Testimonial 2 -->
-            <div class="col-lg-4">
-                <div class="testimonial-card card">
-                    <div class="card-body p-4 text-center">
-                        <div class="quote-icon mb-3">
-                            <i class="fas fa-quote-left"></i>
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5 class="fw-bold mb-1">David Omondi</h5>
+                            <small class="text-muted">Grade 11 Student</small>
+                            <div class="text-warning mt-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
-                        <img src="{{ MEDIA_URL }}images/student-avatar-2.jpg" alt="John Odhiambo" class="testimonial-avatar mb-3" onerror="this.src='/static/images/default-avatar.png'">
-                        <h5 class="fw-bold mb-2">John Odhiambo</h5>
-                        <p class="text-muted small mb-3">Alumni, Class of 2023</p>
-                        <div class="star-rating mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"The strong foundation I received at St. Mary's helped me secure direct admission to university. The science laboratory and library resources were exceptional. I'm proud to be an alumnus!"</p>
-                        </blockquote>
+                        <p class="text-muted text-center mb-0">"The science laboratories are excellent! I'm pursuing the STEM pathway and the facilities here have helped me excel. The teachers are always ready to help us understand complex concepts."</p>
                     </div>
                 </div>
             </div>
 
             <!-- Testimonial 3 -->
-            <div class="col-lg-4">
-                <div class="testimonial-card card">
-                    <div class="card-body p-4 text-center">
-                        <div class="quote-icon mb-3">
-                            <i class="fas fa-quote-left"></i>
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5 class="fw-bold mb-1">Mary Wanjiku</h5>
+                            <small class="text-muted">Grade 10 Student</small>
+                            <div class="text-warning mt-2">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
                         </div>
-                        <img src="{{ MEDIA_URL }}images/student-avatar-3.jpg" alt="Grace Mutindi" class="testimonial-avatar mb-3" onerror="this.src='/static/images/default-avatar.png'">
-                        <h5 class="fw-bold mb-2">Grace Mutindi</h5>
-                        <p class="text-muted small mb-3">Form 3 Student, 2024</p>
-                        <div class="star-rating mb-3">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"The teachers here really care about our success. They provide extra support when needed and the co-curricular activities have helped me discover my talents. St. Mary's is truly special!"</p>
-                        </blockquote>
+                        <p class="text-muted text-center mb-0">"Coming to St. Mary's was the best decision. The school has great sports facilities and I've been able to balance academics with my passion for athletics. The environment is very supportive."</p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <!-- Parent Testimonials -->
-        <div class="row mt-5">
-            <div class="col-12 text-center mb-4">
-                <h3 class="fw-bold text-primary">Parent Testimonials</h3>
-                <p class="text-muted">What parents say about their children's experience at our school</p>
-            </div>
+<!-- Alumni Success Stories -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Alumni Success Stories</h2>
+            <p class="text-muted">Where are they now? Our alumni making a difference</p>
         </div>
 
         <div class="row g-4">
+            <!-- Alumni 1 -->
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm">
+                <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4">
-                        <div class="d-flex mb-3">
-                            <div class="me-3">
-                                <i class="fas fa-user-circle fa-3x text-muted"></i>
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-3 mb-md-0">
+                                <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Dr. James Otieno</h6>
+                                <small class="text-muted">Class of 2019</small>
                             </div>
-                            <div>
-                                <h6 class="mb-1 fw-bold">Mrs. Rose Achieng</h6>
-                                <small class="text-muted">Parent - Form 2 Student</small>
+                            <div class="col-md-8">
+                                <span class="badge bg-maroon mb-2">Medical Doctor</span>
+                                <h5 class="fw-bold mb-3">Pursuing Medicine at University of Nairobi</h5>
+                                <p class="text-muted mb-0">"St. Mary's laid a strong foundation for my career. The science education I received prepared me well for medical school. Forever grateful to my teachers!"</p>
                             </div>
                         </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"Since my daughter joined St. Mary's Nyakhobi, her academic performance has improved tremendously. The school's discipline and academic focus are exceptional. I highly recommend this school to any parent."</p>
-                        </blockquote>
                     </div>
                 </div>
             </div>
 
+            <!-- Alumni 2 -->
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm">
+                <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4">
-                        <div class="d-flex mb-3">
-                            <div class="me-3">
-                                <i class="fas fa-user-circle fa-3x text-muted"></i>
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-3 mb-md-0">
+                                <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Grace Adhiambo</h6>
+                                <small class="text-muted">Class of 2020</small>
                             </div>
-                            <div>
-                                <h6 class="mb-1 fw-bold">Mr. Peter Kiprotich</h6>
-                                <small class="text-muted">Parent - Form 4 Student</small>
+                            <div class="col-md-8">
+                                <span class="badge bg-success mb-2">Engineer</span>
+                                <h5 class="fw-bold mb-3">Software Engineer at Tech Company</h5>
+                                <p class="text-muted mb-0">"The computer skills I gained at St. Mary's sparked my interest in technology. Now I'm working as a software engineer and loving every moment of it!"</p>
                             </div>
                         </div>
-                        <blockquote class="blockquote">
-                            <p class="mb-0">"The communication between school and parents is excellent. We're always kept informed about our child's progress. The teachers are professional and truly care about each student's success."</p>
-                        </blockquote>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni 3 -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-3 mb-md-0">
+                                <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Peter Wafula</h6>
+                                <small class="text-muted">Class of 2018</small>
+                            </div>
+                            <div class="col-md-8">
+                                <span class="badge bg-warning mb-2">Teacher</span>
+                                <h5 class="fw-bold mb-3">High School Mathematics Teacher</h5>
+                                <p class="text-muted mb-0">"My teachers at St. Mary's inspired me to become an educator. Now I'm paying it forward by teaching the next generation of students."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alumni 4 -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center mb-3 mb-md-0">
+                                <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 2.5rem;">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <h6 class="fw-bold mb-1">Lucy Nyambura</h6>
+                                <small class="text-muted">Class of 2021</small>
+                            </div>
+                            <div class="col-md-8">
+                                <span class="badge bg-info mb-2">Entrepreneur</span>
+                                <h5 class="fw-bold mb-3">Business Owner & Youth Leader</h5>
+                                <p class="text-muted mb-0">"St. Mary's taught me leadership and entrepreneurship. Today, I run my own business and mentor young entrepreneurs in our community."</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -360,25 +240,158 @@
     </div>
 </section>
 
-<!-- Call to Action -->
+<!-- Parent Testimonials -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">What Parents Say</h2>
+            <p class="text-muted">Feedback from parents and guardians</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Parent 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <i class="fas fa-quote-left text-maroon fa-2x mb-3"></i>
+                        <p class="text-muted mb-4">"My daughter has excelled beyond our expectations. The teachers are caring and professional, and the CBC curriculum is well-taught. We're very satisfied with St. Mary's."</p>
+                        <h6 class="fw-bold mb-1">Mr. John Ochieng</h6>
+                        <small class="text-muted">Parent, Grade 11</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <i class="fas fa-quote-left text-maroon fa-2x mb-3"></i>
+                        <p class="text-muted mb-4">"The school provides excellent value for money. The facilities are modern, teachers are qualified, and my son is getting quality education. Highly recommend!"</p>
+                        <h6 class="fw-bold mb-1">Mrs. Alice Wanjiru</h6>
+                        <small class="text-muted">Parent, Grade 12</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parent 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        <i class="fas fa-quote-left text-maroon fa-2x mb-3"></i>
+                        <p class="text-muted mb-4">"Communication between the school and parents is excellent. We always know how our children are performing. The school truly cares about student success."</p>
+                        <h6 class="fw-bold mb-1">Mr. Samuel Kimani</h6>
+                        <small class="text-muted">Parent, Grade 10</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Video Gallery -->
 <section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <div class="bg-primary text-white rounded p-5">
-                    <h3 class="fw-bold mb-3">Ready to Join Our School Community?</h3>
-                    <p class="mb-4">Experience the excellence that our students and parents talk about. Apply today and become part of the St. Mary's Nyakhobi family.</p>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center">
-                        <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg">
-                            <i class="fas fa-graduation-cap me-2"></i>Apply Now
-                        </a>
-                        <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-phone me-2"></i>Contact Us
-                        </a>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Video Gallery</h2>
+            <p class="text-muted">Explore more videos from our school</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Video 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-play-circle text-maroon" style="font-size: 3rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="card-body p-3">
+                        <h6 class="fw-bold mb-2">Science Practical Lessons</h6>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>5:30 minutes</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-play-circle text-maroon" style="font-size: 3rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="card-body p-3">
+                        <h6 class="fw-bold mb-2">Sports Day Highlights 2024</h6>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>7:15 minutes</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-play-circle text-maroon" style="font-size: 3rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="card-body p-3">
+                        <h6 class="fw-bold mb-2">Music Festival Performance</h6>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>4:20 minutes</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-play-circle text-maroon" style="font-size: 3rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="card-body p-3">
+                        <h6 class="fw-bold mb-2">Computer Lab Tour</h6>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>3:45 minutes</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-play-circle text-maroon" style="font-size: 3rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="card-body p-3">
+                        <h6 class="fw-bold mb-2">Prize Giving Day 2024</h6>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>10:30 minutes</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="ratio ratio-16x9" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-play-circle text-maroon" style="font-size: 3rem; opacity: 0.6;"></i>
+                    </div>
+                    <div class="card-body p-3">
+                        <h6 class="fw-bold mb-2">Student Leadership Forum</h6>
+                        <small class="text-muted"><i class="fas fa-clock me-1"></i>6:00 minutes</small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2 class="text-white fw-bold mb-4">Join Our Success Story</h2>
+        <p class="text-white lead mb-4">Be part of the St. Mary's Nyakhobi family and write your own success story</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg">
+                <i class="fas fa-clipboard-list me-2"></i>Apply Now
+            </a>
+            <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-envelope me-2"></i>Contact Us
+            </a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

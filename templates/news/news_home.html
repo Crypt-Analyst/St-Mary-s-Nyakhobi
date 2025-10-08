@@ -1,286 +1,309 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ page_title }} - St. Mary's Nyakhobi School{% endblock %}
-
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/news.css' %}">
-{% endblock %}
+{% block title %}School News & Updates - St. Mary's Nyakhobi Senior School{% endblock %}
 
 {% block content %}
-<!-- News Header -->
-<div class="container-fluid py-5" style="background: linear-gradient(135deg, var(--primary-color) 0%, #a0002a 100%); margin-top: -20px;">
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('{{ MEDIA_URL }}images/school-sign.jpg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="display-3 fw-bold mb-3" style="text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);"><i class="fas fa-newspaper me-3"></i>School News & Updates</h1>
+        <p class="lead mb-0" style="text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Stay informed with the latest announcements and achievements</p>
+    </div>
+</section>
+
+<!-- Latest News Section -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="text-center text-white">
-            <h1 class="display-4 fw-bold mb-3">📰 School News & Updates</h1>
-            <p class="lead mb-0">Stay informed with the latest announcements, achievements, and events at St. Mary's Nyakhobi School</p>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Latest News</h2>
+            <p class="text-muted">Recent updates from St. Mary's Nyakhobi Senior School</p>
         </div>
-    </div>
-</div>
 
-<div class="container py-5">
-    <!-- Featured Articles -->
-    {% if featured_articles %}
-    <div class="row mb-5">
-        <div class="col-12">
-            <h2 class="text-center mb-4 text-maroon fw-bold">⭐ Featured News</h2>
-            <div class="row">
-                {% for article in featured_articles %}
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <article class="news-card featured h-100">
-                        {% if article.featured_image %}
-                        <div class="news-image">
-                            <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="img-fluid">
-                            <div class="news-overlay">
-                                <span class="badge bg-maroon">Featured</span>
-                                <span class="badge bg-{{ article.category.category_type }}">{{ article.category.name }}</span>
+        <div class="row g-4">
+            <!-- Featured News 1 -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg h-100">
+                    <div class="row g-0">
+                        <div class="col-md-5">
+                            <div style="background: linear-gradient(135deg, #800000, #a0002a); height: 100%; min-height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-trophy text-white" style="font-size: 5rem;"></i>
                             </div>
                         </div>
-                        {% endif %}
-                        <div class="news-content p-4">
-                            <div class="news-meta mb-2">
-                                <small class="text-muted">
-                                    <i class="fas fa-calendar me-1"></i> {{ article.published_date|date:"M d, Y" }}
-                                    <i class="fas fa-user ms-3 me-1"></i> {{ article.author.get_full_name|default:article.author.username }}
-                                </small>
-                            </div>
-                            <h4 class="news-title fw-bold">
-                                <a href="{{ article.get_absolute_url }}" class="text-decoration-none text-dark">
-                                    {{ article.title }}
-                                </a>
-                            </h4>
-                            {% if article.subtitle %}
-                            <p class="news-subtitle text-muted small">{{ article.subtitle }}</p>
-                            {% endif %}
-                            <p class="news-excerpt">{{ article.excerpt|truncatewords:20 }}</p>
-                            <div class="news-footer d-flex justify-content-between align-items-center">
-                                <a href="{{ article.get_absolute_url }}" class="btn btn-maroon btn-sm">
-                                    <i class="fas fa-arrow-right me-1"></i> Read More
-                                </a>
-                                <div class="news-stats">
-                                    <small class="text-muted">
-                                        <i class="fas fa-eye me-1"></i> {{ article.views_count }}
-                                        <i class="fas fa-heart ms-2 me-1"></i> {{ article.likes_count }}
-                                    </small>
+                        <div class="col-md-7">
+                            <div class="card-body p-4 d-flex flex-column h-100">
+                                <div class="mb-3">
+                                    <span class="badge bg-danger me-2">Featured</span>
+                                    <span class="badge bg-maroon">Academic Excellence</span>
+                                </div>
+                                <h3 class="fw-bold mb-3">Outstanding KSCE Performance 2024</h3>
+                                <p class="text-muted mb-4">St. Mary's Nyakhobi Senior School celebrates remarkable performance in the Kenya Secondary Certificate Examination with 95% of students qualifying for university admission.</p>
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <small class="text-muted"><i class="fas fa-calendar me-2"></i>December 15, 2024</small>
+                                        <a href="#" class="btn btn-maroon">Read More <i class="fas fa-arrow-right ms-2"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </article>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-    {% endif %}
-
-    <div class="row">
-        <!-- Main News Content -->
-        <div class="col-lg-8">
-            <!-- Recent Articles -->
-            <div class="row mb-4">
-                <div class="col-12">
-                    <h3 class="text-maroon fw-bold mb-4">📅 Latest News</h3>
-                    <div class="row">
-                        {% for article in recent_articles %}
-                        <div class="col-md-6 mb-4">
-                            <article class="news-card h-100">
-                                {% if article.featured_image %}
-                                <div class="news-image">
-                                    <img src="{{ article.featured_image.url }}" alt="{{ article.title }}" class="img-fluid">
-                                    <div class="news-overlay">
-                                        <span class="badge" style="background-color: {{ article.category.color }};">
-                                            {{ article.category.name }}
-                                        </span>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="news-content p-3">
-                                    <div class="news-meta mb-2">
-                                        <small class="text-muted">
-                                            <i class="fas fa-calendar me-1"></i> {{ article.published_date|date:"M d, Y" }}
-                                        </small>
-                                    </div>
-                                    <h5 class="news-title fw-bold">
-                                        <a href="{{ article.get_absolute_url }}" class="text-decoration-none text-dark">
-                                            {{ article.title|truncatewords:8 }}
-                                        </a>
-                                    </h5>
-                                    <p class="news-excerpt small">{{ article.excerpt|truncatewords:15 }}</p>
-                                    <div class="news-footer d-flex justify-content-between align-items-center">
-                                        <a href="{{ article.get_absolute_url }}" class="btn btn-outline-maroon btn-sm">
-                                            Read More
-                                        </a>
-                                        <div class="news-stats">
-                                            <small class="text-muted">
-                                                <i class="fas fa-eye me-1"></i> {{ article.views_count }}
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                        {% empty %}
-                        <div class="col-12 text-center py-5">
-                            <i class="fas fa-newspaper fa-3x text-muted mb-3"></i>
-                            <h4 class="text-muted">No news articles yet</h4>
-                            <p class="text-muted">Check back soon for the latest school updates and announcements.</p>
-                        </div>
-                        {% endfor %}
                     </div>
                 </div>
             </div>
 
-            <!-- View All News Button -->
-            <div class="text-center mb-4">
-                <a href="{% url 'news:news_archive' %}" class="btn btn-maroon btn-lg">
-                    <i class="fas fa-archive me-2"></i> View All News
-                </a>
-            </div>
-        </div>
-
-        <!-- Sidebar -->
-        <div class="col-lg-4">
-            <!-- Categories -->
-            <div class="news-sidebar-card mb-4">
-                <h5 class="card-header bg-maroon text-white">
-                    <i class="fas fa-folder-open me-2"></i> News Categories
-                </h5>
-                <div class="card-body p-0">
-                    {% for category in categories %}
-                    <a href="{% url 'news:category_articles' category.slug %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-                        <span>
-                            <i class="{{ category.icon }} me-2" style="color: {{ category.color }};"></i>
-                            {{ category.name }}
-                        </span>
-                        <span class="badge rounded-pill" style="background-color: {{ category.color }};">
-                            {{ category.articles.count }}
-                        </span>
-                    </a>
-                    {% endfor %}
-                </div>
-            </div>
-
-            <!-- Newsletter Signup -->
-            <div class="news-sidebar-card mb-4">
-                <h5 class="card-header bg-secondary text-white">
-                    <i class="fas fa-envelope me-2"></i> Newsletter Signup
-                </h5>
-                <div class="card-body">
-                    <p class="small text-muted mb-3">Stay updated with our monthly school newsletter</p>
-                    <form class="newsletter-form" method="post" action="#">
-                        {% csrf_token %}
-                        <div class="input-group mb-2">
-                            <input type="email" class="form-control" placeholder="Your email address" required>
-                            <button class="btn btn-maroon" type="submit">
-                                <i class="fas fa-paper-plane"></i>
-                            </button>
+            <!-- Side News 1 -->
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 150px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-medal text-maroon" style="font-size: 3rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-success mb-3">Sports</span>
+                        <h5 class="fw-bold mb-3">Regional Athletics Champions</h5>
+                        <p class="text-muted small mb-3">Our athletics team emerged overall champions at the regional sports competition.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted"><i class="fas fa-calendar me-1"></i>Dec 10, 2024</small>
+                            <a href="#" class="text-maroon fw-bold small">Read More</a>
                         </div>
-                        <small class="text-muted">We respect your privacy. Unsubscribe at any time.</small>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Quick Links -->
-            <div class="news-sidebar-card mb-4">
-                <h5 class="card-header bg-info text-white">
-                    <i class="fas fa-link me-2"></i> Quick Links
-                </h5>
-                <div class="card-body p-0">
-                    <a href="{% url 'news:newsletters' %}" class="list-group-item list-group-item-action">
-                        <i class="fas fa-newspaper me-2"></i> Newsletters Archive
-                    </a>
-                    <a href="{% url 'events:events' %}" class="list-group-item list-group-item-action">
-                        <i class="fas fa-calendar-alt me-2"></i> School Events
-                    </a>
-                    <a href="{% url 'contact:contact' %}" class="list-group-item list-group-item-action">
-                        <i class="fas fa-phone me-2"></i> Contact Us
-                    </a>
-                </div>
-            </div>
-
-            <!-- Social Media -->
-            <div class="news-sidebar-card">
-                <h5 class="card-header bg-success text-white">
-                    <i class="fas fa-share-alt me-2"></i> Follow Us
-                </h5>
-                <div class="card-body text-center">
-                    <div class="d-flex justify-content-center gap-2">
-                        <a href="#" class="btn btn-outline-primary btn-sm">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="btn btn-outline-info btn-sm">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="btn btn-outline-success btn-sm">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="#" class="btn btn-outline-danger btn-sm">
-                            <i class="fab fa-youtube"></i>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- Search Modal -->
-<div class="modal fade" id="newsSearchModal" tabindex="-1" aria-labelledby="newsSearchModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="newsSearchModalLabel">Search News</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <form method="get" action="{% url 'news:search_news' %}">
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="searchQuery" class="form-label">Search for news articles</label>
-                        <input type="text" class="form-control" id="searchQuery" name="q" 
-                               placeholder="Enter keywords..." required>
+<!-- Recent News Grid -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Recent Updates</h2>
+            <p class="text-muted">More news from around our campus</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- News Item 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-microscope text-maroon" style="font-size: 4rem;"></i>
                     </div>
-                    <p class="text-muted small">
-                        <i class="fas fa-info-circle me-1"></i>
-                        Search by title, content, tags, or category.
-                    </p>
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-info">Academic</span>
+                        </div>
+                        <h5 class="fw-bold mb-3">New Science Laboratory Opens</h5>
+                        <p class="text-muted mb-3">State-of-the-art chemistry laboratory now operational, enhancing our CBC Science programs.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-calendar me-1"></i>Dec 5, 2024</span>
+                            <a href="#" class="text-maroon fw-bold">Read More</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-maroon">
-                        <i class="fas fa-search me-1"></i> Search
-                    </button>
+            </div>
+
+            <!-- News Item 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-users text-maroon" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-warning">Community</span>
+                        </div>
+                        <h5 class="fw-bold mb-3">Successful Parents' Day Event</h5>
+                        <p class="text-muted mb-3">Over 700 parents attended the quarterly academic review and consultations with teachers.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-calendar me-1"></i>Nov 30, 2024</span>
+                            <a href="#" class="text-maroon fw-bold">Read More</a>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
+
+            <!-- News Item 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-music text-maroon" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-purple">Cultural</span>
+                        </div>
+                        <h5 class="fw-bold mb-3">Music Festival Success</h5>
+                        <p class="text-muted mb-3">Our choir and instrumentalists won multiple awards at the regional music festival.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-calendar me-1"></i>Nov 25, 2024</span>
+                            <a href="#" class="text-maroon fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Item 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-laptop-code text-maroon" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-primary">Technology</span>
+                        </div>
+                        <h5 class="fw-bold mb-3">ICT Lab Upgrade Complete</h5>
+                        <p class="text-muted mb-3">New computers and upgraded internet connectivity enhance digital learning capabilities.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-calendar me-1"></i>Nov 20, 2024</span>
+                            <a href="#" class="text-maroon fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Item 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-tree text-maroon" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-success">Environment</span>
+                        </div>
+                        <h5 class="fw-bold mb-3">Tree Planting Initiative</h5>
+                        <p class="text-muted mb-3">Students plant 500 trees as part of environmental conservation program.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-calendar me-1"></i>Nov 15, 2024</span>
+                            <a href="#" class="text-maroon fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- News Item 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-briefcase text-maroon" style="font-size: 4rem;"></i>
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="mb-3">
+                            <span class="badge bg-warning">Career</span>
+                        </div>
+                        <h5 class="fw-bold mb-3">University Representatives Visit</h5>
+                        <p class="text-muted mb-3">Five universities presented admission opportunities to our Grade 12 students.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-calendar me-1"></i>Nov 10, 2024</span>
+                            <a href="#" class="text-maroon fw-bold">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-{% endblock %}
+</section>
 
-{% block extra_js %}
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Add search button to navbar if not exists
-    const navbar = document.querySelector('.navbar-nav');
-    if (navbar && !document.querySelector('.news-search-btn')) {
-        const searchLi = document.createElement('li');
-        searchLi.className = 'nav-item';
-        searchLi.innerHTML = `
-            <button class="nav-link btn btn-link news-search-btn" 
-                    data-bs-toggle="modal" data-bs-target="#newsSearchModal">
-                <i class="fas fa-search"></i> Search News
-            </button>
-        `;
-        navbar.appendChild(searchLi);
-    }
+<!-- Announcements Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Important Announcements</h2>
+                    <p class="text-muted">Stay updated with important school notices</p>
+                </div>
 
-    // Newsletter form handling
-    const newsletterForm = document.querySelector('.newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for subscribing to our newsletter!');
-        });
-    }
-});
-</script>
+                <div class="card border-0 shadow-lg mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-bullhorn text-maroon fa-2x me-3"></i>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="fw-bold mb-2">Term 3 Closing Date Reminder</h5>
+                                    <span class="badge bg-danger">Urgent</span>
+                                </div>
+                                <p class="text-muted mb-2">All students are reminded that Term 3 closes on November 15, 2025. Parents should make transport arrangements in advance.</p>
+                                <small class="text-muted"><i class="fas fa-calendar me-1"></i>Posted: October 8, 2025</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-clipboard-check text-maroon fa-2x me-3"></i>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="fw-bold mb-2">End of Year Examinations Schedule</h5>
+                                    <span class="badge bg-warning">Important</span>
+                                </div>
+                                <p class="text-muted mb-2">The end of year examination timetable is now available. Students should collect their personalized timetables from class teachers.</p>
+                                <small class="text-muted"><i class="fas fa-calendar me-1"></i>Posted: October 5, 2025</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-money-bill-wave text-maroon fa-2x me-3"></i>
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="fw-bold mb-2">Fee Balance Clearance</h5>
+                                    <span class="badge bg-info">Notice</span>
+                                </div>
+                                <p class="text-muted mb-2">Parents with outstanding fee balances are requested to clear them before November 10, 2025 to allow students sit for examinations.</p>
+                                <small class="text-muted"><i class="fas fa-calendar me-1"></i>Posted: October 1, 2025</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Subscribe -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg" style="background: linear-gradient(135deg, #800000, #a0002a);">
+                    <div class="card-body p-5 text-center text-white">
+                        <i class="fas fa-envelope-open-text display-3 mb-4"></i>
+                        <h3 class="fw-bold mb-3">Subscribe to Our Newsletter</h3>
+                        <p class="mb-4">Get the latest school news, events, and announcements delivered to your inbox</p>
+                        <form class="row g-3 justify-content-center">
+                            <div class="col-md-8">
+                                <input type="email" class="form-control form-control-lg" placeholder="Enter your email address" required>
+                            </div>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-light btn-lg w-100">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2 class="text-white fw-bold mb-4">Have a Story to Share?</h2>
+        <p class="text-white lead mb-4">Submit your news, achievements, or event coverage to our communications office</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'contact:contact' %}" class="btn btn-light btn-lg">
+                <i class="fas fa-paper-plane me-2"></i>Submit Story
+            </a>
+            <a href="{% url 'home:home' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-home me-2"></i>Back to Home
+            </a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

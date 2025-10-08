@@ -4,16 +4,15 @@
 
 {% block title %}Contact Us - St. Mary's Nyakhobi Senior School{% endblock %}
 
-{% block hero %}
-<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
-    <div class="hero-content">
-        <h1 class="hero-title"><i class="fas fa-envelope"></i> Contact Us</h1>
-        <p class="hero-subtitle">Get in Touch with St. Mary's Nyakhobi</p>
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('{{ MEDIA_URL }}images/school-compound.jpg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="display-3 fw-bold mb-3" style="text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);"><i class="fas fa-envelope me-3"></i>Contact Us</h1>
+        <p class="lead mb-0" style="text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Get in Touch with St. Mary's Nyakhobi Senior School</p>
     </div>
 </section>
-{% endblock %}
 
-{% block extra_css %}
 <style>
     .contact-card {
         background: white;
@@ -154,10 +153,6 @@
         transform: translateY(-3px);
     }
 </style>
-{% endblock %}
-
-{% block content %}
-</section>
 
 <!-- Contact Methods -->
 <section class="py-5">

@@ -3,138 +3,295 @@
 
 {% block title %}School Facilities - St. Mary's Nyakhobi Senior School{% endblock %}
 
-{% block hero %}
-<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
-    <div class="hero-content">
-        <h1 class="hero-title"><i class="fas fa-building"></i> School Facilities</h1>
-        <p class="hero-subtitle">Modern Infrastructure for Quality Education</p>
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('{{ MEDIA_URL }}images/school-building-2.jpg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="display-3 fw-bold mb-3" style="text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);"><i class="fas fa-building me-3"></i>School Facilities</h1>
+        <p class="lead mb-0" style="text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Modern Infrastructure Supporting CBC Senior Secondary Excellence</p>
     </div>
 </section>
-{% endblock %}
 
-{% block extra_css %}
-<style>
+<!-- Overview Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="section-title mb-4">World-Class Learning Environment</h2>
+                <p class="lead mb-4">St. Mary's Nyakhobi Senior School boasts state-of-the-art facilities designed to provide an optimal learning environment for our Grade 10-12 students pursuing the CBC curriculum.</p>
+                <p>Our infrastructure supports both academic excellence and holistic development, ensuring every student has access to the resources they need to succeed in their chosen pathways.</p>
+            </div>
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="stats-card text-center p-4 bg-white rounded shadow-sm">
+                            <i class="fas fa-chalkboard-teacher text-maroon display-4 mb-3"></i>
+                            <h3 class="fw-bold text-maroon mb-2">30+</h3>
+                            <p class="mb-0">Classrooms</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center p-4 bg-white rounded shadow-sm">
+                            <i class="fas fa-flask text-maroon display-4 mb-3"></i>
+                            <h3 class="fw-bold text-maroon mb-2">6</h3>
+                            <p class="mb-0">Science Labs</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center p-4 bg-white rounded shadow-sm">
+                            <i class="fas fa-book text-maroon display-4 mb-3"></i>
+                            <h3 class="fw-bold text-maroon mb-2">15,000+</h3>
+                            <p class="mb-0">Library Books</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="stats-card text-center p-4 bg-white rounded shadow-sm">
+                            <i class="fas fa-desktop text-maroon display-4 mb-3"></i>
+                            <h3 class="fw-bold text-maroon mb-2">50+</h3>
+                            <p class="mb-0">Computers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    .facility-card {
-        border: none;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        height: 100%;
-    }
-
-    .facility-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    }
-
-    .facility-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        color: white;
-        font-size: 2rem;
-    }
-</style>
-{% endblock %}
-
-{% block content %}
-
-<!-- Facilities Grid -->
+<!-- Academic Facilities -->
 <section class="py-5">
     <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Academic Facilities</h2>
+            <p class="text-muted">Modern learning spaces equipped for CBC excellence</p>
+        </div>
+
         <div class="row g-4">
+            <!-- Classrooms -->
             <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <img src="{{ MEDIA_URL }}images/construction-building-new.jpeg" alt="Building Under Construction" class="card-img-top" style="height: 200px; object-fit: cover;">
+                <div class="card facility-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="facility-icon bg-maroon text-white rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Smart Classrooms</h4>
+                        <p class="text-muted mb-3">30+ spacious, well-ventilated classrooms equipped with modern teaching aids, smart boards, and comfortable seating for optimal learning.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Interactive smart boards</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Adequate lighting & ventilation</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Maximum 40 students per class</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Ergonomic furniture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Science Laboratories -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="facility-icon bg-maroon text-white rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-flask fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Science Laboratories</h4>
+                        <p class="text-muted mb-3">Fully equipped laboratories for Physics, Chemistry, Biology, with modern apparatus and safety equipment for hands-on experiments.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Separate Physics lab</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Separate Chemistry lab</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Separate Biology lab</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Safety equipment & protocols</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Computer Lab -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="facility-icon bg-maroon text-white rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-desktop fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Computer Laboratory</h4>
+                        <p class="text-muted mb-3">State-of-the-art computer lab with 50+ modern computers, high-speed internet, and licensed software for ICT training.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>50+ modern computers</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>High-speed internet</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Licensed software</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Air-conditioned environment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Library -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="facility-icon bg-maroon text-white rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-book-reader fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Modern Library</h4>
+                        <p class="text-muted mb-3">Extensive collection of over 15,000 books, periodicals, and digital resources to support research and independent learning.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>15,000+ books & journals</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Digital library access</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Quiet study spaces</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Research assistance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Workshop -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="facility-icon bg-maroon text-white rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-tools fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Technical Workshops</h4>
+                        <p class="text-muted mb-3">Workshops for Design & Technology, Home Science, and other technical subjects with modern equipment.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Woodwork workshop</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Metalwork workshop</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Home Science lab</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Safety equipment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Art & Music -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center p-4">
+                        <div class="facility-icon bg-maroon text-white rounded-circle mx-auto mb-4" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-palette fa-2x"></i>
+                        </div>
+                        <h4 class="fw-bold mb-3">Art & Music Rooms</h4>
+                        <p class="text-muted mb-3">Creative spaces for Visual Arts and Music with instruments, art supplies, and practice rooms.</p>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Art studio</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Music room with instruments</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Practice spaces</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Exhibition space</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sports & Recreation -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Sports & Recreation Facilities</h2>
+            <p class="text-muted">Promoting physical fitness and teamwork through sports</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Sports Fields -->
+            <div class="col-lg-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <div class="facility-icon">
-                            <i class="fas fa-hammer"></i>
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="facility-icon bg-maroon text-white rounded-circle me-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-futbol fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-2">Sports Fields & Courts</h4>
+                                <p class="text-muted mb-0">Spacious playing fields for various sports and physical education activities</p>
+                            </div>
                         </div>
-                        <h5 class="fw-bold text-center">Building Under Construction</h5>
-                        <p class="text-muted text-center">This is a building under construction - Future science laboratories and classrooms coming soon.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Full-size football pitch</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Volleyball court</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Basketball court</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Handball court</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Athletics track (under construction)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <img src="{{ MEDIA_URL }}images/academic-environment-1.jpeg" alt="Classrooms" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <!-- Multi-Purpose Hall -->
+            <div class="col-lg-6">
+                <div class="card facility-card h-100 border-0 shadow-sm">
                     <div class="card-body p-4">
-                        <div class="facility-icon">
-                            <i class="fas fa-chalkboard-teacher"></i>
+                        <div class="d-flex align-items-start mb-3">
+                            <div class="facility-icon bg-maroon text-white rounded-circle me-3" style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-building fa-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="fw-bold mb-2">Multi-Purpose Hall</h4>
+                                <p class="text-muted mb-0">Large assembly hall for events, meetings, and indoor activities</p>
+                            </div>
                         </div>
-                        <h5 class="fw-bold text-center">Smart Classrooms</h5>
-                        <p class="text-muted text-center">Well-ventilated classrooms equipped with modern teaching aids and interactive learning tools.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Seating capacity: 800+ students</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Modern sound system</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Projector & screen</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Stage for performances</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Air-conditioned</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <img src="{{ MEDIA_URL }}images/academic-environment-2.jpeg" alt="Library" class="card-img-top" style="height: 200px; object-fit: cover;">
+<!-- Student Support Facilities -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Student Support Services</h2>
+            <p class="text-muted">Comprehensive support for student wellbeing and development</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Dormitories -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <div class="facility-icon">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h5 class="fw-bold text-center">Library</h5>
-                        <p class="text-muted text-center">Comprehensive library with extensive collection of books, journals, and digital resources for research.</p>
+                        <i class="fas fa-bed text-maroon display-4 mb-3"></i>
+                        <h5 class="fw-bold mb-3">Dormitories</h5>
+                        <p class="text-muted small mb-0">Comfortable boarding facilities with adequate beds, lockers, and study areas</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <img src="{{ MEDIA_URL }}images/dos-office.jpeg" alt="D.O.S Office" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <!-- Dining Hall -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <div class="facility-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h5 class="fw-bold text-center">D.O.S Office</h5>
-                        <p class="text-muted text-center">This is the Director of Studies (D.O.S) office - Administrative center for academic oversight and student guidance.</p>
+                        <i class="fas fa-utensils text-maroon display-4 mb-3"></i>
+                        <h5 class="fw-bold mb-3">Dining Hall</h5>
+                        <p class="text-muted small mb-0">Spacious dining hall serving nutritious, balanced meals three times daily</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <div class="card-body p-4 text-center">
-                        <div class="facility-icon">
-                            <i class="fas fa-laptop"></i>
-                        </div>
-                        <h5 class="fw-bold">Computer Laboratory</h5>
-                        <p class="text-muted">ICT lab with modern computers for computer studies and digital literacy programs.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <div class="card-body p-4 text-center">
-                        <div class="facility-icon">
-                            <i class="fas fa-running"></i>
-                        </div>
-                        <h5 class="fw-bold">Sports Facilities</h5>
-                        <p class="text-muted">Football field, basketball court, and other sports facilities for physical education and recreation.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="facility-card card">
-                    <img src="{{ MEDIA_URL }}images/students-after-lunch.jpeg" alt="Students in Dining Hall" class="card-img-top" style="height: 200px; object-fit: cover;">
+            <!-- Medical Facility -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <div class="facility-icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <h5 class="fw-bold text-center">Dining Hall</h5>
-                        <p class="text-muted text-center">Spacious dining hall providing nutritious meals for all students in a clean, hygienic environment.</p>
+                        <i class="fas fa-clinic-medical text-maroon display-4 mb-3"></i>
+                        <h5 class="fw-bold mb-3">Medical Facility</h5>
+                        <p class="text-muted small mb-0">On-site dispensary with qualified nurse for first aid and basic healthcare</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapel -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card facility-card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-church text-maroon display-4 mb-3"></i>
+                        <h5 class="fw-bold mb-3">Chapel</h5>
+                        <p class="text-muted small mb-0">Peaceful chapel for worship, prayer, and spiritual guidance (ACK tradition)</p>
                     </div>
                 </div>
             </div>
@@ -145,18 +302,59 @@
 <!-- Future Development -->
 <section class="py-5 bg-light">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <h3 class="fw-bold mb-4">Ongoing Development</h3>
-                <p class="lead text-muted mb-4">
-                    We are continuously improving our facilities to provide the best learning environment. 
-                    Currently under construction: Funyula NG-CDF Sponsored classrooms and Laboratory building.
-                </p>
-                <a href="{% url 'contact:contact' %}" class="btn btn-primary btn-lg">
-                    <i class="fas fa-info-circle me-2"></i>Learn More
-                </a>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="section-title mb-4">Future Development Plans</h2>
+                <p class="mb-4">We are committed to continuous improvement of our infrastructure to meet the evolving needs of CBC Senior Secondary education.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>New Science Block:</strong> Additional laboratories for increased capacity
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Digital Learning Center:</strong> Expanded ICT facilities
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Athletics Track:</strong> Standard 400m running track
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        <strong>Expanded Library:</strong> More study spaces and resources
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-5 text-center">
+                        <i class="fas fa-hard-hat text-maroon display-1 mb-4"></i>
+                        <h3 class="fw-bold mb-3">Building Tomorrow's School</h3>
+                        <p class="text-muted mb-4">Our infrastructure development is guided by our commitment to provide world-class facilities for CBC excellence.</p>
+                        <a href="{% url 'contact:contact' %}" class="btn btn-maroon btn-lg">
+                            <i class="fas fa-envelope me-2"></i>Contact Us for More Information
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Visit Call to Action -->
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2 class="text-white fw-bold mb-4">Schedule a Campus Tour</h2>
+        <p class="text-white lead mb-4">Experience our state-of-the-art facilities firsthand. Contact us to arrange a visit.</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'contact:contact' %}" class="btn btn-light btn-lg">
+                <i class="fas fa-calendar-alt me-2"></i>Book a Tour
+            </a>
+            <a href="{% url 'admissions:info' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-clipboard-list me-2"></i>View Admissions
+            </a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

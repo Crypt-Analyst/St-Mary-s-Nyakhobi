@@ -3,302 +3,117 @@
 
 {% block title %}About Us - St. Mary's Nyakhobi Senior School{% endblock %}
 
-{% block extra_css %}
-<style>
-    .school-photo {
-        text-align: center;
-        transition: transform 0.3s ease;
-    }
-    
-    .school-photo:hover {
-        transform: translateY(-5px);
-    }
-    
-    .school-photo img {
-        transition: all 0.3s ease;
-    }
-    
-    .school-photo:hover img {
-        transform: scale(1.05);
-    }
-    
-    .school-photo h5 {
-        color: var(--maroon);
-        font-weight: 600;
-    }
-</style>
-{% endblock %}
-
 {% block content %}
-<!-- Page Header -->
-<section class="page-header">
-    <div class="container">
-        <h1>About St. Mary's Nyakhobi Senior School</h1>
-        <p class="lead">Building Leaders for Tomorrow - Formerly Nyakhobi Secondary School</p>
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('/media/images/school-building-1.jpg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="hero-title mb-3" style="font-size: 3rem; font-weight: 700; text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">About St. Mary's Nyakhobi</h1>
+        <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 300; text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Building Leaders for Tomorrow | CBC Senior Secondary Excellence</p>
+        <div class="mt-4">
+            <span class="badge bg-light text-dark px-4 py-2 me-2" style="font-size: 1rem;">Est. 1983</span>
+            <span class="badge bg-light text-dark px-4 py-2 me-2" style="font-size: 1rem;">40+ Years of Excellence</span>
+            <span class="badge bg-light text-dark px-4 py-2" style="font-size: 1rem;">CBC Certified</span>
+        </div>
     </div>
 </section>
 
-<!-- About Content -->
-<section class="py-5">
+<!-- Quick Stats -->
+<section class="py-5" style="background: #f8f9fa;">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
-                <h2 class="text-primary-custom mb-4">Our Story</h2>
-                {% if school_info.welcome_message %}
-                <p class="lead">{{ school_info.welcome_message }}</p>
-                {% else %}
-                <p class="lead">St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is located in Nyakhobi Sub-location, Namboboto Location, Samia Sub-County, Busia County, Kenya. The school is sponsored by ACK Church Nambale Diocese.</p>
-                
-                <h4 class="mt-4 mb-3">School History</h4>
-                <p>The school was started in 1983 with 6 students through the efforts of Nyakhobi Community operating at home and in towns, particularly in Nairobi. They came together as Nyakhobi Building Committee and raised funds on monthly basis to build the first tuition block (4 classrooms). It was registered in 1987 by the Ministry of Education.</p>
-                
-                <p>The school grew up from Nyakhobi Primary School where it shared the land until September 6, 2017 when it got the title deed (2.221A). Starting from 2026, the school will be known as St. Mary's Nyakhobi Senior School.</p>
-                
-                <div class="row mt-4">
-                    <div class="col-md-6">
-                        <h5>School Identity</h5>
-                        <ul class="list-unstyled">
-                            <li><strong>Motto:</strong> Sacrifice for success</li>
-                            <li><strong>Vision:</strong> To be an institution of excellence in pursuit of quality and holistic education</li>
-                            <li><strong>Mission:</strong> To consistently provide quality secondary education</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h5>Contact Information</h5>
-                        <ul class="list-unstyled">
-                            <li><strong>P.O. Box:</strong> 254-50406 Funyula</li>
-                            <li><strong>Phone:</strong> 0719 831 346</li>
-                            <li><strong>Email:</strong> nyakhobisecsch@gmail.com</li>
-                        </ul>
-                    </div>
-                </div>
-                {% endif %}
-                
-                <h3 class="mt-5 mb-3">Principal's Welcome</h3>
-                    <div class="p-4 rounded" style="background: linear-gradient(135deg, #f8f9fa, #ffffff); border-left: 4px solid #800000;">
-                    <p class="mb-2"><em>"Welcome to St. Mary's Nyakhobi Senior School. I am <strong>Mr. Dan F. Olopi</strong> and together with our dedicated staff we strive to provide a safe and supportive learning environment that prepares students for national exams and life beyond school. Our mission is to consistently provide quality secondary education."</em></p>
-                    <small class="text-muted">- Mr. Dan F. Olopi, Principal, St. Mary's Nyakhobi Senior School (2023 - Present)</small>
-                </div>                <h3 class="mt-5 mb-3">Our Mission</h3>
-                <p>To consistently provide quality secondary education.</p>
-                
-                <h3 class="mt-4 mb-3">Our Vision</h3>
-                <p>To be an institution of excellence in pursuit of quality and holistic education.</p>
-                
-                <h3 class="mt-4 mb-3">Leadership History</h3>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h6 class="text-primary">Acting Head Teachers (Before Registration)</h6>
-                        <ul class="small">
-                            <li>Miss Joy Wandera</li>
-                            <li>Miss Constance Wandera</li>
-                            <li>Miss Rose Ogara</li>
-                            <li>Mr. Isaiah Wabwire</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
-                        <h6 class="text-primary">TSC Appointed Head Teachers (Since Registration)</h6>
-                        <ul class="small">
-                            <li>The late Gideon Ndeda: 1985-1992</li>
-                            <li>The Late Samson Wechuli: 1992-1994</li>
-                            <li>The late Dismas Oola: 1994-2005</li>
-                            <li>Mr. Andrew Onjoro: 2005-2018</li>
-                            <li>Mr. Longinus Wewa: 2018-2022</li>
-                            <li>Ms. Rosemary Apondi (Ag): 2022-2023</li>
-                            <li>Mr. Dan F. Olopi: 2023 - Present</li>
-                        </ul>
-                    </div>
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-users fa-3x mb-3" style="color: #800000;"></i>
+                    <h3 class="fw-bold mb-2" style="color: #800000;">800+</h3>
+                    <p class="text-muted mb-0">Students Enrolled</p>
                 </div>
             </div>
-            
-            <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0">Quick Facts</h5>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-unstyled">
-                            <li><strong>Started:</strong> 1983 (6 students)</li>
-                            <li><strong>Registered:</strong> 1987</li>
-                            <li><strong>Title Deed:</strong> Sept 6, 2017 (2.221A)</li>
-                            <li><strong>School Type:</strong> Mixed Day, Sub-County</li>
-                            <li><strong>Students:</strong> 800+</li>
-                            <li><strong>Faculty:</strong> 35+</li>
-                            <li><strong>Grade Levels:</strong> Senior Secondary (Grade 10-12)</li>
-                            <li><strong>Location:</strong> Funyula, Busia County</li>
-                            <li><strong>Principal:</strong> Mr. Dan F. Olopi</li>
-                        </ul>
-                    </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-chalkboard-teacher fa-3x mb-3" style="color: #800000;"></i>
+                    <h3 class="fw-bold mb-2" style="color: #800000;">35+</h3>
+                    <p class="text-muted mb-0">Qualified Teachers</p>
                 </div>
-                
-                <div class="contact-info mt-4">
-                    <h5>Contact Information</h5>
-                    {% if school_info %}
-                    <p><i class="fas fa-phone"></i> {{ school_info.phone|default:"0719 831 346" }}</p>
-                    <p><i class="fas fa-envelope"></i> {{ school_info.email|default:"nyakhobisecsch@gmail.com" }}</p>
-                    <p><i class="fas fa-map-marker-alt"></i> {{ school_info.address|default:"Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County" }}</p>
-                    {% else %}
-                    <p><i class="fas fa-phone"></i> 0719 831 346</p>
-                    <p><i class="fas fa-envelope"></i> nyakhobisecsch@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Off Nambuku/Funyula Rd, Funyula, P.O. Box 254, Funyula 50406, Busia County</p>
-                    <p><i class="fas fa-facebook"></i> <a href="https://facebook.com/NyakhobiSecondarySchool" target="_blank">Follow us on Facebook</a></p>
-                    {% endif %}
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-book-open fa-3x mb-3" style="color: #800000;"></i>
+                    <h3 class="fw-bold mb-2" style="color: #800000;">40+</h3>
+                    <p class="text-muted mb-0">CBC Subject Combinations</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stat-card p-4 bg-white rounded shadow-sm h-100">
+                    <i class="fas fa-calendar-alt fa-3x mb-3" style="color: #800000;"></i>
+                    <h3 class="fw-bold mb-2" style="color: #800000;">2.221A</h3>
+                    <p class="text-muted mb-0">Land Size (Title Deed 2017)</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- School Photos Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary-custom">Our School Campus</h2>
-            <p class="lead">Take a look at our beautiful school facilities and environment</p>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-6 col-md-6">
-                <div class="school-photo">
-                    <img src="/media/images/school-building-1.jpg" alt="School Building" class="img-fluid rounded shadow">
-                    <h5 class="mt-3">Main School Building</h5>
-                    <p class="text-muted">Our main academic building housing classrooms and administrative offices</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="school-photo">
-                    <img src="/media/images/school-compound.jpg" alt="School Compound" class="img-fluid rounded shadow">
-                    <h5 class="mt-3">School Compound</h5>
-                    <p class="text-muted">Spacious compound providing a conducive learning environment</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="school-photo">
-                    <img src="/media/images/school-sign.jpg" alt="School Sign" class="img-fluid rounded shadow">
-                    <h5 class="mt-3">School Entrance</h5>
-                    <p class="text-muted">Welcome to St. Mary's Nyakhobi Senior School</p>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="school-photo">
-                    <img src="/media/images/school-building-2.jpg" alt="Additional Building" class="img-fluid rounded shadow">
-                    <h5 class="mt-3">Additional Facilities</h5>
-                    <p class="text-muted">Additional school infrastructure supporting quality education</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- School Facilities Section -->
-<section class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary-custom">School Facilities & Infrastructure</h2>
-            <p class="lead">Modern facilities to support quality education</p>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
-                    <i class="fas fa-chalkboard-teacher fa-3x text-primary mb-3"></i>
-                    <h5>Classrooms</h5>
-                    <p>Well-ventilated classrooms equipped with modern teaching aids, starting from the original 4-classroom block built in 1983.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
-                    <i class="fas fa-flask fa-3x text-primary mb-3"></i>
-                    <h5>Science Laboratories</h5>
-                    <p>Fully equipped Biology, Chemistry, and Physics laboratories for hands-on scientific learning and practical examinations.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
-                    <i class="fas fa-book fa-3x text-primary mb-3"></i>
-                    <h5>Library</h5>
-                    <p>Well-stocked library with textbooks, reference materials, and reading resources to support academic excellence.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
-                    <i class="fas fa-laptop fa-3x text-primary mb-3"></i>
-                    <h5>Computer Lab</h5>
-                    <p>Modern computer laboratory with internet connectivity to prepare students for the digital age.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
-                    <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
-                    <h5>Dining Hall</h5>
-                    <p>Spacious dining facility providing nutritious meals to support student health and academic performance.</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mb-4">
-                <div class="facility-card p-4 bg-white rounded shadow-sm h-100">
-                    <i class="fas fa-running fa-3x text-primary mb-3"></i>
-                    <h5>Sports Facilities</h5>
-                    <p>Playing fields and sports equipment for football, volleyball, athletics, and other co-curricular activities.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Academic Excellence Section -->
+<!-- Our Story -->
 <section class="py-5">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="text-primary-custom mb-4">Academic Excellence & Programs</h2>
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="mb-4" style="color: #800000; font-weight: 700;">Our Story</h2>
+                <p class="lead mb-4">St. Mary's Nyakhobi Senior School (formerly Nyakhobi Secondary School) is located in Nyakhobi Sub-location, Namboboto Location, Samia Sub-County, Busia County, Kenya. The school is sponsored by ACK Church Nambale Diocese.</p>
                 
-                <div class="academic-highlight mb-4">
-                    <h5><i class="fas fa-graduation-cap text-primary me-2"></i>CBC Senior Secondary</h5>
-                    <p>Following Kenya's Competency-Based Curriculum for Senior Secondary (Grade 10-12) with comprehensive subject offerings in Sciences, Mathematics, Languages, and Humanities.</p>
-                </div>
+                <p class="mb-3">The school was started in <strong>1983 with 6 students</strong> through the efforts of Nyakhobi Community operating at home and in towns, particularly in Nairobi. They came together as Nyakhobi Building Committee and raised funds on monthly basis to build the first tuition block (4 classrooms).</p>
                 
-                <div class="academic-highlight mb-4">
-                    <h5><i class="fas fa-trophy text-warning me-2"></i>KSCE Performance</h5>
-                    <p>Consistent improvement in Kenya Certificate of Secondary Education examinations with students qualifying for universities and tertiary institutions.</p>
-                </div>
+                <p class="mb-3">It was officially registered in <strong>1987</strong> by the Ministry of Education. The school grew up from Nyakhobi Primary School where it shared the land until <strong>September 6, 2017</strong> when it got the title deed for 2.221 acres.</p>
                 
-                <div class="academic-highlight mb-4">
-                    <h5><i class="fas fa-users text-success me-2"></i>Co-curricular Activities</h5>
-                    <p>Active participation in music festivals, drama competitions, science fairs, and sports tournaments at county and regional levels.</p>
-                </div>
+                <p class="mb-4">Starting from <strong>2026</strong>, the school transitioned to <strong>St. Mary's Nyakhobi Senior School</strong>, focusing on CBC Senior Secondary Education (Grade 10-12).</p>
                 
-                <div class="academic-highlight mb-4">
-                    <h5><i class="fas fa-hands-helping text-info me-2"></i>Community Service</h5>
-                    <p>Strong emphasis on community engagement and service learning, building character and social responsibility.</p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'home:history' %}" class="btn btn-primary" style="background: #800000; border: none; padding: 12px 30px;">
+                        <i class="fas fa-history me-2"></i>Read Our Full History
+                    </a>
                 </div>
             </div>
-            
             <div class="col-lg-6">
-                <div class="achievement-stats">
-                    <div class="row text-center">
-                        <div class="col-6 mb-4">
-                            <div class="stat-box p-4 bg-primary text-white rounded">
-                                <h3 class="display-4 mb-2">40+</h3>
-                                <p class="mb-0">Years of Excellence</p>
-                            </div>
+                <img src="/media/images/school-building-1.jpg" alt="School Building" class="img-fluid rounded shadow-lg">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Mission, Vision, Motto -->
+<section class="py-5" style="background: linear-gradient(135deg, #800000, #a00000);">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: #fff3e0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-flag fa-2x" style="color: #800000;"></i>
                         </div>
-                        <div class="col-6 mb-4">
-                            <div class="stat-box p-4 bg-success text-white rounded">
-                                <h3 class="display-4 mb-2">800+</h3>
-                                <p class="mb-0">Current Students</p>
-                            </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Our Motto</h4>
+                        <p class="lead mb-0" style="color: #d4af37; font-weight: 600; font-size: 1.3rem;">"Sacrifice for Success"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: #e3f2fd; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-eye fa-2x" style="color: #800000;"></i>
                         </div>
-                        <div class="col-6 mb-4">
-                            <div class="stat-box p-4 bg-warning text-white rounded">
-                                <h3 class="display-4 mb-2">35+</h3>
-                                <p class="mb-0">Teaching Staff</p>
-                            </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Our Vision</h4>
+                        <p class="mb-0">To be an institution of excellence in pursuit of quality and holistic education</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow">
+                    <div class="card-body text-center p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: #f3e5f5; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-bullseye fa-2x" style="color: #800000;"></i>
                         </div>
-                        <div class="col-6 mb-4">
-                            <div class="stat-box p-4 bg-info text-white rounded">
-                                <h3 class="display-4 mb-2">2.2</h3>
-                                <p class="mb-0">Acres of Land</p>
-                            </div>
-                        </div>
+                        <h4 class="mb-3" style="color: #800000; font-weight: 700;">Our Mission</h4>
+                        <p class="mb-0">To consistently provide quality CBC senior secondary education</p>
                     </div>
                 </div>
             </div>
@@ -306,72 +121,40 @@
     </div>
 </section>
 
-<!-- Future Vision Section -->
+<!-- Principal's Welcome -->
 <section class="py-5 bg-light">
     <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="text-primary-custom">Looking Forward: Our 2026 Transition</h2>
-            <p class="lead">Evolving from Nyakhobi Secondary School to St. Mary's Nyakhobi Senior School</p>
-        </div>
-        
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="timeline-box p-4 bg-white rounded shadow">
-                    <h4 class="text-center mb-4">Transformation Timeline</h4>
-                    
-                    <div class="timeline-item mb-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center">
-                                <div class="timeline-date bg-primary text-white p-2 rounded">
-                                    <strong>1983 - 1987</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6>Foundation Era</h6>
-                                <p class="mb-0">Started with 6 students, community-driven initiative, built first classroom block.</p>
-                            </div>
-                        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                <div class="principal-photo" style="position: relative; display: inline-block;">
+                    <div style="width: 250px; height: 250px; border-radius: 50%; background: linear-gradient(135deg, #800000, #a00000); padding: 5px; margin: 0 auto;">
+                        <img src="/media/images/principal.jpg" alt="Mr. Dan F. Olopi - Principal" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
                     </div>
-                    
-                    <div class="timeline-item mb-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center">
-                                <div class="timeline-date bg-success text-white p-2 rounded">
-                                    <strong>1987 - 2017</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6>Growth Period</h6>
-                                <p class="mb-0">Official registration, shared land with primary school, continuous development.</p>
-                            </div>
-                        </div>
+                    <div class="mt-3">
+                        <h4 class="mb-1" style="color: #800000; font-weight: 700;">Mr. Dan F. Olopi</h4>
+                        <p class="text-muted mb-0">School Principal</p>
+                        <p class="text-muted small">2023 - Present</p>
                     </div>
-                    
-                    <div class="timeline-item mb-4">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center">
-                                <div class="timeline-date bg-warning text-white p-2 rounded">
-                                    <strong>2017 - 2025</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6>Independence Era</h6>
-                                <p class="mb-0">Received title deed (2.221A), established independent campus, modern facilities.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="row align-items-center">
-                            <div class="col-md-3 text-center">
-                                <div class="timeline-date bg-danger text-white p-2 rounded">
-                                    <strong>2026+</strong>
-                                </div>
-                            </div>
-                            <div class="col-md-9">
-                                <h6>New Identity</h6>
-                                <p class="mb-0">Official transition to St. Mary's Nyakhobi Senior School, enhanced programs, modern education.</p>
-                            </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm" style="border-left: 4px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4" style="color: #800000; font-weight: 700;">
+                            <i class="fas fa-quote-left me-2"></i>Principal's Welcome
+                        </h3>
+                        <p class="lead mb-4" style="font-style: italic; color: #555;">
+                            "Welcome to St. Mary's Nyakhobi Senior School. I am Mr. Dan F. Olopi and together with our dedicated staff we strive to provide a safe and supportive learning environment that prepares students for KSCE exams and life beyond school."
+                        </p>
+                        <p class="mb-4">
+                            Our mission is to consistently provide quality CBC senior secondary education. We are committed to nurturing the talents of our students through a comprehensive curriculum that covers over 40 CBC subject combinations, ensuring every student finds their path to success.
+                        </p>
+                        <p class="mb-0">
+                            We maintain high academic standards while also focusing on character development, leadership skills, and community service. Join us in our journey of excellence!
+                        </p>
+                        <div class="mt-4">
+                            <p class="mb-0 fw-bold" style="color: #800000;">Mr. Dan F. Olopi</p>
+                            <p class="text-muted small mb-0">Principal, St. Mary's Nyakhobi Senior School</p>
                         </div>
                     </div>
                 </div>
@@ -380,83 +163,111 @@
     </div>
 </section>
 
-<!-- Why Choose Us Section -->
+<!-- School Identity -->
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="text-primary-custom">Why Choose St. Mary's Nyakhobi?</h2>
-            <p class="lead">Discover what makes our school special</p>
+            <h2 style="color: #800000; font-weight: 700;">School Identity</h2>
+            <p class="lead text-muted">Key information about our institution</p>
         </div>
         
-        <div class="row">
-            <div class="col-lg-6 mb-4">
-                <div class="why-choose-item d-flex">
-                    <div class="icon-box me-3">
-                        <i class="fas fa-church text-primary fa-2x"></i>
-                    </div>
-                    <div>
-                        <h5>Christian Foundation</h5>
-                        <p>Sponsored by ACK Church Nambale Diocese, we integrate Christian values with quality education, building character alongside academic excellence.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="why-choose-item d-flex">
-                    <div class="icon-box me-3">
-                        <i class="fas fa-history text-primary fa-2x"></i>
-                    </div>
-                    <div>
-                        <h5>Rich Heritage</h5>
-                        <p>Over 40 years of educational excellence, from humble beginnings with 6 students to a thriving institution serving the Funyula community.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="why-choose-item d-flex">
-                    <div class="icon-box me-3">
-                        <i class="fas fa-users-cog text-primary fa-2x"></i>
-                    </div>
-                    <div>
-                        <h5>Experienced Leadership</h5>
-                        <p>Led by Mr. Dan F. Olopi and a dedicated team of 35+ qualified teachers committed to student success and holistic development.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="why-choose-item d-flex">
-                    <div class="icon-box me-3">
-                        <i class="fas fa-certificate text-primary fa-2x"></i>
-                    </div>
-                    <div>
-                        <h5>Quality Education</h5>
-                        <p>Comprehensive CBC Senior Secondary curriculum (Grade 10-12) with modern facilities, science labs, computer lab, and library resources for optimal learning.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6 mb-4">
-                <div class="why-choose-item d-flex">
-                    <div class="icon-box me-3">
-                        <i class="fas fa-home text-primary fa-2x"></i>
-                    </div>
-                    <div>
-                        <h5>Community Centered</h5>
-                        <p>Strong community roots in Nyakhobi Sub-location, serving local families with accessible, quality education in a familiar environment.</p>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4 class="mb-4" style="color: #800000; font-weight: 700;">
+                            <i class="fas fa-info-circle me-2"></i>Basic Information
+                        </h4>
+                        <div class="info-list">
+                            <div class="d-flex mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-school fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>School Type:</strong>
+                                    <p class="mb-0 text-muted">Mixed Day, Sub-County</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-graduation-cap fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Grade Levels:</strong>
+                                    <p class="mb-0 text-muted">Senior Secondary (Grade 10, 11, 12)</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-church fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Sponsor:</strong>
+                                    <p class="mb-0 text-muted">ACK Church Nambale Diocese</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Location:</strong>
+                                    <p class="mb-0 text-muted">Funyula, Busia County, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="col-lg-6 mb-4">
-                <div class="why-choose-item d-flex">
-                    <div class="icon-box me-3">
-                        <i class="fas fa-rocket text-primary fa-2x"></i>
-                    </div>
-                    <div>
-                        <h5>Future Ready</h5>
-                        <p>Transitioning to St. Mary's Nyakhobi Senior School in 2026, embracing innovation while maintaining our core values and commitment to excellence.</p>
+            <div class="col-md-6">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4 class="mb-4" style="color: #800000; font-weight: 700;">
+                            <i class="fas fa-phone me-2"></i>Contact Information
+                        </h4>
+                        <div class="info-list">
+                            <div class="d-flex mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-envelope fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Email:</strong>
+                                    <p class="mb-0">
+                                        <a href="mailto:nyakhobisecsch@gmail.com" style="color: #800000;">nyakhobisecsch@gmail.com</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-phone fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Phone:</strong>
+                                    <p class="mb-0">
+                                        <a href="tel:0719831346" style="color: #800000;">0719 831 346</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3 pb-3 border-bottom">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-mailbox fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Postal Address:</strong>
+                                    <p class="mb-0 text-muted">P.O. Box 254-50406, Funyula</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-map-marked-alt fa-lg" style="color: #800000; width: 30px;"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <strong>Physical Location:</strong>
+                                    <p class="mb-0 text-muted">Off Nambuku/Funyula Rd, Funyula, Busia County</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -464,43 +275,106 @@
     </div>
 </section>
 
-<!-- Values Section -->
+<!-- Leadership History -->
 <section class="py-5 bg-light">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="text-primary-custom">Our Core Values</h2>
-            <p class="lead">The principles that guide everything we do</p>
+            <h2 style="color: #800000; font-weight: 700;">Leadership History</h2>
+            <p class="lead text-muted">Honoring those who have led our institution</p>
         </div>
         
         <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="text-center">
-                    <i class="fas fa-heart fa-3x text-secondary-custom mb-3"></i>
-                    <h4>Compassion</h4>
-                    <p>We foster empathy and kindness in all our interactions.</p>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header text-white py-3" style="background: #800000;">
+                        <h5 class="mb-0"><i class="fas fa-user-clock me-2"></i>Acting Head Teachers (Before Registration)</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-user-circle me-2" style="color: #800000;"></i>
+                                <strong>Miss Joy Wandera</strong>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-user-circle me-2" style="color: #800000;"></i>
+                                <strong>Miss Constance Wandera</strong>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-user-circle me-2" style="color: #800000;"></i>
+                                <strong>Miss Rose Ogara</strong>
+                            </li>
+                            <li class="mb-0">
+                                <i class="fas fa-user-circle me-2" style="color: #800000;"></i>
+                                <strong>Mr. Isaiah Wabwire</strong>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="text-center">
-                    <i class="fas fa-star fa-3x text-secondary-custom mb-3"></i>
-                    <h4>Excellence</h4>
-                    <p>We strive for the highest standards in all areas of education.</p>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-header text-white py-3" style="background: #800000;">
+                        <h5 class="mb-0"><i class="fas fa-user-tie me-2"></i>TSC Appointed Principals (Since 1987)</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-star me-2" style="color: #d4af37;"></i>
+                                <strong>The late Gideon Ndeda</strong>
+                                <span class="text-muted float-end">1985-1992</span>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-star me-2" style="color: #d4af37;"></i>
+                                <strong>The Late Samson Wechuli</strong>
+                                <span class="text-muted float-end">1992-1994</span>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-star me-2" style="color: #d4af37;"></i>
+                                <strong>The late Dismas Oola</strong>
+                                <span class="text-muted float-end">1994-2005</span>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-star me-2" style="color: #d4af37;"></i>
+                                <strong>Mr. Andrew Onjoro</strong>
+                                <span class="text-muted float-end">2005-2018</span>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-star me-2" style="color: #d4af37;"></i>
+                                <strong>Mr. Longinus Wewa</strong>
+                                <span class="text-muted float-end">2018-2022</span>
+                            </li>
+                            <li class="mb-3 pb-3 border-bottom">
+                                <i class="fas fa-star me-2" style="color: #d4af37;"></i>
+                                <strong>Ms. Rosemary Apondi (Ag)</strong>
+                                <span class="text-muted float-end">2022-2023</span>
+                            </li>
+                            <li class="mb-0">
+                                <i class="fas fa-crown me-2" style="color: #800000;"></i>
+                                <strong>Mr. Dan F. Olopi</strong>
+                                <span class="badge bg-success float-end">Current</span>
+                                <span class="text-muted d-block mt-1">2023 - Present</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="text-center">
-                    <i class="fas fa-users fa-3x text-secondary-custom mb-3"></i>
-                    <h4>Community</h4>
-                    <p>We build strong relationships within our school family.</p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="text-center">
-                    <i class="fas fa-lightbulb fa-3x text-secondary-custom mb-3"></i>
-                    <h4>Innovation</h4>
-                    <p>We embrace new ideas and creative approaches to learning.</p>
-                </div>
-            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5" style="background: linear-gradient(135deg, #800000, #a00000);">
+    <div class="container text-center text-white">
+        <h2 class="mb-3" style="font-weight: 700;">Ready to Join St. Mary's Nyakhobi?</h2>
+        <p class="lead mb-4">Applications are now open for CBC Grade 10, 11 & 12</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="{% url 'admissions:info' %}" class="btn btn-light btn-lg px-5" style="font-weight: 600;">
+                <i class="fas fa-file-alt me-2"></i>Apply Now
+            </a>
+            <a href="{% url 'home:facilities' %}" class="btn btn-outline-light btn-lg px-5" style="font-weight: 600;">
+                <i class="fas fa-building me-2"></i>View Our Facilities
+            </a>
         </div>
     </div>
 </section>

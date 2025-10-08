@@ -1,169 +1,52 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Events & News - St. Mary's Nyakhobi Senior School{% endblock %}
-
-{% block extra_css %}
-<style>
-    .events-hero {
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-        color: white;
-        padding: 100px 0 60px;
-        position: relative;
-    }
-    .events-hero::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: url('/static/images/events-bg.jpg') center/cover;
-        opacity: 0.2;
-        z-index: -1;
-    }
-    .event-card {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        overflow: hidden;
-        transition: all 0.3s ease;
-        height: 100%;
-    }
-    .event-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 50px rgba(128,0,0,0.3);
-    }
-    .event-image {
-        width: 100%;
-        height: 200px;
-        background: linear-gradient(45deg, #f8f9fa, #e9ecef);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
-        color: var(--maroon);
-        position: relative;
-    }
-    .event-date-badge {
-        position: absolute;
-        top: 15px;
-        left: 15px;
-        background: var(--maroon);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 8px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        text-align: center;
-        min-width: 60px;
-    }
-    .event-info {
-        padding: 25px 20px;
-    }
-    .event-title {
-        color: var(--maroon);
-        font-weight: 700;
-        font-size: 1.2rem;
-        margin-bottom: 10px;
-    }
-    .event-category {
-        background: #e3f2fd;
-        color: #1976d2;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        display: inline-block;
-        margin-bottom: 15px;
-    }
-    .calendar-section {
-        background: #f8f9fa;
-        padding: 80px 0;
-    }
-    .calendar-card {
-        background: white;
-        border-radius: 15px;
-        padding: 30px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        margin-bottom: 20px;
-    }
-    .month-header {
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        color: white;
-        padding: 15px 25px;
-        border-radius: 10px;
-        text-align: center;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-    .calendar-event {
-        display: flex;
-        align-items: center;
-        padding: 12px 0;
-        border-bottom: 1px solid #f0f0f0;
-    }
-    .calendar-event:last-child {
-        border-bottom: none;
-    }
-    .calendar-date {
-        background: var(--maroon);
-        color: white;
-        width: 50px;
-        height: 50px;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        margin-right: 15px;
-        flex-shrink: 0;
-    }
-    .news-card {
-        background: white;
-        border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        overflow: hidden;
-        margin-bottom: 20px;
-    }
-    .news-header {
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        color: white;
-        padding: 20px 25px;
-    }
-    .news-content {
-        padding: 25px;
-    }
-    .achievement-badge {
-        background: linear-gradient(45deg, #ffd700, #ffed4e);
-        color: #333;
-        padding: 8px 15px;
-        border-radius: 25px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        display: inline-block;
-        margin: 5px;
-    }
-</style>
-{% endblock %}
+{% block title %}School Events & Activities - St. Mary's Nyakhobi Senior School{% endblock %}
 
 {% block content %}
-<!-- Events Hero Section -->
-<section class="events-hero">
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('{{ MEDIA_URL }}images/students-after-lunch.jpeg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="display-3 fw-bold mb-3" style="text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);"><i class="fas fa-calendar-week me-3"></i>School Events & Activities</h1>
+        <p class="lead mb-4" style="text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Discover the vibrant campus life at St. Mary's Nyakhobi Senior School</p>
+        <div class="d-flex justify-content-center flex-wrap gap-3">
+            <span class="badge bg-light text-dark fs-6 py-2 px-4"><i class="fas fa-book me-2"></i>Academic Events</span>
+            <span class="badge bg-light text-dark fs-6 py-2 px-4"><i class="fas fa-trophy me-2"></i>Sports & Games</span>
+            <span class="badge bg-light text-dark fs-6 py-2 px-4"><i class="fas fa-theater-masks me-2"></i>Cultural Activities</span>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Stats -->
+<section class="py-5 bg-light">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-8">
-                <h1 class="display-4 fw-bold mb-4">Events & Activities</h1>
-                <p class="lead mb-4">Stay updated with the latest school events, academic activities, sports competitions, and achievements at St. Mary's Nyakhobi Senior School.</p>
-                <div class="d-flex flex-wrap gap-3">
-                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Academic Events</div>
-                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Sports & Games</div>
-                    <div class="badge bg-light text-dark fs-6 py-2 px-3">Cultural Activities</div>
+        <div class="row g-4 text-center">
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded shadow-sm p-4">
+                    <i class="fas fa-calendar-check text-maroon display-4 mb-3"></i>
+                    <h3 class="fw-bold text-maroon mb-2">50+</h3>
+                    <p class="text-muted mb-0">Annual Events</p>
                 </div>
             </div>
-            <div class="col-lg-4 text-center">
-                <div class="p-4">
-                    <h2 class="display-3 fw-bold">50+</h2>
-                    <p class="fs-5">Annual Events<br>& Activities</p>
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded shadow-sm p-4">
+                    <i class="fas fa-users text-maroon display-4 mb-3"></i>
+                    <h3 class="fw-bold text-maroon mb-2">800+</h3>
+                    <p class="text-muted mb-0">Student Participants</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded shadow-sm p-4">
+                    <i class="fas fa-medal text-maroon display-4 mb-3"></i>
+                    <h3 class="fw-bold text-maroon mb-2">20+</h3>
+                    <p class="text-muted mb-0">Clubs & Societies</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="bg-white rounded shadow-sm p-4">
+                    <i class="fas fa-trophy text-maroon display-4 mb-3"></i>
+                    <h3 class="fw-bold text-maroon mb-2">15+</h3>
+                    <p class="text-muted mb-0">Competitions</p>
                 </div>
             </div>
         </div>
@@ -173,393 +56,349 @@
 <!-- Upcoming Events -->
 <section class="py-5">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Upcoming Events</h2>
-                <p class="lead text-muted">Don't miss these exciting upcoming school activities</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="text-muted">Mark your calendars for these exciting activities</p>
         </div>
-        
+
         <div class="row g-4">
-            {% for event in events %}
+            <!-- Event 1 -->
             <div class="col-lg-4 col-md-6">
-                <div class="event-card">
-                    <div class="event-image">
-                        <div class="event-date-badge">
-                            {{ event.event_date|date:"M" }}<br>{{ event.event_date|date:"d" }}
-                        </div>
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <div class="event-info">
-                        <span class="event-category">{{ event.category|default:"Event" }}</span>
-                        <h4 class="event-title">{{ event.title }}</h4>
-                        <p class="text-muted mb-3">{{ event.description|truncatewords:15 }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-clock me-1"></i>{{ event.start_time|default:"All Day" }}
-                            </small>
-                            {% if event.location %}
-                            <small class="text-muted">
-                                <i class="fas fa-map-marker-alt me-1"></i>{{ event.location }}
-                            </small>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% empty %}
-            <div class="col-12">
-                <div class="text-center py-5">
-                    <i class="fas fa-calendar-times fa-4x text-muted mb-4"></i>
-                    <h3 class="text-muted">No Events Scheduled</h3>
-                    <p class="lead text-muted">Check back later for upcoming school events and activities.</p>
-                </div>
-            </div>
-            {% endfor %}
-                        <p class="text-muted mb-3">Students showcase innovative science projects and experiments. Open to parents and the community.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-clock me-1"></i>9:00 AM - 4:00 PM
-                            </small>
-                            <small class="text-muted">
-                                <i class="fas fa-map-marker-alt me-1"></i>Science Labs
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-
-            
-            <div class="col-lg-4 col-md-6">
-                <div class="event-card">
-                    <div class="event-image">
-                        <div class="event-date-badge">
-                            NOV<br>12
-                        </div>
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="event-info">
-                        <span class="event-category">Academic</span>
-                        <h4 class="event-title">KCSE Mock Examinations</h4>
-                        <p class="text-muted mb-3">Form 4 students take mock examinations in preparation for the national KCSE exams.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-clock me-1"></i>8:00 AM - 5:00 PM
-                            </small>
-                            <small class="text-muted">
-                                <i class="fas fa-map-marker-alt me-1"></i>Classrooms
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-4 col-md-6">
-                <div class="event-card">
-                    <div class="event-image">
-                        <div class="event-date-badge">
-                            NOV<br>18
-                        </div>
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="event-info">
-                        <span class="event-category">Community</span>
-                        <h4 class="event-title">Parents Day & Academic Exhibition</h4>
-                        <p class="text-muted mb-3">Parents meet teachers, view student work, and participate in school activities. Academic progress discussions.</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">
-                                <i class="fas fa-clock me-1"></i>9:00 AM - 3:00 PM
-                            </small>
-                            <small class="text-muted">
-                                <i class="fas fa-map-marker-alt me-1"></i>Entire Campus
-                            </small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-
-        </div>
-    </div>
-</section>
-
-
-{% endblock %}
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">28<br><small>FEB</small></div>
-                        <div>
-                            <h6 class="mb-1">Mid-term Break</h6>
-                            <small class="text-muted">1 week holiday</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">15<br><small>MAR</small></div>
-                        <div>
-                            <h6 class="mb-1">CAT Exams</h6>
-                            <small class="text-muted">Continuous Assessment Tests</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">12<br><small>APR</small></div>
-                        <div>
-                            <h6 class="mb-1">Term 1 Closes</h6>
-                            <small class="text-muted">End of term exams</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Term 2 Calendar -->
-            <div class="col-lg-4">
-                <div class="calendar-card">
-                    <div class="month-header">Term 2 - May to August</div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">06<br><small>MAY</small></div>
-                        <div>
-                            <h6 class="mb-1">Term 2 Opens</h6>
-                            <small class="text-muted">Second term begins</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">25<br><small>MAY</small></div>
-                        <div>
-                            <h6 class="mb-1">Sports Day</h6>
-                            <small class="text-muted">Inter-house competitions</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">20<br><small>JUN</small></div>
-                        <div>
-                            <h6 class="mb-1">Mid-term Break</h6>
-                            <small class="text-muted">1 week holiday</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">10<br><small>JUL</small></div>
-                        <div>
-                            <h6 class="mb-1">Academic Conference</h6>
-                            <small class="text-muted">Subject competitions</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">08<br><small>AUG</small></div>
-                        <div>
-                            <h6 class="mb-1">Term 2 Closes</h6>
-                            <small class="text-muted">End of term exams</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Term 3 Calendar -->
-            <div class="col-lg-4">
-                <div class="calendar-card">
-                    <div class="month-header">Term 3 - September to November</div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">02<br><small>SEP</small></div>
-                        <div>
-                            <h6 class="mb-1">Term 3 Opens</h6>
-                            <small class="text-muted">Final term begins</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">15<br><small>SEP</small></div>
-                        <div>
-                            <h6 class="mb-1">Form 4 Prep</h6>
-                            <small class="text-muted">KCSE preparation intensive</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">23<br><small>OCT</small></div>
-                        <div>
-                            <h6 class="mb-1">KCSE Begins</h6>
-                            <small class="text-muted">National examinations</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">15<br><small>NOV</small></div>
-                        <div>
-                            <h6 class="mb-1">Awards Day</h6>
-                            <small class="text-muted">Achievement recognition</small>
-                        </div>
-                    </div>
-                    
-                    <div class="calendar-event">
-                        <div class="calendar-date">22<br><small>NOV</small></div>
-                        <div>
-                            <h6 class="mb-1">Term 3 Closes</h6>
-                            <small class="text-muted">End of academic year</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Recent News & Achievements -->
-<section class="py-5">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-8 mx-auto text-center">
-                <h2 class="display-5 fw-bold mb-4">Recent News & Achievements</h2>
-                <p class="lead text-muted">Celebrating our students' successes and school milestones</p>
-            </div>
-        </div>
-        
-        <div class="row g-4">
-            <div class="col-lg-6">
-                <div class="news-card">
-                    <div class="news-header">
-                        <h4 class="mb-2">
-                            <i class="fas fa-trophy me-2"></i>
-                            Outstanding KCSE Results 2024
-                        </h4>
-                        <small>Published: March 15, 2025</small>
-                    </div>
-                    <div class="news-content">
-                        <p class="mb-3">St. Mary's Nyakhobi Senior School celebrates exceptional performance in the 2024 KCSE examinations with a mean score of 8.9 points.</p>
-                        
-                        <div class="mb-3">
-                            <span class="achievement-badge">Mean Score: 8.9</span>
-                            <span class="achievement-badge">97% University Qualification</span>
-                            <span class="achievement-badge">15 A- Grades</span>
-                        </div>
-                        
-                        <ul class="list-unstyled">
-                            <li class="mb-2">✓ <strong>45 students</strong> qualified for direct university admission</li>
-                            <li class="mb-2">✓ <strong>Top performer:</strong> Sarah Wanjiku with A- (81 points)</li>
-                            <li class="mb-2">✓ <strong>Best subjects:</strong> Mathematics, Chemistry, Biology</li>
-                            <li class="mb-2">✓ <strong>Improvement:</strong> 12% increase from previous year</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="news-card">
-                    <div class="news-header">
-                        <h4 class="mb-2">
-                            <i class="fas fa-medal me-2"></i>
-                            Regional Science Competition Victory
-                        </h4>
-                        <small>Published: September 8, 2025</small>
-                    </div>
-                    <div class="news-content">
-                        <p class="mb-3">Our students won first place in the Busia County Science and Mathematics Competition, demonstrating exceptional problem-solving skills.</p>
-                        
-                        <div class="mb-3">
-                            <span class="achievement-badge">1st Place</span>
-                            <span class="achievement-badge">Physics Category</span>
-                            <span class="achievement-badge">KES 50,000 Prize</span>
-                        </div>
-                        
-                        <ul class="list-unstyled">
-                            <li class="mb-2">✓ <strong>Winners:</strong> Form 3 Physics Team</li>
-                            <li class="mb-2">✓ <strong>Project:</strong> Renewable Energy Solutions</li>
-                            <li class="mb-2">✓ <strong>Competition:</strong> 25 schools participated</li>
-                            <li class="mb-2">✓ <strong>Next step:</strong> National level competition</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="news-card">
-                    <div class="news-header">
-                        <h4 class="mb-2">
-                            <i class="fas fa-running me-2"></i>
-                            Athletics Championship Success
-                        </h4>
-                        <small>Published: August 22, 2025</small>
-                    </div>
-                    <div class="news-content">
-                        <p class="mb-3">St. Mary's athletics team dominated the Western Kenya Secondary Schools Championships with multiple gold medals.</p>
-                        
-                        <div class="mb-3">
-                            <span class="achievement-badge">5 Gold Medals</span>
-                            <span class="achievement-badge">3 Silver Medals</span>
-                            <span class="achievement-badge">Overall 2nd Place</span>
-                        </div>
-                        
-                        <ul class="list-unstyled">
-                            <li class="mb-2">✓ <strong>Star athlete:</strong> John Odhiambo (1500m, 5000m gold)</li>
-                            <li class="mb-2">✓ <strong>Girls relay:</strong> 4x100m gold medal</li>
-                            <li class="mb-2">✓ <strong>Records broken:</strong> 2 new school records</li>
-                            <li class="mb-2">✓ <strong>Nationals:</strong> 8 students qualified</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <div class="news-card">
-                    <div class="news-header">
-                        <h4 class="mb-2">
-                            <i class="fas fa-graduation-cap me-2"></i>
-                            New Laboratory Equipment
-                        </h4>
-                        <small>Published: July 10, 2025</small>
-                    </div>
-                    <div class="news-content">
-                        <p class="mb-3">The school has acquired state-of-the-art laboratory equipment worth KES 2.5 million to enhance science education.</p>
-                        
-                        <div class="mb-3">
-                            <span class="achievement-badge">KES 2.5M Investment</span>
-                            <span class="achievement-badge">3 Labs Upgraded</span>
-                            <span class="achievement-badge">Modern Equipment</span>
-                        </div>
-                        
-                        <ul class="list-unstyled">
-                            <li class="mb-2">✓ <strong>Chemistry lab:</strong> New microscopes and analyzers</li>
-                            <li class="mb-2">✓ <strong>Physics lab:</strong> Digital measuring instruments</li>
-                            <li class="mb-2">✓ <strong>Biology lab:</strong> Advanced specimen collection</li>
-                            <li class="mb-2">✓ <strong>Benefit:</strong> Enhanced practical learning</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- Event Registration CTA -->
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto text-center">
-                <div class="bg-maroon text-white p-5 rounded-4">
-                    <h2 class="display-6 fw-bold mb-3">Stay Updated with School Events</h2>
-                    <p class="lead mb-4">Subscribe to our newsletter to receive notifications about upcoming events and school news</p>
-                    <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Enter your email">
-                                <button class="btn btn-light" type="button">
-                                    <i class="fas fa-bell me-2"></i>Subscribe
-                                </button>
+                <div class="card event-card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-trophy text-maroon" style="font-size: 4rem;"></i>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-maroon text-white rounded p-2 text-center" style="min-width: 80px;">
+                                <div class="fw-bold">Nov 20</div>
+                                <small>2025</small>
                             </div>
                         </div>
                     </div>
-                    <small class="text-light">Join 500+ parents and students who receive our updates</small>
+                    <div class="card-body p-4">
+                        <span class="badge bg-maroon mb-3">Sports</span>
+                        <h4 class="fw-bold mb-3">Inter-School Sports Day</h4>
+                        <p class="text-muted mb-3">Annual athletics competition featuring track and field events with neighboring schools.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-clock me-1"></i>8:00 AM - 5:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt me-1"></i>School Grounds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card event-card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-microscope text-maroon" style="font-size: 4rem;"></i>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-maroon text-white rounded p-2 text-center" style="min-width: 80px;">
+                                <div class="fw-bold">Nov 25</div>
+                                <small>2025</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-success mb-3">Academic</span>
+                        <h4 class="fw-bold mb-3">Science & Innovation Fair</h4>
+                        <p class="text-muted mb-3">Students showcase their science projects and innovative solutions to real-world problems.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-clock me-1"></i>9:00 AM - 4:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt me-1"></i>School Hall</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card event-card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-graduation-cap text-maroon" style="font-size: 4rem;"></i>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-maroon text-white rounded p-2 text-center" style="min-width: 80px;">
+                                <div class="fw-bold">Dec 5</div>
+                                <small>2025</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-warning mb-3">Career</span>
+                        <h4 class="fw-bold mb-3">Career & University Expo</h4>
+                        <p class="text-muted mb-3">Meet university representatives and career counselors to plan your future after Grade 12.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-clock me-1"></i>10:00 AM - 3:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt me-1"></i>Multipurpose Hall</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card event-card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-music text-maroon" style="font-size: 4rem;"></i>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-maroon text-white rounded p-2 text-center" style="min-width: 80px;">
+                                <div class="fw-bold">Dec 12</div>
+                                <small>2025</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-info mb-3">Cultural</span>
+                        <h4 class="fw-bold mb-3">End Year Music & Drama Festival</h4>
+                        <p class="text-muted mb-3">Celebrate student talent in music, drama, poetry, and dance performances.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-clock me-1"></i>2:00 PM - 6:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt me-1"></i>School Hall</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 5 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card event-card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-users text-maroon" style="font-size: 4rem;"></i>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-maroon text-white rounded p-2 text-center" style="min-width: 80px;">
+                                <div class="fw-bold">Dec 15</div>
+                                <small>2025</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-secondary mb-3">Community</span>
+                        <h4 class="fw-bold mb-3">Parents' Day & Academic Review</h4>
+                        <p class="text-muted mb-3">Meet teachers to discuss student progress and academic performance for the year.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-clock me-1"></i>9:00 AM - 2:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt me-1"></i>Classrooms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event 6 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card event-card h-100 border-0 shadow-sm">
+                    <div class="position-relative" style="background: linear-gradient(135deg, #f8f9fa, #e9ecef); height: 200px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-award text-maroon" style="font-size: 4rem;"></i>
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <div class="bg-maroon text-white rounded p-2 text-center" style="min-width: 80px;">
+                                <div class="fw-bold">Dec 18</div>
+                                <small>2025</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-4">
+                        <span class="badge bg-danger mb-3">Ceremony</span>
+                        <h4 class="fw-bold mb-3">Prize Giving Day & Graduation</h4>
+                        <p class="text-muted mb-3">Annual awards ceremony recognizing academic excellence and outstanding achievements.</p>
+                        <div class="d-flex justify-content-between align-items-center text-muted small">
+                            <span><i class="fas fa-clock me-1"></i>10:00 AM - 2:00 PM</span>
+                            <span><i class="fas fa-map-marker-alt me-1"></i>School Grounds</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<!-- Event Categories -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Event Categories</h2>
+            <p class="text-muted">Diverse activities for holistic student development</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center h-100">
+                    <div class="card-body p-4">
+                        <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-book-open fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Academic Events</h5>
+                        <ul class="list-unstyled text-muted small text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Science Fairs</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Debate Competitions</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Math Olympiads</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Essay Contests</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center h-100">
+                    <div class="card-body p-4">
+                        <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-running fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Sports & Games</h5>
+                        <ul class="list-unstyled text-muted small text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Athletics Competitions</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Football & Volleyball</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basketball Tournaments</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Sports Day</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center h-100">
+                    <div class="card-body p-4">
+                        <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-palette fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Cultural Activities</h5>
+                        <ul class="list-unstyled text-muted small text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Music Festivals</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Drama Performances</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Poetry Readings</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Art Exhibitions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-sm text-center h-100">
+                    <div class="card-body p-4">
+                        <div class="bg-maroon text-white rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-hands-helping fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Community Service</h5>
+                        <ul class="list-unstyled text-muted small text-start">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Environmental Clean-ups</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Charity Drives</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Community Outreach</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Tree Planting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Clubs & Societies -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Student Clubs & Societies</h2>
+            <p class="text-muted">Join clubs that match your interests and talents</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-flask text-maroon fa-2x me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Science Club</h5>
+                                <p class="text-muted small mb-0">Explore scientific concepts through experiments and projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-comments text-maroon fa-2x me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Debate Club</h5>
+                                <p class="text-muted small mb-0">Develop public speaking and critical thinking skills</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-newspaper text-maroon fa-2x me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Journalism Club</h5>
+                                <p class="text-muted small mb-0">Write for the school magazine and website</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-guitar text-maroon fa-2x me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Music & Choir</h5>
+                                <p class="text-muted small mb-0">Develop musical talents and perform at events</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-theater-masks text-maroon fa-2x me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Drama Club</h5>
+                                <p class="text-muted small mb-0">Participate in school plays and drama festivals</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-tree text-maroon fa-2x me-3 mt-1"></i>
+                            <div>
+                                <h5 class="fw-bold mb-2">Environment Club</h5>
+                                <p class="text-muted small mb-0">Promote environmental conservation and sustainability</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section py-5">
+    <div class="container text-center">
+        <h2 class="text-white fw-bold mb-4">Stay Updated on School Events</h2>
+        <p class="text-white lead mb-4">Never miss an important event - join our community today!</p>
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+            <a href="{% url 'contact:contact' %}" class="btn btn-light btn-lg">
+                <i class="fas fa-envelope me-2"></i>Contact Us
+            </a>
+            <a href="{% url 'admissions:info' %}" class="btn btn-outline-light btn-lg">
+                <i class="fas fa-clipboard-list me-2"></i>Apply Now
+            </a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}

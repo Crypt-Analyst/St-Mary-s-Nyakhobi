@@ -1,327 +1,295 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Admissions Information - St. Mary's Nyakhobi Senior School{% endblock %}
-
-{% block hero %}
-<section class="hero-section" style="background-image: url('{{ MEDIA_URL }}images/academic-environment-1.jpeg');">
-    <div class="hero-content">
-        <h1 class="hero-title"><i class="fas fa-door-open"></i> Admissions</h1>
-        <p class="hero-subtitle">Your Journey to Excellence Starts Here</p>
-    </div>
-</section>
-{% endblock %}
-
-{% block extra_css %}
-<style>
-    
-    .info-section {
-        padding: 80px 0;
-    }
-    
-    .info-card {
-        background: white;
-        border-radius: 15px;
-        padding: 40px 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-        height: 100%;
-        border-left: 5px solid var(--maroon);
-    }
-    
-    .info-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    }
-    
-    .info-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(45deg, var(--maroon), #a0002a);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 25px auto;
-    }
-    
-    .info-icon i {
-        font-size: 2rem;
-        color: white;
-    }
-    
-    .requirements-section {
-        background: #f8f9fa;
-        padding: 80px 0;
-    }
-    
-    .requirement-item {
-        background: white;
-        padding: 25px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        border-left: 4px solid var(--maroon);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .fee-structure {
-        background: white;
-        border-radius: 15px;
-        padding: 40px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    
-    .fee-item {
-        display: flex;
-        justify-content: space-between;
-        padding: 15px 0;
-        border-bottom: 1px solid #eee;
-    }
-    
-    .fee-item:last-child {
-        border-bottom: none;
-    }
-    
-    .cta-section {
-        background: linear-gradient(135deg, var(--maroon) 0%, #a0002a 100%);
-        color: white;
-        padding: 60px 0;
-        text-align: center;
-    }
-</style>
-{% endblock %}
+{% block title %}Admissions - St. Mary's Nyakhobi Senior School{% endblock %}
 
 {% block content %}
+<!-- Hero Section -->
+<section class="hero-section" style="background: url('/media/images/dos-office.jpeg') center/cover no-repeat fixed; padding: 120px 0 80px;">
+    <div class="container text-center text-white">
+        <h1 class="hero-title mb-3" style="font-size: 3rem; font-weight: 700; text-shadow: 3px 3px 8px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">
+            <i class="fas fa-door-open me-3"></i>Admissions
+        </h1>
+        <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 300; text-shadow: 2px 2px 6px rgba(0,0,0,1), -1px -1px 2px rgba(0,0,0,1);">Your Journey to CBC Excellence Starts Here</p>
+        <div class="mt-4">
+            <span class="badge bg-light text-dark px-4 py-2 me-2" style="font-size: 1rem;">Grade 10, 11 & 12</span>
+            <span class="badge bg-light text-dark px-4 py-2 me-2" style="font-size: 1rem;">Applications Open</span>
+            <span class="badge bg-light text-dark px-4 py-2" style="font-size: 1rem;">CBC Senior Secondary</span>
+        </div>
+    </div>
+</section>
 
-<!-- Admission Information Section -->
-<section class="info-section">
+<!-- Application Process -->
+<section class="py-5">
     <div class="container">
-        <div class="row">
-            <div class="col-12 text-center mb-5">
-                <h2 class="section-title">Why Choose St. Mary's Nyakhobi?</h2>
-                <p class="text-muted">Discover what makes our school the ideal choice for your child's education</p>
-            </div>
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">How to Apply</h2>
+            <p class="lead text-muted">Follow these simple steps to join St. Mary's Nyakhobi</p>
         </div>
         
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-graduation-cap"></i>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span class="text-white fw-bold" style="font-size: 2rem;">1</span>
+                        </div>
+                        <h5 style="color: #800000; font-weight: 700;">Get Application Form</h5>
+                        <p class="small mb-0">Visit the school office or download the form online</p>
                     </div>
-                    <h4 class="mb-3" style="color: var(--maroon);">Academic Excellence</h4>
-                    <p class="text-muted">
-                        Our commitment to academic excellence ensures students achieve their full potential through 
-                        quality curriculum delivery and experienced teaching staff.
-                    </p>
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-heart"></i>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span class="text-white fw-bold" style="font-size: 2rem;">2</span>
+                        </div>
+                        <h5 style="color: #800000; font-weight: 700;">Complete Form</h5>
+                        <p class="small mb-0">Fill out all required information accurately</p>
                     </div>
-                    <h4 class="mb-3" style="color: var(--maroon);">Pastoral Care</h4>
-                    <p class="text-muted">
-                        We provide comprehensive pastoral care and guidance to ensure students develop strong 
-                        moral values and leadership qualities in a supportive environment.
-                    </p>
                 </div>
             </div>
             
-            <div class="col-lg-4 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-coins"></i>
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span class="text-white fw-bold" style="font-size: 2rem;">3</span>
+                        </div>
+                        <h5 style="color: #800000; font-weight: 700;">Submit Documents</h5>
+                        <p class="small mb-0">Include all required documents and fees</p>
                     </div>
-                    <h4 class="mb-3" style="color: var(--maroon);">Affordable Quality</h4>
-                    <p class="text-muted">
-                        High-quality education that is both affordable and valuable, ensuring excellence 
-                        is accessible to all families seeking the best for their children.
-                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="card h-100 border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <div class="icon-circle mb-3 mx-auto" style="width: 80px; height: 80px; background: linear-gradient(135deg, #800000, #a00000); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span class="text-white fw-bold" style="font-size: 2rem;">4</span>
+                        </div>
+                        <h5 style="color: #800000; font-weight: 700;">Admission Decision</h5>
+                        <p class="small mb-0">Receive notification and complete enrollment</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- School Showcase Section -->
+<!-- Requirements -->
 <section class="py-5 bg-light">
     <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4" style="color: #800000; font-weight: 700;">
+                            <i class="fas fa-file-alt me-2"></i>Required Documents
+                        </h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Completed application form</strong>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Birth certificate (original and copy)</strong>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Recent academic reports</strong>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>2 recent passport-size photos</strong>
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Transfer letter (if applicable)</strong>
+                            </li>
+                            <li class="mb-0">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Parent/Guardian ID copy</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm" style="border-left: 5px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <h3 class="mb-4" style="color: #800000; font-weight: 700;">
+                            <i class="fas fa-graduation-cap me-2"></i>Admission Criteria
+                        </h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Grade 10:</strong> Completion of Junior Secondary (Grade 9)
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Grade 11:</strong> Successful completion of Grade 10
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Grade 12:</strong> Successful completion of Grade 11
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Transfer Students:</strong> Academic transcripts required
+                            </li>
+                            <li class="mb-0">
+                                <i class="fas fa-check-circle me-2" style="color: #800000;"></i>
+                                <strong>Good conduct</strong> record from previous school
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Important Dates -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">Important Dates</h2>
+            <p class="lead text-muted">Mark your calendar for these key admission dates</p>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center" style="border-top: 4px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <i class="fas fa-calendar-check fa-2x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Term 1</h5>
+                        <p class="mb-1"><strong>Application Opens:</strong> December</p>
+                        <p class="mb-0"><strong>Classes Begin:</strong> January</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center" style="border-top: 4px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <i class="fas fa-calendar-check fa-2x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Term 2</h5>
+                        <p class="mb-1"><strong>Application Opens:</strong> March</p>
+                        <p class="mb-0"><strong>Classes Begin:</strong> May</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center" style="border-top: 4px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <i class="fas fa-calendar-check fa-2x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Term 3</h5>
+                        <p class="mb-1"><strong>Application Opens:</strong> July</p>
+                        <p class="mb-0"><strong>Classes Begin:</strong> September</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card h-100 border-0 shadow-sm text-center" style="border-top: 4px solid #800000 !important;">
+                    <div class="card-body p-4">
+                        <i class="fas fa-info-circle fa-2x mb-3" style="color: #800000;"></i>
+                        <h5 style="color: #800000; font-weight: 700;">Rolling Admissions</h5>
+                        <p class="mb-0">We accept applications throughout the year based on availability</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold" style="color: #800000;">Frequently Asked Questions</h2>
+            <p class="lead text-muted">Get answers to common admissions questions</p>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item mb-3 border-0 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" style="background: #f8f9fa; color: #800000; font-weight: 600;">
+                                Do you offer boarding facilities?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                St. Mary's Nyakhobi is currently a day school. All students are expected to commute daily. We are exploring boarding options for future expansion.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item mb-3 border-0 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" style="background: #f8f9fa; color: #800000; font-weight: 600;">
+                                What subject combinations are available?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We offer over <strong>40 CBC subject combinations</strong> including Sciences, Languages, Humanities, and Technical subjects. Students can choose subjects based on their interests and career goals. <a href="{% url 'academics:programs' %}" style="color: #800000;">View all programs</a>.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item mb-3 border-0 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" style="background: #f8f9fa; color: #800000; font-weight: 600;">
+                                Can I transfer from another school?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we accept transfer students. You will need to provide academic transcripts, a transfer letter from your previous school, and meet our admission requirements.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item mb-3 border-0 shadow-sm">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" style="background: #f8f9fa; color: #800000; font-weight: 600;">
+                                How do I schedule a school visit?
+                            </button>
+                        </h2>
+                        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We welcome school visits! Please call us at <strong>0719 831 346</strong> or email <strong>nyakhobisecsch@gmail.com</strong> to schedule a visit and tour our facilities.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="py-5" style="background: linear-gradient(135deg, #800000, #a00000);">
+    <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-6 mb-4">
-                <div class="card border-0 shadow-lg">
-                    <img src="{{ MEDIA_URL }}images/academic-environment-3.jpeg" alt="St. Mary's Nyakhobi Campus" class="card-img-top" style="height: 400px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold text-primary">Our Beautiful Campus</h5>
-                        <p class="card-text text-muted">Experience our modern facilities and conducive learning environment at St. Mary's Nyakhobi Senior School.</p>
-                    </div>
-                </div>
+            <div class="col-lg-8 text-white mb-4 mb-lg-0">
+                <h2 class="mb-3" style="font-weight: 700;">Ready to Apply?</h2>
+                <p class="lead mb-0">Join St. Mary's Nyakhobi Senior School and start your journey to CBC excellence</p>
             </div>
-            
-            <div class="col-lg-6 mb-4">
-                <h3 class="fw-bold mb-4 text-primary">Why Choose St. Mary's Nyakhobi?</h3>
-                <div class="mb-3">
-                    <i class="fas fa-check-circle text-success me-2"></i>
-                    <strong>Excellent Academic Performance:</strong> Consistent high KCSE results and university admission rates
-                </div>
-                <div class="mb-3">
-                    <i class="fas fa-check-circle text-success me-2"></i>
-                    <strong>Modern Facilities:</strong> Well-equipped laboratories, library, and classrooms
-                </div>
-                <div class="mb-3">
-                    <i class="fas fa-check-circle text-success me-2"></i>
-                    <strong>Dedicated Teachers:</strong> Qualified and experienced teaching staff
-                </div>
-                <div class="mb-3">
-                    <i class="fas fa-check-circle text-success me-2"></i>
-                    <strong>Holistic Development:</strong> Academic excellence combined with character building
-                </div>
-                <div class="mb-3">
-                    <i class="fas fa-check-circle text-success me-2"></i>
-                    <strong>Safe Environment:</strong> Secure and nurturing school environment
-                </div>
-                <a href="{% url 'contact:contact' %}" class="btn btn-primary btn-lg mt-3">
-                    <i class="fas fa-phone me-2"></i>Contact Us for More Information
+            <div class="col-lg-4 text-center text-lg-end">
+                <a href="{% url 'contact:contact' %}" class="btn btn-light btn-lg px-5 mb-2" style="font-weight: 600;">
+                    <i class="fas fa-phone me-2"></i>Contact Admissions
                 </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Admission Requirements Section -->
-<section class="requirements-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="text-center mb-5">
-                    <h2 class="section-title">Admission Requirements</h2>
-                    <p class="text-muted">Please ensure you have all the required documents for a smooth application process</p>
-                </div>
-                
-                <div class="requirement-item">
-                    <h5><i class="fas fa-file-alt text-primary me-3"></i>Academic Documents</h5>
-                    <p class="mb-0 text-muted">
-                        KCPE certificate or equivalent, previous school reports, and academic transcripts
-                    </p>
-                </div>
-                
-                <div class="requirement-item">
-                    <h5><i class="fas fa-id-card text-primary me-3"></i>Identification</h5>
-                    <p class="mb-0 text-muted">
-                        Birth certificate, national ID card (for students 18+), and passport-size photographs
-                    </p>
-                </div>
-                
-                <div class="requirement-item">
-                    <h5><i class="fas fa-medical-kit text-primary me-3"></i>Medical Records</h5>
-                    <p class="mb-0 text-muted">
-                        Medical certificate, immunization records, and any special medical requirements
-                    </p>
-                </div>
-                
-                <div class="requirement-item">
-                    <h5><i class="fas fa-money-bill text-primary me-3"></i>Financial Documents</h5>
-                    <p class="mb-0 text-muted">
-                        Proof of financial capability and completed fee payment forms
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Fee Structure Section -->
-<section class="info-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="text-center mb-5">
-                    <h2 class="section-title">Fee Structure</h2>
-                    <p class="text-muted">Affordable quality education with transparent fee structure</p>
-                </div>
-                
-                <div class="fee-structure">
-                    <div class="fee-item">
-                        <span class="fw-bold">Application Fee</span>
-                        <span class="text-primary fw-bold">KSh 1,000</span>
-                    </div>
-                    <div class="fee-item">
-                        <span class="fw-bold">Admission Fee (One-time)</span>
-                        <span class="text-primary fw-bold">KSh 5,000</span>
-                    </div>
-                    <div class="fee-item">
-                        <span class="fw-bold">Tuition Fee (Per Term)</span>
-                        <span class="text-primary fw-bold">KSh 15,000</span>
-                    </div>
-                    <div class="fee-item">
-                        <span class="fw-bold">Development Fee (Per Year)</span>
-                        <span class="text-primary fw-bold">KSh 3,000</span>
-                    </div>
-                    <div class="fee-item">
-                        <span class="fw-bold">Activity Fee (Per Term)</span>
-                        <span class="text-primary fw-bold">KSh 2,000</span>
-                    </div>
-                </div>
-                
-                <div class="alert alert-info mt-4">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <strong>Note:</strong> Fee structure is subject to annual review. Payment plans and scholarships may be available for qualified students.
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Important Dates Section -->
-<section class="requirements-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h3 class="mb-4">Important Dates</h3>
-                <div class="requirement-item">
-                    <h5><i class="fas fa-calendar text-primary me-3"></i>Application Deadline</h5>
-                    <p class="mb-0 text-muted">Grade 10: January 15th | Grade 11-12: Rolling basis</p>
-                </div>
-                <div class="requirement-item">
-                    <h5><i class="fas fa-calendar-check text-primary me-3"></i>Term Dates</h5>
-                    <p class="mb-0 text-muted">First Term: January - April | Second Term: May - August | Third Term: September - November</p>
-                </div>
-            </div>
-            
-            <div class="col-lg-6">
-                <h3 class="mb-4">Contact Information</h3>
-                <div class="requirement-item">
-                    <h5><i class="fas fa-phone text-primary me-3"></i>Phone</h5>
-                    <p class="mb-0 text-muted">0719 831 346</p>
-                </div>
-                <div class="requirement-item">
-                    <h5><i class="fas fa-envelope text-primary me-3"></i>Email</h5>
-                    <p class="mb-0 text-muted">nyakhobisecsch@gmail.com</p>
-                </div>
-                <div class="requirement-item">
-                    <h5><i class="fas fa-map-marker-alt text-primary me-3"></i>Location</h5>
-                    <p class="mb-0 text-muted">St. Mary's Nyakhobi Senior School, Nyakhobi</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action Section -->
-<section class="cta-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="mb-4">Ready to Apply?</h2>
-                <p class="lead mb-4">Take the first step towards your child's bright future at St. Mary's Nyakhobi Senior School</p>
-                <a href="{% url 'admissions:apply' %}" class="btn btn-light btn-lg me-3">
-                    <i class="fas fa-edit me-2"></i>Apply Now
-                </a>
-                <a href="{% url 'contact:contact' %}" class="btn btn-outline-light btn-lg">
-                    <i class="fas fa-phone me-2"></i>Contact Us
-                </a>
+                <p class="text-white mb-0 small mt-2">Or call: <strong>0719 831 346</strong></p>
             </div>
         </div>
     </div>
